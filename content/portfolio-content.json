@@ -106,7 +106,7 @@
         "date": "Apr 2026 — Jun 2026",
         "location": "Irvine, CA",
         "current": false,
-        "summary": "Building a user-facing AI product through a university-industry collaboration.",
+        "summary": "Built a full-stack AI education platform that generates structured textbooks through a six-stage LLM workflow and lets users query and edit content with an agentic page assistant.",
         "highlights": [
           "Built a six-stage LLM workflow spanning multiple model providers with asynchronous Django, Celery, Redis, and PostgreSQL jobs.",
           "Developed a 28-tool Page Assistant with native function calling, persistent memory, and WebSocket-based progress updates."

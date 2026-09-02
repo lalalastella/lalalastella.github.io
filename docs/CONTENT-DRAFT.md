@@ -36,7 +36,7 @@ Current entries:
 - **Alibaba Group** — AI Algorithm Intern · Jul 2026–Present · Hangzhou, China  
   Applied AI systems and production-oriented algorithm engineering.
 - **FessorAI · UCI Capstone** — Software Engineer · Apr–Jun 2026 · Irvine, CA  
-  Building a user-facing AI product through a university-industry collaboration.
+  Built a full-stack AI education platform that generates structured textbooks through a six-stage LLM workflow and lets users query and edit content with an agentic page assistant.
 - **FocusTrail** — Founder & Software Engineer · Jan 2026–Present · Irvine, CA  
   Building a local-first AI execution coach for adaptive task planning and recovery; selected for the Alibaba Tmall Campus One Person Company (OPC) student entrepreneurship program.
   Detail layer:

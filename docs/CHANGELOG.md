@@ -4,6 +4,7 @@
 
 ### Experience content and interaction
 
+- Replaced FessorAI's generic collaboration description with a concrete product summary covering structured textbook generation and agent-assisted content querying and editing.
 - Replaced one-line Experience placeholders with resume-grounded positioning sentences, two outcome-focused detail bullets, and compact technology tags.
 - Added single-open progressive disclosure: the timeline remains fast to scan, while `VIEW DETAILS` expands one role without leaving the page.
 - Reframed FocusTrail's versioned replanning runtime as dynamic execution recovery: it protects completed work and regenerates the next actionable steps after drift or a plan change.
