@@ -1,0 +1,145 @@
+{
+  "identity": {
+    "fullName": "Stella (Yuxuan) Jiang",
+    "heroFirstName": "STELLA",
+    "heroLastName": "JIANG",
+    "location": "IRVINE, CA",
+    "role": "AI Engineer × Full-Stack Software Engineer",
+    "status": "AVAILABLE FOR OPPORTUNITIES",
+    "introduction": "Building reliable, user-facing AI systems across LLM agents, retrieval, evaluation, and full-stack products."
+  },
+  "ui": {
+    "enterPortfolio": "ENTER PORTFOLIO",
+    "viewResume": "VIEW RESUME",
+    "terminalTitle": "STELLA / PORTFOLIO",
+    "terminalPromptUser": "stella@portfolio:~$",
+    "terminalCommand": "open",
+    "selectModule": "SELECT MODULE",
+    "return": "RETURN",
+    "backToMenu": "BACK TO MENU"
+  },
+  "modules": [
+    { "number": "01", "title": "EXPERIENCE", "detail": "Engineering, product, and industry experience" },
+    { "number": "02", "title": "PROJECTS", "detail": "PantryAgent · Intent2Escrow · C&S MovieStore" },
+    { "number": "03", "title": "RESEARCH", "detail": "LLM agent reliability · trajectory evaluation" },
+    { "number": "04", "title": "ABOUT", "detail": "Background, focus, and technical toolkit" },
+    { "number": "05", "title": "RESUME", "detail": "Education · experience · selected work" },
+    { "number": "06", "title": "CONTACT", "detail": "Email · GitHub · LinkedIn" }
+  ],
+  "projectsSection": {
+    "title": "Selected Projects",
+    "introduction": "AI products and systems designed around reliability, inspectability, and real user workflows.",
+    "projects": [
+      {
+        "name": "PantryAgent",
+        "label": "FEATURED",
+        "meta": "Full-Stack / AI Engineer · UC Berkeley AI Hackathon 2026",
+        "summary": "An AI-assisted food management system connecting receipt understanding, pantry inventory, recipes, meal planning, and grocery replenishment.",
+        "demo": "/projects/pantryagent-demo.png",
+        "trace": "Receipt → Review → Pantry → Plan → Shop → Update",
+        "technology": "Next.js · TypeScript · Supabase · PostgreSQL · Claude",
+        "featured": true
+      },
+      {
+        "name": "Intent2Escrow",
+        "label": "FEATURED",
+        "meta": "3rd Place · MSX Hackathon 2026",
+        "summary": "Natural-language deal terms become validated, inspectable on-chain settlements while signing authority and fund custody remain outside the LLM.",
+        "demo": "/projects/intent2escrow-demo.png",
+        "trace": "Describe → Parse → Validate → Sign → Fund → Verify",
+        "technology": "FastAPI · Pydantic · Solidity · Foundry · Base Sepolia",
+        "featured": true
+      },
+      {
+        "name": "C&S MovieStore",
+        "label": "FULL-STACK SYSTEM",
+        "meta": "Full-Stack Movie Commerce Platform · Team C&S Restaurant",
+        "summary": "A Java-based movie commerce platform with authenticated search and browsing, session-backed cart workflows, employee operations, and a MySQL-to-MongoDB migration path.",
+        "demo": "/projects/fabflix-demo.jpg",
+        "trace": "Search → Browse → Cart → Checkout → Admin",
+        "technology": "Java Servlets · Apache Tomcat · MySQL · MongoDB · JavaScript · reCAPTCHA",
+        "featured": false
+      },
+      {
+        "name": "Mosaic",
+        "label": "PERSONAL SYSTEM",
+        "meta": "Privacy-Aware Activity Analytics",
+        "summary": "A personal activity analytics system that reconstructs digital activity streams into privacy-aware timelines and reflective daily reports.",
+        "demo": "/projects/mosaic-demo.jpg",
+        "trace": "Capture → Reconstruct → Summarize → Reflect",
+        "technology": "Activity Analytics · Timeline Reconstruction · Privacy-Aware Reporting",
+        "featured": false
+      },
+      {
+        "name": "AtlasSearch",
+        "label": "ARCHIVE",
+        "meta": "Search Systems Project",
+        "summary": "A disk-based search engine implementing scalable indexing and ranked retrieval over document collections.",
+        "demo": "",
+        "trace": "",
+        "technology": "Information Retrieval · Indexing · Ranking",
+        "featured": false
+      }
+    ]
+  },
+  "experienceSection": {
+    "title": "Experience",
+    "introduction": "Engineering experience across applied AI, product development, data systems, and full-stack software.",
+    "roles": [
+      { "company": "Alibaba Group", "role": "AI Algorithm Intern", "date": "Jul 2026 — Present", "location": "Hangzhou, China", "current": true, "summary": "Applied AI systems and production-oriented algorithm engineering." },
+      { "company": "FessorAI · UCI Capstone", "role": "Software Engineer", "date": "Apr 2026 — Jun 2026", "location": "Irvine, CA", "current": false, "summary": "Building a user-facing AI product through a university-industry collaboration." },
+      { "company": "FocusTrail", "role": "Founder & Software Engineer", "date": "Jan 2026 — Present", "location": "Irvine, CA", "current": true, "summary": "Owning product direction, system architecture, and full-stack implementation." },
+      { "company": "NextTier", "role": "Software Engineer Intern", "date": "Dec 2025 — Feb 2026", "location": "Sacramento, CA", "current": false, "summary": "Developed applied AI workflows, backend services, and evaluation capabilities for a policy-grounded expense-audit copilot." },
+      { "company": "Beijing Join-Cheer Software Co., Ltd.", "role": "Software Engineer Intern", "date": "Jun 2025 — Sep 2025", "location": "Beijing, China", "current": false, "summary": "Contributed to an enterprise AI-agent platform and data services for government and financial-reporting workflows." },
+      { "company": "Guolian Securities Co., Ltd.", "role": "Software Engineer Intern", "date": "Jul 2024 — Sep 2024", "location": "Shanghai, China", "current": false, "summary": "Rebuilt Python/SQL ETL pipelines on MaxCompute, improving data accuracy by 25%; automated RDS validation and dashboards, reducing manual QA effort by 30%." }
+    ]
+  },
+  "researchSection": {
+    "title": "Trajalysis",
+    "subtitle": "LLM Agent Reliability & Evaluation",
+    "metaLines": [
+      "Undergraduate Researcher · Capybara Science Lab, UCI",
+      "Advised by Prof. Thomas Zimmermann · April 2026–Present"
+    ],
+    "lead": "Studying when correct localization hypotheses emerge, persist, or disappear across software-engineering agent trajectories.",
+    "framework": ["Generate hypotheses", "Select action", "Execute", "Evaluate outcome"],
+    "body": "I am conducting a trajectory-level study across 50 SWE-bench Verified Mini instances using mini-swe-agent. The work extracts hypotheses from reasoning traces to classify generation, selection, and execution failures and compares four search policies on localization quality, patch correctness, hypothesis survival, and token and step cost.",
+    "costAware": {
+      "title": "Cost-Aware Active Failure Diagnosis",
+      "subtitle": "Applied AI Systems Research · Summer 2026",
+      "guidance": "Under the guidance of Prof. Kalev Kask",
+      "lead": "A decision-support system for diagnosing software-service failures when the available evidence is incomplete, noisy, or misleading.",
+      "body": "Co-developed a leakage-controlled research pipeline spanning root-cause classification, retrieval-augmented diagnosis, and cost-aware diagnostic action selection. The study evaluates eight balanced root-cause categories across 32 independent scenarios and 384 deterministic incident variants, with six offline action-selection policies and four scenario-group cross-validation folds.",
+      "result": "A learned Selective RAG gate preserved the accuracy of Always-RAG on Qwen 9B (0.794 vs. 0.792) while reducing retrieval invocation from 100% to 34.4%, harmful switches from 14 to 6, and estimated sequential latency from 4.050s to 2.703s.",
+      "technology": "Python · RAG · Qwen · Ollama · TF-IDF · Logistic Regression · Pytest"
+    }
+  },
+  "aboutSection": {
+    "title": "About Stella",
+    "subtitle": "I’m interested in what happens after an AI demo works once.",
+    "paragraphs": [
+      "Computer Science undergraduate with experience building production-oriented LLM applications, retrieval-augmented generation systems, agentic workflows, multimodal data pipelines, and full-stack AI products. Strong background in Python and TypeScript development across FastAPI, Django, Node.js, React, relational databases, asynchronous processing, testing, and cloud deployment. Interested in AI Engineer and Software Engineer roles focused on reliable, user-facing AI systems."
+    ],
+    "toolkitTitle": "Technical toolkit",
+    "toolkit": ["Python", "TypeScript", "FastAPI", "Django", "Node.js", "React", "Next.js", "PostgreSQL", "Redis", "RAG", "LLM Agents", "Evaluation", "Docker", "Pytest"]
+  },
+  "resumeSection": {
+    "title": "Resume",
+    "subtitle": "A concise overview of my education, engineering experience, research, and selected work.",
+    "name": "Stella (Yuxuan) Jiang",
+    "headline": "AI Engineer · Full-Stack Software Engineer",
+    "education": "B.S. Computer Science · University of California, Irvine · Expected June 2027",
+    "button": "VIEW RESUME",
+    "href": "/documents/stella-yuxuan-jiang-resume.pdf",
+    "note": "Public version: Software Engineering + Applied AI Systems."
+  },
+  "contactSection": {
+    "title": "Let’s build useful AI products.",
+    "subtitle": "Open to 2027 New Grad Software Engineer and AI Engineer opportunities.",
+    "links": [
+      { "label": "EMAIL", "text": "jyxsju@gmail.com", "href": "mailto:jyxsju@gmail.com" },
+      { "label": "GITHUB", "text": "github.com/lalalastella", "href": "https://github.com/lalalastella" },
+      { "label": "LINKEDIN", "text": "linkedin.com/in/yuxuanstellajiang", "href": "https://linkedin.com/in/yuxuanstellajiang" }
+    ]
+  }
+}

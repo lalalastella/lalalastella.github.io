@@ -1,0 +1,177 @@
+# Stella Portfolio — Living Design Specification
+
+Last updated: 2026-09-02
+
+## Design Direction
+
+The portfolio uses the visual language of a cinematic game menu while remaining a professional AI/SWE portfolio. The interface should feel like entering Stella's technical world—not like playing an unrelated game.
+
+Core qualities:
+
+- dark, cinematic, and dimensional
+- subtle cyberpunk city atmosphere
+- restrained code/terminal language
+- K-pop and hip-hop editorial confidence through spacing, composition, and typography
+- professional readability before decoration
+- personal anchors: Stella's portrait, orange pixel cat, SJ identity, and real product imagery
+
+Avoid:
+
+- decorative system text with no informational value
+- horror, weapons, or aggressive game tropes
+- excessive neon, glitch effects, or illegible condensed type
+- generic template cards and evenly stretched dashboard tiles
+- fake product screens, fake logos, or unsupported claims
+
+## Visual System
+
+### Palette
+
+- Base: near-black navy `#050B12`
+- Surface: deep blue-black `#06101B`
+- Primary text: warm white `#F3F0E8`
+- Secondary text: blue gray `#C8D2D8`
+- Accent: mint `#67DCC0`
+- Secondary accent: violet `#8D7CFF`
+- Personal accent: muted rose `#C96F94`
+
+### Typography
+
+- Primary UI: Geist Sans
+- Technical labels: Geist Mono
+- Large headings: bold sans serif with tight tracking
+- Body copy: comfortable sans serif; no thin gray text on dark backgrounds
+- Small game-style labels are reserved for indexes, status, controls, and metadata
+
+### Image Treatment
+
+- Background: cinematic rainy/futuristic city with dark overlay and restrained data-line details
+- About portrait: real LinkedIn half-body portrait in an angular framed crop
+- Browser icon and header avatar: orange pixel cat
+- Project visuals: real demo screenshots, shown with product-appropriate aspect ratios
+- Organization and product marks: official/local assets only
+
+## Information Architecture
+
+1. Landing / Start screen
+2. Experience
+3. Projects
+4. Research
+5. About
+6. Resume
+7. Contact
+
+Experience is listed before Projects. Capybara Science Lab appears only in the dedicated Research module. Contact and Resume remain separate.
+
+## Page Layout Rules
+
+### Landing
+
+- Character/city visual occupies the atmospheric right side.
+- Name, role, and value proposition remain immediately readable on the left.
+- “Enter Portfolio” is the primary action; Resume is secondary.
+- Motion is subtle: background drift, light movement, focus transitions, and panel depth.
+- On the first visit in a browsing session, the homepage performs a non-blocking 6.5-second startup sequence. `STELLA` and `JIANG` are typed through real state updates at roughly 145 ms per letter, with a short line break pause. The blinking underscore follows the current insertion point, settles at `JIANG_`, and the terminal command, role, introduction, actions, and availability status appear afterward in sequence.
+- The full startup sequence plays once per session. Returning home uses the normal fast transition, and reduced-motion visitors receive the complete static homepage immediately.
+
+### Menu
+
+- Terminal/game-menu panel with six useful modules only.
+- Each row contains index, clear title, meaningful subtitle, and direction arrow.
+- Subtitles must retain high contrast and readable size.
+- The full terminal menu is the entry screen. Inside content modules it collapses into a quiet, fixed left rail showing only useful section names.
+- Entering a module uses a controlled two-stage transition: the full terminal first compresses toward the compact left-rail dimensions while its inner copy fades; only after it reaches the rail does the clear module navigation settle in and the content stage enter. The transition uses standard transforms and opacity for consistent rendering without snapshot blur or ghosting.
+- The current module receives the rail's strongest contrast and mint indicator; every other module remains available for direct switching without returning to the full menu.
+
+### Experience
+
+- Vertical chronological timeline with a continuous illuminated path and one node per role.
+- Each entry shows date, company/product logo, role, location, and concise evidence-led summary.
+- Timeline nodes remain quiet coordinates; even the current-role node uses only a restrained mint outline.
+- As the visitor scrolls, the company logo and company/role copy—not the sequence number—rise into clarity. The entry nearest the reading zone receives the strongest contrast, mint role accent, and restrained logo glow; revealed entries remain readable.
+- Default copy is a curated web summary rather than the complete resume: one positioning sentence and up to two strongest outcomes, with optional progressive disclosure for deeper detail.
+- Official logos are preferred to text placeholders.
+- Wide wordmarks may use a wider logo cell; square icons should remain visually consistent.
+
+### Projects
+
+- Featured projects receive larger cards and real demo images.
+- PantryAgent uses a compact three-screen product-flow gallery: product loop, receipt scan, and meal plan. Every portrait capture remains fully visible with `object-fit: contain`; mobile uses a restrained horizontal scroll instead of cropping the screens.
+- Intent2Escrow retains a landscape product frame.
+- C&S MovieStore uses a real employee-dashboard demo frame and is presented as a full-stack system by Team C&S Restaurant without foregrounding its course context.
+- Mosaic remains in the project archive as a personal activity-analytics system, using its generated daily review to demonstrate the final reflective output.
+- Product logo, role/context, summary, workflow, and technology appear in that order.
+
+### Research
+
+- Trajalysis is the primary research story.
+- Research entries are numbered locally as `01` and `02`, independent of Research's `03` position in the global navigation.
+- Both entries use the same visual language: rose metadata rule and mint translucent emphasis panel.
+- Four-step hypothesis framework adds visual structure without replacing the explanation.
+- The four-step framework remains a compact horizontal process strip rather than a large card grid, keeping visual priority on the research narrative.
+- Cost-Aware Active Failure Diagnosis is a second research entry under professor guidance.
+
+### About
+
+- Desktop target: one viewport without scrolling.
+- Title and subtitle at top; main copy on left, LinkedIn portrait on right.
+- Technical toolkit sits directly below the introduction and to the left of the portrait.
+- Toolkit items are content-width chips, not stretched grid cells.
+- Use available space confidently: large readable copy and portrait, without making the page feel empty.
+
+### Resume
+
+- Desktop target: one viewport without scrolling.
+- Resume is embedded inside the website; it does not require leaving the site.
+- Left column provides identity, role, education, public-version note, and Download PDF.
+- Right column contains the one-page PDF preview.
+- On mobile, columns stack and natural scrolling is allowed.
+
+### Contact
+
+- Separate from Resume.
+- Email, GitHub, and LinkedIn each use a recognizable icon.
+- Links stay direct and high contrast.
+
+## Responsive Rules
+
+- Desktop: cinematic two-column compositions and one-screen treatment for sparse pages.
+- Mobile: stack columns, preserve touch targets, and allow scrolling instead of shrinking copy excessively.
+- Project screenshots use product-specific sizing rather than one global crop ratio.
+- Respect `prefers-reduced-motion`.
+
+## Motion Rules
+
+- Use smooth easing and short-to-medium durations.
+- Page transitions should feel like moving between game-menu modules.
+- Hover motion is limited to small translation, focus glow, or image scale.
+- Background movement must remain quiet enough for reading.
+
+## Asset Register
+
+| Asset | File | Status |
+|---|---|---|
+| Pixel cat avatar/favicon | `public/profile-cat.png`, `public/favicon.svg` | Active |
+| City character background | `public/stella-city-reference.png` | Active |
+| About portrait | `public/stella-linkedin-portrait.jpg` | Active |
+| FocusTrail logo | `public/brands/focustrail.svg` | Active; newest monochrome mark combined with a clear FocusTrail wordmark in the interface |
+| PantryAgent logo | `public/brands/pantryagent.svg` | Active |
+| PantryAgent product flow | `public/projects/pantryagent-overview.jpg`, `pantryagent-scan.jpg`, `pantryagent-plan.jpg` | Active; three complete portrait screens |
+| Intent2Escrow demo | `public/projects/intent2escrow-demo.png` | Active |
+| C&S MovieStore demo | `public/projects/fabflix-demo.jpg` | Active; selected from the team's demo video |
+| Mosaic daily review | `public/projects/mosaic-demo.jpg` | Active; reflective-report output |
+| NextTier logo | `public/brands/nexttier.png` | Active; downloaded from official site |
+| FessorAI logo | `public/brands/fessorai.png` | Active; enlarged and tightly framed for timeline legibility |
+| Alibaba Group logo | `public/brands/alibaba-group.png` | Active; official Alibaba Group media asset |
+| Beijing Join-Cheer logo | `public/brands/join-cheer.jpg` | Active; official bilingual horizontal mark extracted from the company's 2022 annual report |
+| Guolian Securities logo | `public/brands/guolian-securities.png` | Active; official pre-renaming symbol paired with the historical Chinese and English brand name |
+| Public resume | `public/documents/stella-yuxuan-jiang-resume.pdf` | Active; embedded |
+
+## Maintenance Rules
+
+1. Record approved layout and visual changes in this file.
+2. Record exact public-facing text in `docs/CONTENT-DRAFT.md`.
+3. Synchronize approved copy to `content/portfolio-content.json`.
+4. Add asset provenance/status to the Asset Register.
+5. Run `npm run build` after implementation changes.
+6. Check desktop and mobile behavior before considering a page complete.
