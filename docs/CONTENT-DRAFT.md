@@ -25,7 +25,7 @@ Last updated: 2026-09-02
 
 ## Experience
 
-Display rule: use a recruiter-scannable web summary rather than copying every resume bullet. Each role should contain its date, location, title, one positioning sentence, and at most two strongest outcomes. The resume remains the complete record.
+Display rule: use a recruiter-scannable web summary rather than copying every resume bullet. Each role contains its date, location, title, and one visible positioning sentence. `VIEW DETAILS` reveals at most two strongest outcomes and compact technology tags; only one role expands at a time. The resume remains the complete record.
 
 Section introduction:
 
@@ -38,7 +38,11 @@ Current entries:
 - **FessorAI · UCI Capstone** — Software Engineer · Apr–Jun 2026 · Irvine, CA  
   Building a user-facing AI product through a university-industry collaboration.
 - **FocusTrail** — Founder & Software Engineer · Jan 2026–Present · Irvine, CA  
-  Owning product direction, system architecture, and full-stack implementation.
+  Building a local-first AI execution coach for adaptive task planning and recovery; selected for the Alibaba Tmall Campus One Person Company (OPC) student entrepreneurship program.
+  Detail layer:
+  - Designed dynamic execution recovery that preserves completed work and regenerates the next actionable steps when attention drifts or plans change.
+  - Launched the ADTI attention-personality test and 16 original character identities—one for each personality type—extending them into a desktop companion that uses local activity signals to visualize goal progress, flag distraction, and guide recovery.
+  - Links: [ADTI Test](https://focustrail-adti.jyxsju.chatgpt.site/) · [Product Demo](https://focus-trail.vercel.app/)
 - **NextTier** — Software Engineer Intern · Dec 2025–Feb 2026 · Sacramento, CA  
   Developed applied AI workflows, backend services, and evaluation capabilities for a policy-grounded expense-audit copilot.
 - **Beijing Join-Cheer Software Co., Ltd.** — Software Engineer Intern · Jun–Sep 2025 · Beijing, China  

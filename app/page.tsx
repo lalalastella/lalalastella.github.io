@@ -239,6 +239,7 @@ function PantryAgentDemo() {
 
 function Experience() {
   const timelineRef = useRef<HTMLDivElement>(null);
+  const [expandedCompany, setExpandedCompany] = useState<string | null>(null);
 
   useEffect(() => {
     const entries = timelineRef.current?.querySelectorAll<HTMLElement>('article');
@@ -279,12 +280,37 @@ function Experience() {
   return <div className="content-inner">
     <SectionIntro index="01" title={content.experienceSection.title} text={content.experienceSection.introduction} />
     <div className="experience-list" ref={timelineRef}>
-      {experiences.map((experience, index) => <article key={experience.company}>
+      {experiences.map((experience, index) => {
+        const expanded = expandedCompany === experience.company;
+        return <article key={experience.company} className={expanded ? 'is-expanded' : ''}>
         <time className="timeline-date">{experience.date}</time>
         <span className={`timeline-node ${experience.current ? 'is-current' : ''}`}>0{index + 1}</span>
         <OrganizationMark company={experience.company} />
-        <div className="experience-copy"><h3>{experience.company}</h3><p className="card-meta">{experience.role}</p><p className="experience-location">{experience.location}</p><p>{experience.summary}</p></div>
-      </article>)}
+        <div className="experience-copy">
+          <h3>{experience.company}</h3>
+          <p className="card-meta">{experience.role}</p>
+          <p className="experience-location">{experience.location}</p>
+          <p className="experience-summary">{experience.summary}</p>
+          <button
+            className="experience-toggle"
+            type="button"
+            aria-expanded={expanded}
+            onClick={() => setExpandedCompany(expanded ? null : experience.company)}
+          >
+            {expanded ? 'HIDE DETAILS' : 'VIEW DETAILS'} <span aria-hidden="true">{expanded ? '−' : '+'}</span>
+          </button>
+          <div className="experience-details" aria-hidden={!expanded}>
+            <div>
+              <ul>{experience.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}</ul>
+              <div className="experience-tech">{experience.technology.map((item) => <span key={item}>{item}</span>)}</div>
+              {experience.links.length > 0 && <div className="experience-links">
+                {experience.links.map((link) => <a href={link.href} target="_blank" rel="noreferrer" key={link.href}>{link.label} <span aria-hidden="true">↗</span></a>)}
+              </div>}
+            </div>
+          </div>
+        </div>
+      </article>;
+      })}
     </div>
   </div>;
 }

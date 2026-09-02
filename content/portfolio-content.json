@@ -86,12 +86,93 @@
     "title": "Experience",
     "introduction": "Engineering experience across applied AI, product development, data systems, and full-stack software.",
     "roles": [
-      { "company": "Alibaba Group", "role": "AI Algorithm Intern", "date": "Jul 2026 — Present", "location": "Hangzhou, China", "current": true, "summary": "Applied AI systems and production-oriented algorithm engineering." },
-      { "company": "FessorAI · UCI Capstone", "role": "Software Engineer", "date": "Apr 2026 — Jun 2026", "location": "Irvine, CA", "current": false, "summary": "Building a user-facing AI product through a university-industry collaboration." },
-      { "company": "FocusTrail", "role": "Founder & Software Engineer", "date": "Jan 2026 — Present", "location": "Irvine, CA", "current": true, "summary": "Owning product direction, system architecture, and full-stack implementation." },
-      { "company": "NextTier", "role": "Software Engineer Intern", "date": "Dec 2025 — Feb 2026", "location": "Sacramento, CA", "current": false, "summary": "Developed applied AI workflows, backend services, and evaluation capabilities for a policy-grounded expense-audit copilot." },
-      { "company": "Beijing Join-Cheer Software Co., Ltd.", "role": "Software Engineer Intern", "date": "Jun 2025 — Sep 2025", "location": "Beijing, China", "current": false, "summary": "Contributed to an enterprise AI-agent platform and data services for government and financial-reporting workflows." },
-      { "company": "Guolian Securities Co., Ltd.", "role": "Software Engineer Intern", "date": "Jul 2024 — Sep 2024", "location": "Shanghai, China", "current": false, "summary": "Rebuilt Python/SQL ETL pipelines on MaxCompute, improving data accuracy by 25%; automated RDS validation and dashboards, reducing manual QA effort by 30%." }
+      {
+        "company": "Alibaba Group",
+        "role": "AI Algorithm Intern",
+        "date": "Jul 2026 — Present",
+        "location": "Hangzhou, China",
+        "current": true,
+        "summary": "Building production-oriented retrieval, evaluation, and data systems for shopping and community AI workflows.",
+        "highlights": [
+          "Built a 778-entry, 6,562-query retrieval benchmark; the selected BGE retriever reached 76.40% Top-1 and 91.34% Top-3 accuracy.",
+          "Improved shopping retrieval Recall@10 from 70% to 85% and transformed 100M raw interactions into 86.3M training records across 987,992 users."
+        ],
+        "technology": ["Python", "RAG", "BGE", "Evaluation", "Data Pipelines"],
+        "links": []
+      },
+      {
+        "company": "FessorAI · UCI Capstone",
+        "role": "Software Engineer",
+        "date": "Apr 2026 — Jun 2026",
+        "location": "Irvine, CA",
+        "current": false,
+        "summary": "Building a user-facing AI product through a university-industry collaboration.",
+        "highlights": [
+          "Built a six-stage LLM workflow spanning multiple model providers with asynchronous Django, Celery, Redis, and PostgreSQL jobs.",
+          "Developed a 28-tool Page Assistant with native function calling, persistent memory, and WebSocket-based progress updates."
+        ],
+        "technology": ["Python", "Django", "Celery", "Redis", "PostgreSQL", "LLM Tools"],
+        "links": []
+      },
+      {
+        "company": "FocusTrail",
+        "role": "Founder & Software Engineer",
+        "date": "Jan 2026 — Present",
+        "location": "Irvine, CA",
+        "current": true,
+        "summary": "Building a local-first AI execution coach for adaptive task planning and recovery; selected for the Alibaba Tmall Campus One Person Company (OPC) student entrepreneurship program.",
+        "highlights": [
+          "Designed dynamic execution recovery that preserves completed work and regenerates the next actionable steps when attention drifts or plans change.",
+          "Launched the ADTI attention-personality test and 16 original character identities—one for each personality type—extending them into a desktop companion that uses local activity signals to visualize goal progress, flag distraction, and guide recovery."
+        ],
+        "technology": ["React", "Node.js", "Express", "Gemma", "SSE", "Local-First AI"],
+        "links": [
+          { "label": "ADTI TEST", "href": "https://focustrail-adti.jyxsju.chatgpt.site/" },
+          { "label": "PRODUCT DEMO", "href": "https://focus-trail.vercel.app/" }
+        ]
+      },
+      {
+        "company": "NextTier",
+        "role": "Software Engineer Intern",
+        "date": "Dec 2025 — Feb 2026",
+        "location": "Sacramento, CA",
+        "current": false,
+        "summary": "Developed AI workflows, backend services, and evaluation capabilities for a policy-grounded expense-audit copilot.",
+        "highlights": [
+          "Reduced average expense-review time from 6.4 to 2.1 minutes with a LangChain RAG workflow and policy-grounded recommendations.",
+          "Raised function-calling accuracy from 82.4% to 91.1% while reducing average tool calls from 2.5 to 1.6 and estimated cost by 36%."
+        ],
+        "technology": ["Python", "FastAPI", "LangChain", "RAG", "Pydantic", "Docker", "MLflow"],
+        "links": []
+      },
+      {
+        "company": "Beijing Join-Cheer Software Co., Ltd.",
+        "role": "Software Engineer Intern",
+        "date": "Jun 2025 — Sep 2025",
+        "location": "Beijing, China",
+        "current": false,
+        "summary": "Contributed to an enterprise AI-agent platform and data services for government and financial-reporting workflows.",
+        "highlights": [
+          "Supported the migration of agent workflows from Dify to the Nuwa GPT platform and developed Python/Flask tools backed by ECS and OSS.",
+          "Containerized and automated delivery for 10+ services with Docker, Kubernetes, and CI/CD, reducing deployment time by 40%."
+        ],
+        "technology": ["Python", "Flask", "Dify", "Docker", "Kubernetes", "CI/CD", "Alibaba Cloud"],
+        "links": []
+      },
+      {
+        "company": "Guolian Securities Co., Ltd.",
+        "role": "Software Engineer Intern",
+        "date": "Jul 2024 — Sep 2024",
+        "location": "Shanghai, China",
+        "current": false,
+        "summary": "Built and validated financial-data workflows supporting investment-research operations.",
+        "highlights": [
+          "Rebuilt Python/SQL ETL pipelines on Alibaba Cloud MaxCompute, improving data accuracy by 25% and reducing downstream reconciliation issues.",
+          "Automated RDS validation, unit testing, and DataV dashboards, reducing manual QA effort by 30%."
+        ],
+        "technology": ["Python", "SQL", "MaxCompute", "RDS", "DataV", "Testing"],
+        "links": []
+      }
     ]
   },
   "researchSection": {

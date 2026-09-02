@@ -1,5 +1,15 @@
 # Portfolio Change Log
 
+## 2026-09-03
+
+### Experience content and interaction
+
+- Replaced one-line Experience placeholders with resume-grounded positioning sentences, two outcome-focused detail bullets, and compact technology tags.
+- Added single-open progressive disclosure: the timeline remains fast to scan, while `VIEW DETAILS` expands one role without leaving the page.
+- Reframed FocusTrail's versioned replanning runtime as dynamic execution recovery: it protects completed work and regenerates the next actionable steps after drift or a plan change.
+- Added the ADTI attention-personality test, 16 original character identities—one per personality type—and their use in a local-activity desktop companion for progress, distraction, and recovery feedback.
+- Added separate verified public actions for the [ADTI Test](https://focustrail-adti.jyxsju.chatgpt.site/) and [FocusTrail Product Demo](https://focus-trail.vercel.app/).
+
 ## 2026-09-02
 
 ### Content
