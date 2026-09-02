@@ -17,6 +17,8 @@ export default function Home() {
   const [selected, setSelected] = useState<number | null>(null);
   const [booting, setBooting] = useState(true);
   const [typedNameLength, setTypedNameLength] = useState(0);
+  const [introReplay, setIntroReplay] = useState(0);
+  const [heroVariant, setHeroVariant] = useState<'real' | 'semi' | 'cg'>('real');
   const contentViewRef = useRef<HTMLElement>(null);
 
   const openModule = (index: number) => {
@@ -24,23 +26,36 @@ export default function Home() {
     setSelected(index);
   };
 
+  const replayIntro = () => {
+    setSelected(null);
+    setEntered(false);
+    setTypedNameLength(0);
+    setBooting(true);
+    setIntroReplay((value) => value + 1);
+  };
+
+  useEffect(() => {
+    const requestedVariant = new URLSearchParams(window.location.search).get('hero');
+    setHeroVariant(requestedVariant === 'semi' || requestedVariant === 'cg' ? requestedVariant : 'real');
+  }, []);
+
   useEffect(() => {
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let played = false;
     try {
-      played = window.sessionStorage.getItem('stella-portfolio-boot-v8') === 'played';
+      played = window.sessionStorage.getItem('stella-portfolio-boot-v10') === 'played';
     } catch {
       played = false;
     }
 
-    if (reducedMotion || played) {
+    if (reducedMotion || (played && introReplay === 0)) {
       setTypedNameLength(content.identity.heroFirstName.length + content.identity.heroLastName.length);
       setBooting(false);
       return;
     }
 
     try {
-      window.sessionStorage.setItem('stella-portfolio-boot-v8', 'played');
+      window.sessionStorage.setItem('stella-portfolio-boot-v10', 'played');
     } catch {
       // The animation still works when storage is unavailable.
     }
@@ -49,9 +64,9 @@ export default function Home() {
     const firstLength = content.identity.heroFirstName.length;
     const lastLength = content.identity.heroLastName.length;
     const typingTimers: number[] = [];
-    const letterInterval = 212;
-    const firstNameStart = 850;
-    const lastNameStart = firstNameStart + firstLength * letterInterval + 420;
+    const letterInterval = 150;
+    const firstNameStart = 560;
+    const lastNameStart = firstNameStart + firstLength * letterInterval + 260;
 
     for (let index = 1; index <= firstLength; index += 1) {
       typingTimers.push(window.setTimeout(() => setTypedNameLength(index), firstNameStart + index * letterInterval));
@@ -60,12 +75,12 @@ export default function Home() {
       typingTimers.push(window.setTimeout(() => setTypedNameLength(firstLength + index), lastNameStart + index * letterInterval));
     }
 
-    const timer = window.setTimeout(() => setBooting(false), 7100);
+    const timer = window.setTimeout(() => setBooting(false), 5400);
     return () => {
       window.clearTimeout(timer);
       typingTimers.forEach((typingTimer) => window.clearTimeout(typingTimer));
     };
-  }, []);
+  }, [introReplay]);
 
   useEffect(() => {
     if (selected !== null) {
@@ -81,7 +96,7 @@ export default function Home() {
       }
       if (event.key === 'Escape') {
         if (selected !== null) setSelected(null);
-        else setEntered(false);
+        else replayIntro();
       }
       if (selected === null && event.key === 'ArrowDown') setActive((value) => (value + 1) % modules.length);
       if (selected === null && event.key === 'ArrowUp') setActive((value) => (value - 1 + modules.length) % modules.length);
@@ -91,29 +106,19 @@ export default function Home() {
   }, [entered, active, selected]);
 
   return (
-    <main
-      className={`site-shell ${booting ? 'is-booting' : ''} ${entered ? 'is-entered' : ''} ${selected !== null ? 'is-reading' : ''}`}
-      onPointerMove={(event) => {
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-        const bounds = event.currentTarget.getBoundingClientRect();
-        const x = ((event.clientX - bounds.left) / bounds.width - 0.5) * 5;
-        const y = ((event.clientY - bounds.top) / bounds.height - 0.5) * 3;
-        event.currentTarget.style.setProperty('--character-x', `${x.toFixed(2)}px`);
-        event.currentTarget.style.setProperty('--character-y', `${y.toFixed(2)}px`);
-      }}
-      onPointerLeave={(event) => {
-        event.currentTarget.style.setProperty('--character-x', '0px');
-        event.currentTarget.style.setProperty('--character-y', '0px');
-      }}
-    >
+    <main className={`site-shell hero-${heroVariant} ${booting ? 'is-booting' : ''} ${entered ? 'is-entered' : ''} ${selected !== null ? 'is-reading' : ''}`}>
       <div className="city-art" aria-hidden="true" />
       <div className="character-layer" aria-hidden="true">
         <span className="character-motion" />
+        <span className="hair-motion" />
         <span className="character-light" />
+        <span className="cat-pulse" />
       </div>
       <div className="atmosphere" aria-hidden="true">
         <span className="ambient-orb orb-a" /><span className="ambient-orb orb-b" />
         <span className="depth-wall depth-wall-left" /><span className="depth-wall depth-wall-right" />
+        <span className="signal-path signal-path-a"><i /></span>
+        <span className="signal-path signal-path-b"><i /></span>
         <span className="horizon-glow" /><span className="grid-floor" />
       </div>
 
@@ -169,9 +174,11 @@ export default function Home() {
             ))}
           </nav>
         </div>
-        <button className="close-terminal" onClick={() => selected !== null ? setSelected(null) : setEntered(false)}>
-          {selected !== null ? '← MENU' : <>ESC&nbsp;&nbsp; {content.ui.return}</>}
-        </button>
+        {selected !== null
+          ? <button className="close-terminal" onClick={() => setSelected(null)}>← MENU</button>
+          : <div className="terminal-key-hints" aria-label="Keyboard controls">
+              <button type="button" onClick={replayIntro} aria-label="Return to the landing page and replay the introduction"><kbd>ESC</kbd></button>
+            </div>}
       </section>
 
       <section ref={contentViewRef} className={`content-view ${selected === 3 ? 'about-view' : ''} ${selected === 4 ? 'resume-view' : ''}`} aria-live="polite">
@@ -317,23 +324,28 @@ function Experience() {
 
 function Research() {
   return <div className="content-inner research-content">
-    <SectionIntro index="01" title={content.researchSection.title} text={content.researchSection.subtitle} />
-    <p className="research-meta">{content.researchSection.metaLines.map((line) => <span key={line}>{line}<br /></span>)}</p>
-    <p className="lead-copy">{content.researchSection.lead}</p>
-    <div className="research-frame" aria-label="Research framework">
-      {content.researchSection.framework.map((label, index) => <div key={label}><span>0{index + 1}</span><strong>{label}</strong></div>)}
+    <SectionIntro index="03" title={content.researchSection.title} text={content.researchSection.subtitle} />
+    <div className="research-list">
+      {content.researchSection.entries.map((entry, entryIndex) => (
+        <article className="research-entry" key={entry.title}>
+          <header className="research-entry-header">
+            <div className="research-entry-label">RESEARCH 0{entryIndex + 1}</div>
+            <h3>{entry.title}</h3>
+            <p className="card-meta">{entry.subtitle}</p>
+          </header>
+          <p className="research-meta">
+            {entry.metaLines.map((line) => <span key={line}>{line}</span>)}
+          </p>
+          <p className="lead-copy">{entry.lead}</p>
+          <div className="research-frame" aria-label={`${entry.title} research framework`}>
+            {entry.framework.map((label, index) => <div key={label}><span>0{index + 1}</span><strong>{label}</strong></div>)}
+          </div>
+          <p className="research-body">{entry.body}</p>
+          <div className="research-result">{entry.result}</div>
+          <div className="tech-line">{entry.technology}</div>
+        </article>
+      ))}
     </div>
-    <p>{content.researchSection.body}</p>
-    <article className="research-entry cost-aware-entry">
-      <div className="research-entry-label">02 / APPLIED AI RESEARCH</div>
-      <h3>{content.researchSection.costAware.title}</h3>
-      <p className="card-meta">{content.researchSection.costAware.subtitle}</p>
-      <p className="research-meta research-guidance">{content.researchSection.costAware.guidance}</p>
-      <p className="lead-copy">{content.researchSection.costAware.lead}</p>
-      <p>{content.researchSection.costAware.body}</p>
-      <div className="research-result">{content.researchSection.costAware.result}</div>
-      <div className="tech-line">{content.researchSection.costAware.technology}</div>
-    </article>
   </div>;
 }
 

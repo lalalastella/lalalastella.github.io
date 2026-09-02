@@ -1,10 +1,12 @@
 # Stella Portfolio — Living Design Specification
 
-Last updated: 2026-09-02
+Last updated: 2026-09-03
 
 ## Design Direction
 
 The portfolio uses the visual language of a cinematic game menu while remaining a professional AI/SWE portfolio. The interface should feel like entering Stella's technical world—not like playing an unrelated game.
+
+The expressive/professional balance is intentionally asymmetric: the landing screen carries the cinematic identity, while every content module behaves like a disciplined editorial portfolio. Target balance: approximately 25% game/cyber styling and 75% professional information design.
 
 Core qualities:
 
@@ -46,7 +48,7 @@ Avoid:
 ### Image Treatment
 
 - Background: cinematic rainy/futuristic city with dark overlay and restrained data-line details
-- About portrait: real LinkedIn half-body portrait in an angular framed crop
+- About portrait: real LinkedIn half-body portrait in a quiet rectangular frame
 - Browser icon and header avatar: orange pixel cat
 - Project visuals: real demo screenshots, shown with product-appropriate aspect ratios
 - Organization and product marks: official/local assets only
@@ -70,8 +72,8 @@ Experience is listed before Projects. Capybara Science Lab appears only in the d
 - Character/city visual occupies the atmospheric right side.
 - Name, role, and value proposition remain immediately readable on the left.
 - “Enter Portfolio” is the primary action; Resume is secondary.
-- Motion is subtle: background drift, light movement, focus transitions, and panel depth.
-- On the first visit in a browsing session, the homepage performs a non-blocking 6.5-second startup sequence. `STELLA` and `JIANG` are typed through real state updates at roughly 145 ms per letter, with a short line break pause. The blinking underscore follows the current insertion point, settles at `JIANG_`, and the terminal command, role, introduction, actions, and availability status appear afterward in sequence.
+- Motion is subtle: background drift, slow character breathing, and restrained light movement.
+- On the first visit in a browsing session, the homepage performs a non-blocking sequence of approximately 5.4 seconds. `STELLA` and `JIANG` are typed through real state updates at 150 ms per letter, with a brief line-break pause. The blinking underscore follows the current insertion point, settles at `JIANG_`, and the terminal command, role, introduction, actions, and availability status appear afterward in a tighter sequence.
 - The full startup sequence plays once per session. Returning home uses the normal fast transition, and reduced-motion visitors receive the complete static homepage immediately.
 
 ### Menu
@@ -82,10 +84,12 @@ Experience is listed before Projects. Capybara Science Lab appears only in the d
 - The full terminal menu is the entry screen. Inside content modules it collapses into a quiet, fixed left rail showing only useful section names.
 - Entering a module uses a controlled two-stage transition: the full terminal first compresses toward the compact left-rail dimensions while its inner copy fades; only after it reaches the rail does the clear module navigation settle in and the content stage enter. The transition uses standard transforms and opacity for consistent rendering without snapshot blur or ghosting.
 - The current module receives the rail's strongest contrast and mint indicator; every other module remains available for direct switching without returning to the full menu.
+- The main menu keeps a single `ESC` control. Clicking it or pressing Escape returns to the landing page and replays the staged intro. Menu items remain directly clickable, and Enter keyboard support works without an extra on-screen hint. Inside a content module, Escape returns to the menu without replaying the intro.
 
 ### Experience
 
 - Vertical chronological timeline with a continuous illuminated path and one node per role.
+- The timeline spine is the only vertical rule in each experience row. Active company copy and expanded details use contrast, indentation, and spacing instead of adding parallel accent rules.
 - Each entry shows date, company/product logo, role, location, and concise evidence-led summary.
 - Timeline nodes remain quiet coordinates; even the current-role node uses only a restrained mint outline.
 - As the visitor scrolls, the company logo and company/role copy—not the sequence number—rise into clarity. The entry nearest the reading zone receives the strongest contrast, mint role accent, and restrained logo glow; revealed entries remain readable.
@@ -105,12 +109,11 @@ Experience is listed before Projects. Capybara Science Lab appears only in the d
 
 ### Research
 
-- Trajalysis is the primary research story.
-- Research entries are numbered locally as `01` and `02`, independent of Research's `03` position in the global navigation.
-- Both entries use the same visual language: rose metadata rule and mint translucent emphasis panel.
-- Four-step hypothesis framework adds visual structure without replacing the explanation.
-- The four-step framework remains a compact horizontal process strip rather than a large card grid, keeping visual priority on the research narrative.
-- Cost-Aware Active Failure Diagnosis is a second research entry under professor guidance.
+- Research remains module `03`; its two studies are numbered locally as `RESEARCH 01` and `RESEARCH 02`.
+- Trajalysis and Cost-Aware Active Failure Diagnosis use one shared entry structure: local number, title, research context, rose metadata rule, lead statement, four-step method strip, study description, mint evidence panel, and technology line.
+- The rose rule identifies people and institutional context; the mint translucent panels identify methods and measurable evidence. These colors carry the same meaning in both entries.
+- Four-step frameworks stay compact and horizontal on desktop, then become a two-column strip on mobile.
+- Titles and findings may vary in length, but spacing, type hierarchy, border treatment, and content order remain identical.
 
 ### About
 
@@ -144,16 +147,29 @@ Experience is listed before Projects. Capybara Science Lab appears only in the d
 ## Motion Rules
 
 - Use smooth easing and short-to-medium durations.
-- Page transitions should feel like moving between game-menu modules.
-- Hover motion is limited to small translation, focus glow, or image scale.
+- Page transitions should feel continuous but should not delay access to information.
+- Content-page hover effects use contrast and border changes rather than lift, glow, or large image movement.
 - Background movement must remain quiet enough for reading.
+- The hero character keeps only restrained ambient breathing and hair movement. Mouse-follow parallax, hover enlargement, signal acceleration, and focus glow are removed so the portrait reads as a cinematic identity image rather than a game interaction target.
+- The hero is the single expressive motion moment; content modules use motion only when it explains sequence, such as the experience timeline.
 
 ## Asset Register
 
 | Asset | File | Status |
 |---|---|---|
 | Pixel cat avatar/favicon | `public/profile-cat.png`, `public/favicon.svg` | Active |
-| City character background | `public/stella-city-reference.png` | Active |
+| Photorealistic Cinematic Stella hero | `public/stella-cinematic-hero.png` | Active default — `/?hero=real` or `/` |
+| Semi-realistic Cinematic Stella hero | `public/stella-cinematic-hero-semi-real.png` | Saved alternative — `/?hero=semi` |
+| Full-CG Cinematic Stella hero | `public/stella-cinematic-hero-cg.png` | Saved alternative — `/?hero=cg` |
+
+### Hero idle-motion prototype
+
+- The active hero keeps the face stable while the masked body layer performs a restrained slow breathing shift.
+- A narrow masked hair-edge layer adds sub-pixel breeze motion without warping facial features.
+- Two mint signal particles travel through the scene as agent/data traces.
+- The jacket pixel-cat receives a brief, infrequent orange signal pulse.
+- Mobile hides the positional cat/data overlays; `prefers-reduced-motion` disables the complete sequence.
+| Previous city character background | `public/stella-city-reference.png` | Retained as an archived visual option |
 | About portrait | `public/stella-linkedin-portrait.jpg` | Active |
 | FocusTrail logo | `public/brands/focustrail.svg` | Active; newest monochrome mark combined with a clear FocusTrail wordmark in the interface |
 | PantryAgent logo | `public/brands/pantryagent.svg` | Active |

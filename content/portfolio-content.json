@@ -176,24 +176,35 @@
     ]
   },
   "researchSection": {
-    "title": "Trajalysis",
-    "subtitle": "LLM Agent Reliability & Evaluation",
-    "metaLines": [
-      "Undergraduate Researcher · Capybara Science Lab, UCI",
-      "Advised by Prof. Thomas Zimmermann · April 2026–Present"
-    ],
-    "lead": "Studying when correct localization hypotheses emerge, persist, or disappear across software-engineering agent trajectories.",
-    "framework": ["Generate hypotheses", "Select action", "Execute", "Evaluate outcome"],
-    "body": "I am conducting a trajectory-level study across 50 SWE-bench Verified Mini instances using mini-swe-agent. The work extracts hypotheses from reasoning traces to classify generation, selection, and execution failures and compares four search policies on localization quality, patch correctness, hypothesis survival, and token and step cost.",
-    "costAware": {
-      "title": "Cost-Aware Active Failure Diagnosis",
-      "subtitle": "Applied AI Systems Research · Summer 2026",
-      "guidance": "Under the guidance of Prof. Kalev Kask",
-      "lead": "A decision-support system for diagnosing software-service failures when the available evidence is incomplete, noisy, or misleading.",
-      "body": "Co-developed a leakage-controlled research pipeline spanning root-cause classification, retrieval-augmented diagnosis, and cost-aware diagnostic action selection. The study evaluates eight balanced root-cause categories across 32 independent scenarios and 384 deterministic incident variants, with six offline action-selection policies and four scenario-group cross-validation folds.",
-      "result": "A learned Selective RAG gate preserved the accuracy of Always-RAG on Qwen 9B (0.794 vs. 0.792) while reducing retrieval invocation from 100% to 34.4%, harmful switches from 14 to 6, and estimated sequential latency from 4.050s to 2.703s.",
-      "technology": "Python · RAG · Qwen · Ollama · TF-IDF · Logistic Regression · Pytest"
-    }
+    "title": "Research",
+    "subtitle": "Applied AI systems, agent reliability, and evaluation.",
+    "entries": [
+      {
+        "title": "Trajalysis",
+        "subtitle": "LLM Agent Reliability & Evaluation",
+        "metaLines": [
+          "Undergraduate Researcher · Capybara Science Lab, UCI",
+          "Advised by Prof. Thomas Zimmermann · April 2026–Present"
+        ],
+        "lead": "Studying when correct localization hypotheses emerge, persist, or disappear across software-engineering agent trajectories.",
+        "framework": ["Generate hypotheses", "Select action", "Execute", "Evaluate outcome"],
+        "body": "I am conducting a trajectory-level study across 50 SWE-bench Verified Mini instances using mini-swe-agent. The work extracts hypotheses from reasoning traces to classify generation, selection, and execution failures and compares four search policies on localization quality, patch correctness, hypothesis survival, and token and step cost.",
+        "result": "Evaluation scope: 50 SWE-bench Verified Mini instances · four search policies · trajectory-level hypothesis tracking.",
+        "technology": "mini-swe-agent · SWE-bench Verified Mini · Python · Agent Evaluation"
+      },
+      {
+        "title": "Cost-Aware Active Failure Diagnosis",
+        "subtitle": "Applied AI Systems Research · Summer 2026",
+        "metaLines": [
+          "Research project under the guidance of Prof. Kalev Kask"
+        ],
+        "lead": "A decision-support system for diagnosing software-service failures when the available evidence is incomplete, noisy, or misleading.",
+        "framework": ["Classify root cause", "Retrieve evidence", "Select action", "Validate policy"],
+        "body": "Co-developed a leakage-controlled research pipeline spanning root-cause classification, retrieval-augmented diagnosis, and cost-aware diagnostic action selection. The study evaluates eight balanced root-cause categories across 32 independent scenarios and 384 deterministic incident variants, with six offline action-selection policies and four scenario-group cross-validation folds.",
+        "result": "A learned Selective RAG gate preserved the accuracy of Always-RAG on Qwen 9B (0.794 vs. 0.792) while reducing retrieval invocation from 100% to 34.4%, harmful switches from 14 to 6, and estimated sequential latency from 4.050s to 2.703s.",
+        "technology": "Python · RAG · Qwen · Ollama · TF-IDF · Logistic Regression · Pytest"
+      }
+    ]
   },
   "aboutSection": {
     "title": "About Stella",
