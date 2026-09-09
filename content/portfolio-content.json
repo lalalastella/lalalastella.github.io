@@ -4,9 +4,9 @@
     "heroFirstName": "STELLA",
     "heroLastName": "JIANG",
     "location": "IRVINE, CA",
-    "role": "AI Engineer × Full-Stack Software Engineer",
+    "role": "Software Engineer × Applied AI",
     "status": "AVAILABLE FOR OPPORTUNITIES",
-    "introduction": "Building reliable, user-facing AI systems across LLM agents, retrieval, evaluation, and full-stack products."
+    "introduction": "Building reliable software systems and user-facing AI products across backend services, data pipelines, full-stack development, retrieval, and evaluation."
   },
   "ui": {
     "enterPortfolio": "ENTER PORTFOLIO",
@@ -20,7 +20,7 @@
   },
   "modules": [
     { "number": "01", "title": "EXPERIENCE", "detail": "Engineering, product, and industry experience" },
-    { "number": "02", "title": "PROJECTS", "detail": "PantryAgent · Intent2Escrow · C&S MovieStore" },
+    { "number": "02", "title": "PROJECTS", "detail": "FocusTrail · PantryAgent · Intent2Escrow · selected systems" },
     { "number": "03", "title": "RESEARCH", "detail": "LLM agent reliability · trajectory evaluation" },
     { "number": "04", "title": "ABOUT", "detail": "Background, focus, and technical toolkit" },
     { "number": "05", "title": "RESUME", "detail": "Education · experience · selected work" },
@@ -28,8 +28,27 @@
   ],
   "projectsSection": {
     "title": "Selected Projects",
-    "introduction": "AI products and systems designed around reliability, inspectability, and real user workflows.",
+    "introduction": "Software products and systems built around real workflows, reliable architecture, and measurable behavior.",
     "projects": [
+      {
+        "name": "FocusTrail",
+        "label": "FOUNDER-BUILT PRODUCT",
+        "meta": "Local-First Execution Coach · Alibaba Tmall Campus OPC",
+        "summary": "A local-first productivity product that turns changing goals and activity signals into adaptive plans, distraction feedback, and recoverable next steps.",
+        "demo": "/projects/focustrail-demo.png",
+        "trace": "Plan → Observe → Detect drift → Preserve progress → Replan",
+        "technology": "React · Node.js · Express · Gemma · SSE · Local-First AI",
+        "featured": true,
+        "caseStudy": [
+          { "label": "Challenge", "text": "Recover a changing plan without losing work the user has already completed." },
+          { "label": "What I built", "text": "A local-first replanning runtime, activity-aware desktop companion, and full-stack product experience." },
+          { "label": "Evidence", "text": "Alibaba Tmall Campus OPC selection, plus ADTI with 16 personality types and original IP characters." }
+        ],
+        "links": [
+          { "label": "Demo", "href": "https://focus-trail.vercel.app/" },
+          { "label": "ADTI", "href": "https://focustrail-adti.jyxsju.chatgpt.site/" }
+        ]
+      },
       {
         "name": "PantryAgent",
         "label": "FEATURED",
@@ -38,7 +57,15 @@
         "demo": "/projects/pantryagent-demo.png",
         "trace": "Receipt → Review → Pantry → Plan → Shop → Update",
         "technology": "Next.js · TypeScript · Supabase · PostgreSQL · Claude",
-        "featured": true
+        "featured": true,
+        "caseStudy": [
+          { "label": "Challenge", "text": "Connect fragmented food decisions across receipts, inventory, recipes, meal plans, and shopping." },
+          { "label": "What I built", "text": "An end-to-end workflow from receipt review and pantry state to weekly planning and replenishment." },
+          { "label": "Evidence", "text": "A working UC Berkeley AI Hackathon demo with distinct scan, pantry, and planning interfaces." }
+        ],
+        "links": [
+          { "label": "GitHub", "href": "https://github.com/lalalastella/Pantry-Agent" }
+        ]
       },
       {
         "name": "Intent2Escrow",
@@ -48,7 +75,33 @@
         "demo": "/projects/intent2escrow-demo.png",
         "trace": "Describe → Parse → Validate → Sign → Fund → Verify",
         "technology": "FastAPI · Pydantic · Solidity · Foundry · Base Sepolia",
-        "featured": true
+        "featured": true,
+        "caseStudy": [
+          { "label": "Challenge", "text": "Translate flexible deal language without giving an LLM authority over funds or signatures." },
+          { "label": "What I built", "text": "A FastAPI and Pydantic validation layer feeding inspectable Solidity settlement on Base Sepolia." },
+          { "label": "Evidence", "text": "Deterministic execution boundaries and third place at the MSX Hackathon 2026." }
+        ],
+        "links": [
+          { "label": "GitHub", "href": "https://github.com/lalalastella/Intent2Escrow" }
+        ]
+      },
+      {
+        "name": "Mosaic",
+        "label": "PERSONAL SYSTEM",
+        "meta": "Privacy-Aware Activity Analytics",
+        "summary": "A personal activity analytics system that reconstructs digital activity streams into privacy-aware timelines and reflective daily reports.",
+        "demo": "/projects/mosaic-demo.png",
+        "trace": "Capture → Reconstruct → Summarize → Reflect",
+        "technology": "Activity Analytics · Timeline Reconstruction · Privacy-Aware Reporting",
+        "featured": false,
+        "caseStudy": [
+          { "label": "Challenge", "text": "Turn noisy activity logs into useful reflection without exposing unnecessary personal detail." },
+          { "label": "What I built", "text": "A privacy-aware reconstruction pipeline that groups activity into readable timeline segments." },
+          { "label": "Evidence", "text": "Daily recaps surface focus, context switches, confidence, and plain-language feedback." }
+        ],
+        "links": [
+          { "label": "GitHub", "href": "https://github.com/lalalastella/Mosaic-Piece-together-your-life" }
+        ]
       },
       {
         "name": "C&S MovieStore",
@@ -58,27 +111,34 @@
         "demo": "/projects/fabflix-demo.jpg",
         "trace": "Search → Browse → Cart → Checkout → Admin",
         "technology": "Java Servlets · Apache Tomcat · MySQL · MongoDB · JavaScript · reCAPTCHA",
-        "featured": false
-      },
-      {
-        "name": "Mosaic",
-        "label": "PERSONAL SYSTEM",
-        "meta": "Privacy-Aware Activity Analytics",
-        "summary": "A personal activity analytics system that reconstructs digital activity streams into privacy-aware timelines and reflective daily reports.",
-        "demo": "/projects/mosaic-demo.jpg",
-        "trace": "Capture → Reconstruct → Summarize → Reflect",
-        "technology": "Activity Analytics · Timeline Reconstruction · Privacy-Aware Reporting",
-        "featured": false
+        "featured": false,
+        "caseStudy": [
+          { "label": "Challenge", "text": "Support authenticated discovery, commerce, and employee operations in one web system." },
+          { "label": "What I built", "text": "Java Servlet and Tomcat workflows for search, sessions, cart, checkout, and administration." },
+          { "label": "Evidence", "text": "End-to-end browser flows backed by MySQL, with a MongoDB migration path." }
+        ],
+        "links": []
       },
       {
         "name": "AtlasSearch",
-        "label": "ARCHIVE",
-        "meta": "Search Systems Project",
-        "summary": "A disk-based search engine implementing scalable indexing and ranked retrieval over document collections.",
-        "demo": "",
-        "trace": "",
-        "technology": "Information Retrieval · Indexing · Ranking",
-        "featured": false
+        "label": "SEARCH SYSTEM",
+        "meta": "Disk-Backed Indexing and Ranked Retrieval",
+        "summary": "A Python search engine that keeps postings on disk, retrieves them through byte offsets, and ranks Boolean-AND candidates with TF-IDF, field boosts, proximity, and PageRank.",
+        "demo": "/projects/atlassearch-demo.svg",
+        "secondaryDemo": "/projects/atlassearch-architecture.svg",
+        "trace": "Parse → Partial offload → Merge → Offset lookup → Rank",
+        "technology": "Python · Flask · NLTK · Inverted Index · PageRank",
+        "featured": false,
+        "caseStudy": [
+          { "label": "Challenge", "text": "Search a document corpus without loading the full inverted index into memory." },
+          { "label": "What I built", "text": "Partial index offloads, an on-disk merge, and byte-offset lookup for query-specific postings." },
+          { "label": "Evidence", "text": "Boolean AND retrieval ranked with TF-IDF, field boosts, proximity, and PageRank." }
+        ],
+        "detailImage": "/projects/atlassearch-architecture.svg",
+        "detailImageAlt": "AtlasSearch disk-backed indexing and retrieval system flow",
+        "links": [
+          { "label": "GitHub", "href": "https://github.com/lalalastella/AtlasSearch" }
+        ]
       }
     ]
   },
@@ -98,6 +158,20 @@
           "Improved shopping retrieval Recall@10 from 70% to 85% and transformed 100M raw interactions into 86.3M training records across 987,992 users."
         ],
         "technology": ["Python", "RAG", "BGE", "Evaluation", "Data Pipelines"],
+        "links": []
+      },
+      {
+        "company": "Capybara Science Lab, UCI",
+        "role": "Undergraduate Researcher",
+        "date": "Apr 2026 - Present",
+        "location": "Irvine, CA",
+        "current": true,
+        "summary": "Investigating how software-engineering agents generate, retain, and abandon localization hypotheses across multi-step trajectories.",
+        "highlights": [
+          "Analyzing 50 SWE-bench Verified Mini instances with mini-swe-agent to classify generation, selection, and execution failures.",
+          "Building a trajectory-level hypothesis-tracking framework to compare four search policies across localization quality, patch correctness, hypothesis survival, and cost."
+        ],
+        "technology": ["Python", "mini-swe-agent", "SWE-bench", "Agent Evaluation"],
         "links": []
       },
       {
@@ -208,22 +282,90 @@
   },
   "aboutSection": {
     "title": "About Stella",
-    "subtitle": "I’m interested in what happens after an AI demo works once.",
+    "subtitle": "I build software that stays useful beyond the first successful demo.",
     "paragraphs": [
-      "Computer Science undergraduate with experience building production-oriented LLM applications, retrieval-augmented generation systems, agentic workflows, multimodal data pipelines, and full-stack AI products. Strong background in Python and TypeScript development across FastAPI, Django, Node.js, React, relational databases, asynchronous processing, testing, and cloud deployment. Interested in AI Engineer and Software Engineer roles focused on reliable, user-facing AI systems."
+      "Computer Science undergraduate building reliable full-stack systems and user-facing AI products. My work spans Python and TypeScript development across FastAPI, Django, Node.js, React, relational databases, asynchronous processing, testing, cloud deployment, retrieval systems, and agentic workflows. I am interested in Software Engineer and AI Engineer roles where product quality depends on sound engineering."
     ],
     "toolkitTitle": "Technical toolkit",
-    "toolkit": ["Python", "TypeScript", "FastAPI", "Django", "Node.js", "React", "Next.js", "PostgreSQL", "Redis", "RAG", "LLM Agents", "Evaluation", "Docker", "Pytest"]
+    "toolkit": ["Python", "TypeScript", "FastAPI", "Django", "Node.js", "React", "Next.js", "PostgreSQL", "Redis", "RAG", "LLM Agents", "Evaluation", "Docker", "Pytest"],
+    "fieldNotes": [
+      {
+        "context": "TMALL × NVIDIA GEFORCE",
+        "title": "Looking beyond the model layer",
+        "summary": "The AI Creative Camp made me reconsider how AI PCs and local computing can shape product performance and enable new interactions. Useful AI experiences emerge when models, software, and computing platforms are designed together.",
+        "image": "/field-note-nvidia.jpg",
+        "imageAlt": "Stella at the Tmall and NVIDIA GeForce AI Creative Camp",
+        "href": "https://www.linkedin.com/feed/update/urn:li:activity:7498050037088669696/",
+        "linkLabel": "VIEW LINKEDIN POST"
+      },
+      {
+        "context": "WAIC 2026 · SHANGHAI",
+        "title": "Real products make AI constraints visible",
+        "summary": "Across WAIC, Cursor Shanghai, and LLM & Agent Night, the most valuable lessons came from conversations behind the demos. Strong models matter, but so do reliable systems, thoughtful product design, and a precise understanding of user needs.",
+        "image": "/field-note-waic.jpg",
+        "imageAlt": "Stella attending WAIC 2026 in Shanghai",
+        "href": "https://www.linkedin.com/feed/update/urn:li:activity:7485279544342405120/",
+        "linkLabel": "VIEW LINKEDIN POST"
+      },
+      {
+        "context": "PYCON US 2026",
+        "title": "The ecosystem around code matters",
+        "summary": "Meeting the Python community and building at the Snowflake × Streamlit Hack Night strengthened my interest in developer tools, open source, backend tooling, API testing, and software that helps real users.",
+        "image": "/field-note-pycon.jpg",
+        "imageAlt": "Stella attending PyCon US 2026 in Long Beach",
+        "href": "https://www.linkedin.com/feed/update/urn:li:activity:7462333714174275584/",
+        "linkLabel": "VIEW LINKEDIN POST"
+      },
+      {
+        "context": "TIKTOK GMPT",
+        "title": "Technology at global product scale",
+        "summary": "The GMPT team event offered a closer look at how product, engineering, and global monetization come together. It sharpened my interest in software decisions that must balance technical performance with user and business needs across markets.",
+        "image": "/field-note-tiktok-gmpt.jpg",
+        "imageAlt": "Stella attending a TikTok Global Monetization Product and Technology team event",
+        "href": "https://lifeattiktok.com/teams/technology-gmpt",
+        "linkLabel": "ABOUT TIKTOK GMPT"
+      },
+      {
+        "context": "UC BERKELEY AI HACKATHON",
+        "title": "Build the workflow, not just the feature",
+        "summary": "Building PantryAgent reinforced that an AI product becomes useful through the full workflow. Receipt understanding, inventory, meal planning, and shopping decisions had to connect as one coherent system under hackathon constraints.",
+        "image": "/field-note-berkeley-personal.jpg",
+        "imageAlt": "Stella building PantryAgent at the UC Berkeley AI Hackathon",
+        "images": [
+          "/field-note-berkeley-personal.jpg",
+          "/field-note-berkeley-build.jpg",
+          "/field-note-berkeley-anthropic.jpg"
+        ],
+        "href": "https://www.linkedin.com/feed/update/urn:li:activity:7480884751927517184/",
+        "linkLabel": "VIEW LINKEDIN POST"
+      }
+    ]
   },
   "resumeSection": {
     "title": "Resume",
     "subtitle": "A concise overview of my education, engineering experience, research, and selected work.",
     "name": "Stella (Yuxuan) Jiang",
-    "headline": "AI Engineer · Full-Stack Software Engineer",
+    "headline": "Software Engineer · Applied AI",
     "education": "B.S. Computer Science · University of California, Irvine · Expected June 2027",
     "button": "VIEW RESUME",
-    "href": "/documents/stella-yuxuan-jiang-resume.pdf",
-    "note": "Public version: Software Engineering + Applied AI Systems."
+    "defaultVariant": "swe",
+    "note": "SWE Resume · Primary",
+    "variants": [
+      {
+        "id": "swe",
+        "shortLabel": "SWE",
+        "fileLabel": "STELLA_JIANG_SWE_RESUME.PDF",
+        "href": "/documents/stella-jiang-resume-swe.pdf",
+        "default": true
+      },
+      {
+        "id": "ai",
+        "shortLabel": "AI SYSTEMS",
+        "fileLabel": "STELLA_JIANG_AI_SYSTEMS_RESUME.PDF",
+        "href": "/documents/stella-jiang-resume-ai.pdf",
+        "default": false
+      }
+    ]
   },
   "contactSection": {
     "title": "Let’s build useful AI products.",

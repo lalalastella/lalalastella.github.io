@@ -1,5 +1,14 @@
 # Portfolio Change Log
 
+## 2026-09-06
+
+### SWE positioning and project hierarchy
+
+- Repositioned the hero and About copy around software engineering with Applied AI depth.
+- Added FocusTrail to Projects as a founder-built product case while retaining its role-level story in Experience.
+- Kept C&S MovieStore as supporting full-stack evidence later in the project sequence.
+- Reduced Field Notes to three cards by default, with an explicit control to reveal the full set.
+
 ## 2026-09-03
 
 ### Experience content and interaction
@@ -80,3 +89,6 @@
 - Fixed the GitHub icon import by using the correct icon package.
 - Centralized live website copy in `content/portfolio-content.json`.
 - Added this living content draft, design specification, and change log.
+# 2026-09-08
+
+- Added the public Mosaic GitHub repository as a secondary project link.

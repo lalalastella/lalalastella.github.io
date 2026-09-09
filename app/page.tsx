@@ -17,7 +17,6 @@ export default function Home() {
   const [selected, setSelected] = useState<number | null>(null);
   const [booting, setBooting] = useState(true);
   const [typedNameLength, setTypedNameLength] = useState(0);
-  const [introReplay, setIntroReplay] = useState(0);
   const [heroVariant, setHeroVariant] = useState<'real' | 'semi' | 'cg'>('real');
   const contentViewRef = useRef<HTMLElement>(null);
 
@@ -26,12 +25,11 @@ export default function Home() {
     setSelected(index);
   };
 
-  const replayIntro = () => {
+  const returnHome = () => {
     setSelected(null);
     setEntered(false);
-    setTypedNameLength(0);
-    setBooting(true);
-    setIntroReplay((value) => value + 1);
+    setTypedNameLength(content.identity.heroFirstName.length + content.identity.heroLastName.length);
+    setBooting(false);
   };
 
   useEffect(() => {
@@ -43,19 +41,19 @@ export default function Home() {
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let played = false;
     try {
-      played = window.sessionStorage.getItem('stella-portfolio-boot-v10') === 'played';
+      played = window.localStorage.getItem('stella-portfolio-intro-seen-v1') === 'true';
     } catch {
       played = false;
     }
 
-    if (reducedMotion || (played && introReplay === 0)) {
+    if (reducedMotion || played) {
       setTypedNameLength(content.identity.heroFirstName.length + content.identity.heroLastName.length);
       setBooting(false);
       return;
     }
 
     try {
-      window.sessionStorage.setItem('stella-portfolio-boot-v10', 'played');
+      window.localStorage.setItem('stella-portfolio-intro-seen-v1', 'true');
     } catch {
       // The animation still works when storage is unavailable.
     }
@@ -64,9 +62,9 @@ export default function Home() {
     const firstLength = content.identity.heroFirstName.length;
     const lastLength = content.identity.heroLastName.length;
     const typingTimers: number[] = [];
-    const letterInterval = 150;
-    const firstNameStart = 560;
-    const lastNameStart = firstNameStart + firstLength * letterInterval + 260;
+    const letterInterval = 125;
+    const firstNameStart = 360;
+    const lastNameStart = firstNameStart + firstLength * letterInterval + 160;
 
     for (let index = 1; index <= firstLength; index += 1) {
       typingTimers.push(window.setTimeout(() => setTypedNameLength(index), firstNameStart + index * letterInterval));
@@ -75,12 +73,12 @@ export default function Home() {
       typingTimers.push(window.setTimeout(() => setTypedNameLength(firstLength + index), lastNameStart + index * letterInterval));
     }
 
-    const timer = window.setTimeout(() => setBooting(false), 5400);
+    const timer = window.setTimeout(() => setBooting(false), 3900);
     return () => {
       window.clearTimeout(timer);
       typingTimers.forEach((typingTimer) => window.clearTimeout(typingTimer));
     };
-  }, [introReplay]);
+  }, []);
 
   useEffect(() => {
     if (selected !== null) {
@@ -96,7 +94,7 @@ export default function Home() {
       }
       if (event.key === 'Escape') {
         if (selected !== null) setSelected(null);
-        else replayIntro();
+        else returnHome();
       }
       if (selected === null && event.key === 'ArrowDown') setActive((value) => (value + 1) % modules.length);
       if (selected === null && event.key === 'ArrowUp') setActive((value) => (value - 1 + modules.length) % modules.length);
@@ -177,7 +175,7 @@ export default function Home() {
         {selected !== null
           ? <button className="close-terminal" onClick={() => setSelected(null)}>← MENU</button>
           : <div className="terminal-key-hints" aria-label="Keyboard controls">
-              <button type="button" onClick={replayIntro} aria-label="Return to the landing page and replay the introduction"><kbd>ESC</kbd></button>
+              <button type="button" onClick={returnHome} aria-label="Return to the landing page"><kbd>ESC</kbd></button>
             </div>}
       </section>
 
@@ -213,18 +211,65 @@ function SectionIntro({ index, title, text }: { index: string; title: string; te
 }
 
 function Projects() {
+  const [expandedProject, setExpandedProject] = useState<string | null>(null);
   return <div className="content-inner">
     <SectionIntro index="02" title={content.projectsSection.title} text={content.projectsSection.introduction} />
     <div className="project-grid">
-      {projects.map((project) => <article className={`project-card ${project.featured ? 'featured' : ''}`} key={project.name}>
-        <div className="card-top"><span>{project.label}</span><span>↗</span></div>
+      {projects.map((project) => {
+        const expanded = expandedProject === project.name;
+        return <article className={`project-card ${project.featured ? 'featured' : ''} ${expanded ? 'is-expanded' : ''}`} key={project.name}>
+        <div className="card-top">
+          <span>{project.label}</span>
+          {'links' in project && project.links.length > 0 && <nav className="project-quick-links" aria-label={`${project.name} links`}>
+            {project.links.map((link) => <a href={link.href} target="_blank" rel="noreferrer" key={link.href}>{link.label}<span aria-hidden="true">↗</span></a>)}
+          </nav>}
+        </div>
         <div className="project-heading"><ProjectMark name={project.name} /><div><h3>{project.name}</h3><p className="card-meta">{project.meta}</p></div></div>
-        {project.name === 'PantryAgent'
+        {project.name === 'FocusTrail'
+          ? <FocusTrailDemo />
+          : project.name === 'PantryAgent'
           ? <PantryAgentDemo />
           : project.demo && <div className={`project-demo project-demo-${project.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`}><img src={project.demo} alt={`${project.name} product demo`} /></div>}
         <p>{project.summary}</p>
         {project.trace && <code>{project.trace}</code>}<div className="tech-line">{project.technology}</div>
-      </article>)}
+        {'caseStudy' in project && <>
+          <button className="case-study-toggle" type="button" aria-expanded={expanded} onClick={() => setExpandedProject(expanded ? null : project.name)}>
+            <span>{expanded ? 'Close details' : 'Project details'}</span><b aria-hidden="true">{expanded ? '−' : '+'}</b>
+          </button>
+          <div className="case-study" aria-hidden={!expanded}>
+            <div>
+              {'detailImage' in project && <figure className="case-study-visual"><img src={project.detailImage} alt={project.detailImageAlt} /><figcaption>SYSTEM FLOW</figcaption></figure>}
+              <div className="case-study-grid">{project.caseStudy.map((section) => <section key={section.label}><span>{section.label}</span><p>{section.text}</p></section>)}</div>
+            </div>
+          </div>
+        </>}
+      </article>})}
+    </div>
+  </div>;
+}
+
+function FocusTrailDemo() {
+  return <div className="focustrail-gallery" aria-label="FocusTrail adaptive execution interface and desktop companion">
+    <figure className="focustrail-product">
+      <img src="/projects/focustrail-live.png" alt="FocusTrail adaptive task planning interface with quick notes and activity monitoring navigation" />
+      <figcaption>ADAPTIVE EXECUTION</figcaption>
+    </figure>
+    <aside className="focustrail-recovery" aria-label="Example FocusTrail recovery prompt">
+      <span className="recovery-status">FOCUS CHECK</span>
+      <strong>You drifted off plan.</strong>
+      <p>Want to return to your task or adjust what comes next?</p>
+      <div className="recovery-actions" aria-hidden="true">
+        <span>Return to focus</span>
+        <span>Update plan</span>
+      </div>
+      <div className="focustrail-companion">
+        <img src="/projects/focustrail-pet.png" alt="FocusTrail personality companion character" />
+      </div>
+    </aside>
+    <div className="focustrail-signal" aria-hidden="true">
+      <i />
+      <span>MONITOR</span>
+      <b>RECOVER</b>
     </div>
   </div>;
 }
@@ -329,13 +374,15 @@ function Research() {
       {content.researchSection.entries.map((entry, entryIndex) => (
         <article className="research-entry" key={entry.title}>
           <header className="research-entry-header">
-            <div className="research-entry-label">RESEARCH 0{entryIndex + 1}</div>
-            <h3>{entry.title}</h3>
-            <p className="card-meta">{entry.subtitle}</p>
+            <div className="research-heading-copy">
+              <div className="research-entry-label">RESEARCH 0{entryIndex + 1}</div>
+              <h3>{entry.title}</h3>
+              <p className="card-meta">{entry.subtitle}</p>
+            </div>
+            <p className="research-meta">
+              {entry.metaLines.map((line) => <span key={line}>{line}</span>)}
+            </p>
           </header>
-          <p className="research-meta">
-            {entry.metaLines.map((line) => <span key={line}>{line}</span>)}
-          </p>
           <p className="lead-copy">{entry.lead}</p>
           <div className="research-frame" aria-label={`${entry.title} research framework`}>
             {entry.framework.map((label, index) => <div key={label}><span>0{index + 1}</span><strong>{label}</strong></div>)}
@@ -350,6 +397,8 @@ function Research() {
 }
 
 function About() {
+  const [showAllNotes, setShowAllNotes] = useState(false);
+  const visibleNotes = showAllNotes ? content.aboutSection.fieldNotes : content.aboutSection.fieldNotes.slice(0, 3);
   return <div className="content-inner about-content">
     <SectionIntro index="04" title={content.aboutSection.title} text={content.aboutSection.subtitle} />
     <div className="about-overview">
@@ -362,6 +411,28 @@ function About() {
         <img src="/stella-linkedin-portrait.jpg" alt="Stella (Yuxuan) Jiang" />
       </figure>
     </div>
+    <section className="field-notes" aria-labelledby="field-notes-title">
+      <div className="field-notes-heading">
+        <span>FIELD NOTES</span>
+        <h3 id="field-notes-title">What I notice while building</h3>
+        <p>Short reflections on product decisions, engineering tradeoffs, and how my perspective changes through practice.</p>
+      </div>
+      <div className="field-note-grid">
+        {visibleNotes.map((note, index) => <article key={note.title}>
+          {'images' in note
+            ? <div className="field-note-image field-note-collage">{note.images.map((image, imageIndex) => <img src={image} alt={imageIndex === 0 ? note.imageAlt : ''} key={image} />)}</div>
+            : <div className={`field-note-image ${note.image.includes('/brands/') ? 'is-logo' : ''}`}><img src={note.image} alt={note.imageAlt} /></div>}
+          <span>0{index + 1} / {note.context}</span>
+          <h4>{note.title}</h4>
+          <p>{note.summary}</p>
+          <a href={note.href} target="_blank" rel="noreferrer">{note.linkLabel} <span aria-hidden="true">↗</span></a>
+        </article>)}
+      </div>
+      {content.aboutSection.fieldNotes.length > 3 && <button className="field-notes-toggle" type="button" onClick={() => setShowAllNotes((value) => !value)}>
+        <span>{showAllNotes ? 'Show fewer notes' : `View all ${content.aboutSection.fieldNotes.length} notes`}</span>
+        <b aria-hidden="true">{showAllNotes ? '−' : '+'}</b>
+      </button>}
+    </section>
   </div>;
 }
 
@@ -378,6 +449,8 @@ function Contact() {
 }
 
 function Resume() {
+  const [activeResume, setActiveResume] = useState(content.resumeSection.defaultVariant);
+  const resume = content.resumeSection.variants.find((variant) => variant.id === activeResume) ?? content.resumeSection.variants[0];
   return <div className="content-inner resume-content">
     <SectionIntro index="05" title={content.resumeSection.title} text={content.resumeSection.subtitle} />
     <div className="resume-layout">
@@ -387,15 +460,18 @@ function Resume() {
         <p className="resume-headline">{content.resumeSection.headline}</p>
         <p className="resume-education"><GraduationCap aria-hidden="true" />{content.resumeSection.education}</p>
         <p className="resume-note">{content.resumeSection.note}</p>
-        <a className="resume-button" href={content.resumeSection.href} download>
-          DOWNLOAD PDF <span>↓</span>
+        <div className="resume-switcher" aria-label="Resume version">
+          {content.resumeSection.variants.map((variant) => <button type="button" className={variant.id === activeResume ? 'active' : ''} onClick={() => setActiveResume(variant.id)} key={variant.id}>{variant.shortLabel}</button>)}
+        </div>
+        <a className="resume-button" href={resume.href} download>
+          DOWNLOAD {resume.shortLabel} PDF <span>↓</span>
         </a>
       </div>
       <div className="resume-preview">
-        <div className="resume-preview-bar"><span>STELLA_JIANG_RESUME.PDF</span><span>1 / 1</span></div>
+        <div className="resume-preview-bar"><span>{resume.fileLabel}</span><span>{resume.default ? 'DEFAULT · ' : ''}1 / 1</span></div>
         <iframe
-          src={`${content.resumeSection.href}#view=FitH&toolbar=0&navpanes=0`}
-          title="Stella (Yuxuan) Jiang resume"
+          src={`${resume.href}#view=FitH&toolbar=0&navpanes=0`}
+          title={`Stella (Yuxuan) Jiang ${resume.shortLabel} resume`}
         />
       </div>
     </div>
@@ -403,6 +479,7 @@ function Resume() {
 }
 
 function ProjectMark({ name }: { name: string }) {
+  if (name === 'FocusTrail') return <span className="project-logo"><img src="/brands/focustrail.svg" alt="FocusTrail logo" /></span>;
   if (name === 'PantryAgent') return <span className="project-logo"><img src="/brands/pantryagent.svg" alt="PantryAgent logo" /></span>;
   if (name === 'Intent2Escrow') return <span className="project-logo project-symbol"><ShieldCheck aria-hidden="true" /></span>;
   if (name === 'C&S MovieStore') return <span className="project-logo project-symbol"><Film aria-hidden="true" /></span>;
@@ -412,7 +489,7 @@ function ProjectMark({ name }: { name: string }) {
 
 function OrganizationMark({ company }: { company: string }) {
   if (company === 'Alibaba Group') return <span className="org-logo alibaba-logo"><img src="/brands/alibaba-group.png" alt="Alibaba Group logo" /></span>;
-  if (company.startsWith('Capybara')) return <span className="org-logo org-wordmark uci-logo">UCI</span>;
+  if (company.startsWith('Capybara')) return <span className="org-logo uci-ics-logo"><img src="/brands/uci-ics.png" alt="UCI Donald Bren School of Information and Computer Sciences logo" /></span>;
   if (company.startsWith('FessorAI')) return <span className="org-logo fessor-logo"><img src="/brands/fessorai.png" alt="FessorAI logo" /></span>;
   if (company === 'FocusTrail') return <span className="org-logo focustrail-logo"><img src="/brands/focustrail.svg" alt="" /><strong>FocusTrail</strong></span>;
   if (company === 'NextTier') return <span className="org-logo nexttier-logo"><img src="/brands/nexttier.png" alt="NextTier logo" /></span>;

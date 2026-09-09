@@ -13,12 +13,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Stella Jiang | AI & Software Engineer',
+  title: 'Stella Jiang | SWE & AIE',
   description: 'Portfolio of Stella Jiang: LLM systems, applied AI, full-stack products, and agent reliability research.',
   icons: {
-    icon: '/pixel-cat.png',
-    shortcut: '/pixel-cat.png',
-    apple: '/pixel-cat.png',
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
   },
 };
 

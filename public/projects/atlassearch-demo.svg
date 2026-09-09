@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">AtlasSearch web interface</title>
+  <desc id="desc">A product mockup based on the project's Flask interface, showing a query, ranked URLs, latency, and scores.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0a1628"/><stop offset=".52" stop-color="#003262"/><stop offset="1" stop-color="#0a1628"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="10" stdDeviation="16" flood-opacity=".28"/></filter>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <g transform="translate(145 56)" font-family="Arial, sans-serif">
+    <g transform="translate(0 0)">
+      <rect width="48" height="48" rx="11" fill="#FDB515"/>
+      <text x="24" y="33" text-anchor="middle" fill="#003262" font-size="24" font-weight="700">S</text>
+      <text x="65" y="32" fill="#fff" font-size="25" font-weight="700">ICS <tspan fill="#FDB515">Search Engine</tspan></text>
+    </g>
+    <g transform="translate(0 78)" filter="url(#shadow)">
+      <rect width="910" height="62" rx="14" fill="#ffffff" fill-opacity=".09" stroke="#ffffff" stroke-opacity=".18"/>
+      <text x="24" y="39" fill="#fff" font-size="18">machine learning</text>
+      <path d="M751 0h145a14 14 0 0 1 14 14v34a14 14 0 0 1-14 14H751z" fill="#FDB515"/>
+      <text x="823" y="39" text-anchor="middle" fill="#003262" font-size="17" font-weight="700">Search</text>
+    </g>
+    <text x="0" y="171" fill="#ffffff" fill-opacity=".58" font-size="14">Found <tspan fill="#FDB515" font-weight="700">20</tspan> results in <tspan fill="#FDB515" font-weight="700">18.7 ms</tspan>  ·  Mode: <tspan fill="#FDB515" font-weight="700">TF-IDF + PageRank</tspan></text>
+    <line x1="0" x2="910" y1="190" y2="190" stroke="#fff" stroke-opacity=".12"/>
+
+    <g transform="translate(0 213)">
+      <rect width="910" height="101" rx="12" fill="#fff" fill-opacity=".065" stroke="#fff" stroke-opacity=".12"/>
+      <text x="22" y="27" fill="#FDB515" font-family="monospace" font-size="13">#1</text>
+      <text x="22" y="55" fill="#6cb4ee" font-size="16">https://www.ics.uci.edu/research/artificial-intelligence</text>
+      <text x="22" y="82" fill="#fff" fill-opacity=".48" font-family="monospace" font-size="12">score: 0.842731  ·  doc_id: 1842</text>
+    </g>
+    <g transform="translate(0 328)">
+      <rect width="910" height="101" rx="12" fill="#fff" fill-opacity=".065" stroke="#fff" stroke-opacity=".12"/>
+      <text x="22" y="27" fill="#FDB515" font-family="monospace" font-size="13">#2</text>
+      <text x="22" y="55" fill="#6cb4ee" font-size="16">https://www.ics.uci.edu/faculty/area/machine-learning</text>
+      <text x="22" y="82" fill="#fff" fill-opacity=".48" font-family="monospace" font-size="12">score: 0.794206  ·  doc_id: 2631</text>
+    </g>
+    <g transform="translate(0 443)">
+      <rect width="910" height="101" rx="12" fill="#fff" fill-opacity=".065" stroke="#fff" stroke-opacity=".12"/>
+      <text x="22" y="27" fill="#FDB515" font-family="monospace" font-size="13">#3</text>
+      <text x="22" y="55" fill="#6cb4ee" font-size="16">https://www.ics.uci.edu/graduate/areas-and-courses</text>
+      <text x="22" y="82" fill="#fff" fill-opacity=".48" font-family="monospace" font-size="12">score: 0.721955  ·  doc_id: 907</text>
+    </g>
+  </g>
+</svg>

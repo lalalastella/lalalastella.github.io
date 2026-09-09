@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">AtlasSearch disk-backed retrieval architecture</title>
+  <desc id="desc">Documents are parsed into partial indexes, merged into a disk index, and queried through byte offsets before ranked retrieval.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07131d"/><stop offset="1" stop-color="#0c1c28"/>
+    </linearGradient>
+    <linearGradient id="active" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#83ead1" stop-opacity=".2"/><stop offset="1" stop-color="#7ea6ff" stop-opacity=".08"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <g opacity=".14" stroke="#83ead1"><path d="M0 92h1200M0 583h1200"/><path d="M72 0v675M1128 0v675"/></g>
+  <text x="72" y="76" fill="#edf4f5" font-family="Arial, sans-serif" font-size="34" font-weight="700">AtlasSearch</text>
+  <text x="72" y="108" fill="#91a6b2" font-family="monospace" font-size="15" letter-spacing="1.5">DISK-BACKED INDEXING + RANKED RETRIEVAL</text>
+
+  <g font-family="Arial, sans-serif">
+    <g transform="translate(72 188)">
+      <rect width="190" height="132" rx="8" fill="#0b202c" stroke="#526f7d"/>
+      <text x="22" y="38" fill="#83ead1" font-family="monospace" font-size="13">01 / CORPUS</text>
+      <text x="22" y="78" fill="#edf4f5" font-size="22" font-weight="650">HTML documents</text>
+      <text x="22" y="105" fill="#9fb0b9" font-size="14">parse · stem · dedupe</text>
+    </g>
+    <path d="M276 254h70" stroke="#83ead1" stroke-width="2"/><path d="m338 246 12 8-12 8" fill="none" stroke="#83ead1" stroke-width="2"/>
+    <g transform="translate(360 188)">
+      <rect width="205" height="132" rx="8" fill="#0b202c" stroke="#526f7d"/>
+      <text x="22" y="38" fill="#83ead1" font-family="monospace" font-size="13">02 / OFFLOAD</text>
+      <text x="22" y="78" fill="#edf4f5" font-size="22" font-weight="650">Partial indexes</text>
+      <text x="22" y="105" fill="#9fb0b9" font-size="14">bounded memory writes</text>
+    </g>
+    <path d="M579 254h70" stroke="#83ead1" stroke-width="2"/><path d="m641 246 12 8-12 8" fill="none" stroke="#83ead1" stroke-width="2"/>
+    <g transform="translate(663 188)">
+      <rect width="205" height="132" rx="8" fill="url(#active)" stroke="#83ead1"/>
+      <text x="22" y="38" fill="#83ead1" font-family="monospace" font-size="13">03 / MERGE</text>
+      <text x="22" y="78" fill="#edf4f5" font-size="22" font-weight="650">On-disk index</text>
+      <text x="22" y="105" fill="#9fb0b9" font-size="14">sorted postings · offsets</text>
+    </g>
+    <path d="M882 254h70" stroke="#83ead1" stroke-width="2"/><path d="m944 246 12 8-12 8" fill="none" stroke="#83ead1" stroke-width="2"/>
+    <g transform="translate(966 188)">
+      <rect width="162" height="132" rx="8" fill="#0b202c" stroke="#526f7d"/>
+      <text x="20" y="38" fill="#83ead1" font-family="monospace" font-size="13">04 / READ</text>
+      <text x="20" y="76" fill="#edf4f5" font-size="20" font-weight="650">Byte-offset</text>
+      <text x="20" y="102" fill="#edf4f5" font-size="20" font-weight="650">lookup</text>
+    </g>
+  </g>
+
+  <g transform="translate(72 400)">
+    <rect width="1056" height="154" rx="10" fill="#091923" stroke="#355363"/>
+    <text x="26" y="38" fill="#83ead1" font-family="monospace" font-size="13">QUERY PATH</text>
+    <text x="26" y="81" fill="#edf4f5" font-family="Arial, sans-serif" font-size="25" font-weight="650">Boolean AND candidates</text>
+    <path d="M317 75h88" stroke="#83ead1" stroke-width="2"/>
+    <text x="434" y="81" fill="#edf4f5" font-family="Arial, sans-serif" font-size="25" font-weight="650">TF-IDF + field boosts + proximity + PageRank</text>
+    <text x="26" y="121" fill="#9fb0b9" font-family="monospace" font-size="14">Only the term-to-byte-offset lexicon stays in memory. Postings remain on disk.</text>
+  </g>
+  <circle cx="1125" cy="74" r="5" fill="#83ead1" filter="url(#glow)"/>
+  <text x="72" y="622" fill="#718997" font-family="monospace" font-size="13">PYTHON · FLASK · NLTK · INVERTED INDEX · PAGERANK</text>
+</svg>
