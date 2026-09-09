@@ -160,6 +160,34 @@ h1 { margin:20px 0 16px; font-family:var(--font-geist-sans),Arial,sans-serif; fo
 .focustrail-signal b { color:#bd6968; font:inherit; }
 .project-card:hover .focustrail-companion { animation:companion-float 2.8s ease-in-out infinite; }
 @keyframes companion-float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
+.focustrail-gallery { display:block; container-type:inline-size; aspect-ratio:16/10; padding:0; background:#f7f8fa; color:#18202e; }
+.focus-scene-bar { height:10%; display:flex; align-items:center; gap:3%; border-bottom:1px solid #e9ebef; padding:0 3%; font-size:1.7cqw; color:#667080; }
+.focus-scene-bar img { width:4%; height:auto; }
+.focus-scene-bar small { margin-left:auto; font-size:1.25cqw; letter-spacing:.05em; }
+.focus-scene-sidebar { position:absolute; left:0; top:10%; bottom:0; width:7%; border-right:1px solid #e9ebef; display:flex; align-items:center; flex-direction:column; gap:6cqw; padding-top:5%; background:#fff; color:#7b8493; }
+.focus-scene-sidebar svg { width:2.6cqw; height:2.6cqw; }
+.focus-scene-task { position:absolute; inset:18% 16% -9% 16%; border:1px solid #e4e6eb; border-radius:3cqw; background:#fff; text-align:center; padding:5% 3%; box-shadow:0 2cqw 4cqw #20283b0b; }
+.focus-mode { display:inline-block; padding:1cqw 2cqw; border:1px solid #ded9fa; border-radius:4cqw; color:#8981d5; background:#f0edfc; font-size:1.5cqw; font-weight:750; letter-spacing:.08em; }
+.focus-scene-task h4 { margin:3cqw 0 1.8cqw; color:#151b29; font-size:3.4cqw; line-height:1.1; letter-spacing:-.04em; }
+.project-card .focus-scene-task p { margin:0; color:#75808e; font-size:1.6cqw; line-height:1.5; }
+.focus-duration { display:inline-block; margin-top:3cqw; padding:.8cqw 2cqw; border-radius:1cqw; background:#f5f6f8; color:#8d96a1; font-size:1.8cqw; }
+.focus-timer { margin-top:9cqw; color:#151b29; font-size:10cqw; font-weight:800; line-height:1; letter-spacing:-.05em; }
+.focus-pause { display:inline-block; margin-top:3cqw; padding:1.8cqw 4cqw; border-radius:2cqw; background:#eca335; color:#fff; font-size:2.3cqw; font-weight:750; }
+.focustrail-gallery .focustrail-recovery { position:absolute; z-index:3; left:27%; top:39%; width:48%; min-height:0; padding:2.4cqw; overflow:visible; border:1px solid #fff; border-radius:3cqw; background:rgba(255,255,255,.98); box-shadow:0 2.4cqw 6cqw #17263b25; }
+.recovery-heading { display:flex; align-items:center; justify-content:space-between; gap:1cqw; margin-bottom:1.7cqw; color:#507988; font-size:1.25cqw; font-weight:700; }
+.recovery-heading>span:first-child { padding:.8cqw 1.2cqw; border-radius:3cqw; background:#ecf3f7; }
+.recovery-heading>span:last-child { font-size:2cqw; color:#85909b; }
+.focustrail-gallery .recovery-status { font-size:1.3cqw; color:#568290; letter-spacing:.12em; }
+.focustrail-gallery .focustrail-recovery strong { max-width:none; margin:1cqw 0; font-size:2.2cqw; line-height:1.25; letter-spacing:-.025em; color:#243345; }
+.project-card .focustrail-recovery p { max-width:none; margin:0; color:#7a8692; font-size:1.5cqw; line-height:1.5; }
+.recovery-goal { display:flex; gap:1cqw; margin-top:1.4cqw; padding:1.2cqw; border-radius:1.2cqw; background:#f2f3f5; color:#8a939d; font-size:1.3cqw; }
+.recovery-goal b { color:#435263; }
+.focustrail-gallery .recovery-actions { flex-wrap:nowrap; gap:.8cqw; margin-top:1.6cqw; }
+.focustrail-gallery .recovery-actions span { padding:1.2cqw 1cqw; border:0; border-radius:1.3cqw; background:#f1f3f5; color:#78838e; font-size:1.25cqw; }
+.focustrail-gallery .recovery-actions span:first-child { color:white; background:#4c78ce; }
+.focustrail-gallery .recovery-actions span:nth-child(2) { color:white; background:#7658ce; }
+.focustrail-gallery .focustrail-companion { right:1%; bottom:18%; width:24%; z-index:4; animation:companion-float 2.8s ease-in-out infinite; }
+@media (prefers-reduced-motion:reduce) { .focustrail-gallery .focustrail-companion { animation:none; } }
 .pantryagent-gallery { position:relative; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:22px 0; padding:15px; overflow:hidden; border:1px solid rgba(166,193,205,.3); background:radial-gradient(circle at 18% 4%,rgba(81,175,127,.13),transparent 34%),linear-gradient(145deg,#07150f,#07111a); box-shadow:0 16px 38px rgba(0,0,0,.24); }
 .pantryagent-gallery::before { content:'PRODUCT FLOW'; position:absolute; right:12px; top:8px; color:rgba(131,234,209,.16); font:700 20px var(--font-geist-mono),monospace; letter-spacing:.08em; }
 .pantryagent-screen { position:relative; z-index:1; min-width:0; margin:0; }

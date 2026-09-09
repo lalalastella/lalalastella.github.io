@@ -250,27 +250,31 @@ function Projects() {
 
 function FocusTrailDemo() {
   return <div className="focustrail-gallery" aria-label="FocusTrail adaptive execution interface and desktop companion">
-    <figure className="focustrail-product">
-      <img src="/projects/focustrail-live.png" alt="FocusTrail adaptive task planning interface with quick notes and activity monitoring navigation" />
-      <figcaption>ADAPTIVE EXECUTION</figcaption>
-    </figure>
+    <div className="focus-scene-bar"><img src="/brands/focustrail.svg" alt="" /><span>Home <span aria-hidden="true">›</span> Prepare a 10-minute presentation</span><small>PRODUCT SCENE · DEMO</small></div>
+    <div className="focus-scene-sidebar" aria-hidden="true"><FileText /><ChartNoAxesCombined /><BrainCircuit /></div>
+    <div className="focus-scene-task">
+      <span className="focus-mode">HYPER FOCUS MODE</span>
+      <h4>Clarify the finish line</h4>
+      <p>Define the required outcome and your next actionable step.</p>
+      <span className="focus-duration">5 min</span>
+      <div className="focus-timer">09:53</div>
+      <span className="focus-pause">Ⅱ &nbsp; Pause Focus</span>
+    </div>
     <aside className="focustrail-recovery" aria-label="Example FocusTrail recovery prompt">
-      <span className="recovery-status">FOCUS CHECK</span>
-      <strong>You drifted off plan.</strong>
-      <p>Want to return to your task or adjust what comes next?</p>
+      <div className="recovery-heading"><span>✧ FocusTrail Companion · Prototype</span><span aria-hidden="true">×</span></div>
+      <span className="recovery-status">OFF TRACK · 03:12</span>
+      <strong>I’m keeping your goal in sight.</strong>
+      <p>Your plan may need a little adjustment. Come back, or let’s find a shorter path.</p>
+      <div className="recovery-goal">Your goal <b>Clarify the finish line</b></div>
       <div className="recovery-actions" aria-hidden="true">
-        <span>Return to focus</span>
-        <span>Update plan</span>
+        <span>→ Return to focus</span>
+        <span>✧ Update plan</span>
+        <span>Pause reminders</span>
       </div>
+    </aside>
       <div className="focustrail-companion">
         <img src="/projects/focustrail-pet.png" alt="FocusTrail personality companion character" />
       </div>
-    </aside>
-    <div className="focustrail-signal" aria-hidden="true">
-      <i />
-      <span>MONITOR</span>
-      <b>RECOVER</b>
-    </div>
   </div>;
 }
 
@@ -419,7 +423,7 @@ function About() {
       </div>
       <div className="field-note-grid">
         {visibleNotes.map((note, index) => <article key={note.title}>
-          {'images' in note
+          {note.images
             ? <div className="field-note-image field-note-collage">{note.images.map((image, imageIndex) => <img src={image} alt={imageIndex === 0 ? note.imageAlt : ''} key={image} />)}</div>
             : <div className={`field-note-image ${note.image.includes('/brands/') ? 'is-logo' : ''}`}><img src={note.image} alt={note.imageAlt} /></div>}
           <span>0{index + 1} / {note.context}</span>
