@@ -234,7 +234,7 @@
         "links": []
       },
       {
-        "company": "Guolian Securities Co., Ltd.",
+        "company": "Guolian Minsheng Securities",
         "role": "Software Engineer Intern",
         "date": "Jul 2024 — Sep 2024",
         "location": "Shanghai, China",
@@ -245,7 +245,9 @@
           "Automated RDS validation, unit testing, and DataV dashboards, reducing manual QA effort by 30%."
         ],
         "technology": ["Python", "SQL", "MaxCompute", "RDS", "DataV", "Testing"],
-        "links": []
+        "links": [
+          { "label": "LINKEDIN", "href": "https://www.linkedin.com/company/guolianminsheng-securities-co-ltd/" }
+        ]
       }
     ]
   },

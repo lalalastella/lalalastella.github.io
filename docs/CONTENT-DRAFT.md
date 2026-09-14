@@ -47,8 +47,9 @@ Current entries:
   Developed applied AI workflows, backend services, and evaluation capabilities for a policy-grounded expense-audit copilot.
 - **Beijing Join-Cheer Software Co., Ltd.** — Software Engineer Intern · Jun–Sep 2025 · Beijing, China  
   Contributed to an enterprise AI-agent platform and data services for government and financial-reporting workflows.
-- **Guolian Securities Co., Ltd.** — Software Engineer Intern · Jul–Sep 2024 · Shanghai, China  
+- **Guolian Minsheng Securities** — Software Engineer Intern · Jul–Sep 2024 · Shanghai, China  
   Rebuilt Python/SQL ETL pipelines on MaxCompute, improving data accuracy by 25%; automated RDS validation and dashboards, reducing manual QA effort by 30%.
+  - Link: [LinkedIn](https://www.linkedin.com/company/guolianminsheng-securities-co-ltd/)
 
 Editorial decision:
 

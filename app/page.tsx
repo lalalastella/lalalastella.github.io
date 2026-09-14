@@ -498,7 +498,7 @@ function OrganizationMark({ company }: { company: string }) {
   if (company === 'FocusTrail') return <span className="org-logo focustrail-logo"><img src="/brands/focustrail.svg" alt="" /><strong>FocusTrail</strong></span>;
   if (company === 'NextTier') return <span className="org-logo nexttier-logo"><img src="/brands/nexttier.png" alt="NextTier logo" /></span>;
   if (company.startsWith('Beijing Join-Cheer')) return <span className="org-logo join-cheer-logo"><img src="/brands/join-cheer.jpg" alt="JOIN-CHEER and Beijing Jiuqi Software official logo" /></span>;
-  if (company.startsWith('Guolian Securities')) return <span className="org-logo guolian-logo"><img src="/brands/guolian-securities.png" alt="" /><strong>国联证券<span>GUOLIAN SECURITIES</span></strong></span>;
+  if (company.startsWith('Guolian Minsheng')) return <span className="org-logo guolian-logo"><img src="/brands/guolian-minsheng-securities.png" alt="Guolian Minsheng Securities official logo" /></span>;
   return <span className="org-logo org-wordmark">ORG</span>;
 }
 

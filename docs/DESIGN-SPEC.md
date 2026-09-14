@@ -181,7 +181,7 @@ Experience is listed before Projects. Capybara Science Lab appears only in the d
 | FessorAI logo | `public/brands/fessorai.png` | Active; enlarged and tightly framed for timeline legibility |
 | Alibaba Group logo | `public/brands/alibaba-group.png` | Active; official Alibaba Group media asset |
 | Beijing Join-Cheer logo | `public/brands/join-cheer.jpg` | Active; official bilingual horizontal mark extracted from the company's 2022 annual report |
-| Guolian Securities logo | `public/brands/guolian-securities.png` | Active; official pre-renaming symbol paired with the historical Chinese and English brand name |
+| Guolian Minsheng Securities logo | `public/brands/guolian-minsheng-securities.png` | Active; user-provided official current wordmark |
 | Public resume | `public/documents/stella-yuxuan-jiang-resume.pdf` | Active; embedded |
 
 ## Maintenance Rules

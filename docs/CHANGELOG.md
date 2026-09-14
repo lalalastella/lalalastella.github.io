@@ -1,5 +1,10 @@
 # Portfolio Change Log
 
+## 2026-09-13
+
+- Updated the securities experience to the current official name, Guolian Minsheng Securities.
+- Replaced the historical mark with the supplied official Guolian Minsheng wordmark and added the verified LinkedIn company page.
+
 ## 2026-09-06
 
 ### SWE positioning and project hierarchy
