@@ -8,6 +8,7 @@
 - Replaced the generic UC Irvine wordmark with the organization-specific CUCS logo from its official ZotSpot page.
 - Switched CUCS to its clearer rainbow wordmark and corrected UCI CSSA's role to Events Department.
 - Replaced the public AI resume with the latest one-page revision, accepting tracked changes and removing review markup before publication.
+- Refreshed the AI resume with clearer spacing between experience entries and a slightly tighter bottom margin so the complete resume remains on one page.
 
 ## 2026-09-13
 
