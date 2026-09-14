@@ -336,9 +336,13 @@ h1 { margin:20px 0 16px; font-family:var(--font-geist-sans),Arial,sans-serif; fo
 .community-list { margin-top:36px; padding-top:22px; border-top:1px solid rgba(140,166,181,.2); }
 .community-list h3 { margin:0 0 14px; color:#f1f3f2; font-size:17px; }
 .community-list ul { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; margin:0; padding:0; list-style:none; }
-.community-list li { min-height:62px; padding:13px 15px; display:flex; flex-direction:column; justify-content:center; gap:5px; border:1px solid rgba(159,187,201,.2); background:rgba(8,24,34,.42); }
+.community-list li { min-height:72px; padding:11px 13px; display:flex; align-items:center; gap:12px; border:1px solid rgba(159,187,201,.2); background:rgba(8,24,34,.42); }
+.community-list li>div { min-width:0; display:flex; flex-direction:column; gap:5px; }
 .community-list strong { color:#e5ecef; font-size:14px; font-weight:630; }
-.community-list span { color:#83ead1; font:10px var(--font-geist-mono),monospace; letter-spacing:.055em; text-transform:uppercase; }
+.community-list li>div>span { color:#83ead1; font:9px/1.35 var(--font-geist-mono),monospace; letter-spacing:.05em; text-transform:uppercase; }
+.community-mark { width:46px; height:46px; flex:0 0 46px; padding:5px; display:grid; place-items:center; overflow:hidden; border:1px solid rgba(184,207,215,.22); background:rgba(245,247,246,.96); }
+.community-mark img { width:100%; height:100%; display:block; object-fit:contain; }
+.community-mark.is-wordmark { width:62px; flex-basis:62px; background:#102538; }
 .field-notes { margin-top:46px; padding-top:28px; border-top:1px solid rgba(140,166,181,.2); }
 .field-notes-heading { display:grid; grid-template-columns:120px minmax(0,1fr); column-gap:24px; }
 .field-notes-heading>span { grid-row:1/3; color:#83ead1; font:10px var(--font-geist-mono),monospace; letter-spacing:.1em; }

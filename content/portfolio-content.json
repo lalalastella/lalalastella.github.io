@@ -302,9 +302,9 @@
     "toolkit": ["Python", "TypeScript", "FastAPI", "Django", "Node.js", "React", "Next.js", "PostgreSQL", "Redis", "RAG", "LLM Agents", "Evaluation", "Docker", "Pytest"],
     "communityTitle": "Leadership & Community",
     "community": [
-      { "organization": "UCI CUCS", "role": "Outreach Officer" },
-      { "organization": "UCI CSSA", "role": "" },
-      { "organization": "UCI HOX", "role": "" }
+      { "organization": "UCI CUCS", "role": "Sponsorship & Partnerships", "logo": "/brands/uci-cucs.png", "logoAlt": "UC Irvine wordmark" },
+      { "organization": "UCI CSSA", "role": "External Relations", "logo": "/brands/uci-cssa.png", "logoAlt": "UCI CSSA logo" },
+      { "organization": "UCI HOX", "role": "Events & External Relations", "logo": "/brands/uci-hox.png", "logoAlt": "Eta Omega Chi logo" }
     ],
     "fieldNotes": [
       {

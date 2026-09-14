@@ -3,6 +3,7 @@
 ## 2026-09-14
 
 - Added a compact Leadership & Community list for UCI CUCS, UCI CSSA, and UCI HOX within About.
+- Added verified organization marks and clarified the roles as sponsorship, partnerships, events, and external relations while keeping the list date-free.
 
 ## 2026-09-13
 

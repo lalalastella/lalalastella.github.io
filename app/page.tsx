@@ -427,8 +427,11 @@ function About() {
       <h3 id="community-title">{content.aboutSection.communityTitle}</h3>
       <ul>
         {content.aboutSection.community.map((item) => <li key={item.organization}>
-          <strong>{item.organization}</strong>
-          {item.role && <span>{item.role}</span>}
+          <span className={`community-mark ${item.organization === 'UCI CUCS' ? 'is-wordmark' : ''}`}><img src={item.logo} alt={item.logoAlt} /></span>
+          <div>
+            <strong>{item.organization}</strong>
+            <span>{item.role}</span>
+          </div>
         </li>)}
       </ul>
     </section>
