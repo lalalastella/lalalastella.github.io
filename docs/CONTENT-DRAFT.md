@@ -56,6 +56,7 @@ Official organization links:
 
 - [Alibaba Group](https://www.alibabagroup.com/en-US)
 - [Capybara Science Lab](https://capybara.science/)
+- [FessorAI](https://fessor.ai/)
 - [NextTier](https://www.nexttiertech.com/)
 - [Beijing Join-Cheer Software](https://www.jiuqi.com.cn/)
 - [Guolian Minsheng Securities](https://www.glsc.com.cn/)

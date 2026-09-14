@@ -190,7 +190,9 @@
           "Developed a 28-tool Page Assistant with native function calling, persistent memory, and WebSocket-based progress updates."
         ],
         "technology": ["Python", "Django", "Celery", "Redis", "PostgreSQL", "LLM Tools"],
-        "links": []
+        "links": [
+          { "label": "WEBSITE", "href": "https://fessor.ai/" }
+        ]
       },
       {
         "company": "FocusTrail",
