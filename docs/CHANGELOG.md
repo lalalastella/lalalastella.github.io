@@ -7,6 +7,7 @@
 - Restored the formal CUCS title, Outreach Officer, instead of using the responsibility label Sponsorship & Partnerships.
 - Replaced the generic UC Irvine wordmark with the organization-specific CUCS logo from its official ZotSpot page.
 - Switched CUCS to its clearer rainbow wordmark and corrected UCI CSSA's role to Events Department.
+- Replaced the public AI resume with the latest one-page revision, accepting tracked changes and removing review markup before publication.
 
 ## 2026-09-13
 
