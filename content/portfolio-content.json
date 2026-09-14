@@ -303,7 +303,7 @@
     "communityTitle": "Leadership & Community",
     "community": [
       { "organization": "UCI CUCS", "role": "Outreach Officer", "logo": "/brands/uci-cucs.png", "logoAlt": "UCI CUCS logo" },
-      { "organization": "UCI CSSA", "role": "External Relations", "logo": "/brands/uci-cssa.png", "logoAlt": "UCI CSSA logo" },
+      { "organization": "UCI CSSA", "role": "Events Department", "logo": "/brands/uci-cssa.png", "logoAlt": "UCI CSSA logo" },
       { "organization": "UCI HOX", "role": "Events & External Relations", "logo": "/brands/uci-hox.png", "logoAlt": "Eta Omega Chi logo" }
     ],
     "fieldNotes": [

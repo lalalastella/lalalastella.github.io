@@ -6,6 +6,7 @@
 - Added verified organization marks and clarified the roles as sponsorship, partnerships, events, and external relations while keeping the list date-free.
 - Restored the formal CUCS title, Outreach Officer, instead of using the responsibility label Sponsorship & Partnerships.
 - Replaced the generic UC Irvine wordmark with the organization-specific CUCS logo from its official ZotSpot page.
+- Switched CUCS to its clearer rainbow wordmark and corrected UCI CSSA's role to Events Department.
 
 ## 2026-09-13
 

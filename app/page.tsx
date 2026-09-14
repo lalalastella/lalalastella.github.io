@@ -427,7 +427,7 @@ function About() {
       <h3 id="community-title">{content.aboutSection.communityTitle}</h3>
       <ul>
         {content.aboutSection.community.map((item) => <li key={item.organization}>
-          <span className="community-mark"><img src={item.logo} alt={item.logoAlt} /></span>
+          <span className={`community-mark ${item.organization === 'UCI CUCS' ? 'is-wordmark' : ''}`}><img src={item.logo} alt={item.logoAlt} /></span>
           <div>
             <strong>{item.organization}</strong>
             <span>{item.role}</span>

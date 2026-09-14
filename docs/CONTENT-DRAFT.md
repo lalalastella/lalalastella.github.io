@@ -175,7 +175,7 @@ Python · TypeScript · FastAPI · Django · Node.js · React · Next.js · Post
 Leadership & Community:
 
 - UCI CUCS · Outreach Officer
-- UCI CSSA · External Relations
+- UCI CSSA · Events Department
 - UCI HOX · Events & External Relations
 
 ## Resume
