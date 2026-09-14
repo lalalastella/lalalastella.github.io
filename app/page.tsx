@@ -338,12 +338,20 @@ function Experience() {
     <div className="experience-list" ref={timelineRef}>
       {experiences.map((experience, index) => {
         const expanded = expandedCompany === experience.company;
+        const websiteLink = experience.links.find((link) => link.label === 'WEBSITE');
+        const detailLinks = experience.links.filter((link) => link.label !== 'WEBSITE');
         return <article key={experience.company} className={expanded ? 'is-expanded' : ''}>
         <time className="timeline-date">{experience.date}</time>
         <span className={`timeline-node ${experience.current ? 'is-current' : ''}`}>0{index + 1}</span>
         <OrganizationMark company={experience.company} />
         <div className="experience-copy">
-          <h3>{experience.company}</h3>
+          <h3>
+            {websiteLink
+              ? <a className="experience-company-link" href={websiteLink.href} target="_blank" rel="noreferrer" aria-label={`Visit ${experience.company} website`}>
+                  {experience.company} <span aria-hidden="true">↗</span>
+                </a>
+              : experience.company}
+          </h3>
           <p className="card-meta">{experience.role}</p>
           <p className="experience-location">{experience.location}</p>
           <p className="experience-summary">{experience.summary}</p>
@@ -359,8 +367,8 @@ function Experience() {
             <div>
               <ul>{experience.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}</ul>
               <div className="experience-tech">{experience.technology.map((item) => <span key={item}>{item}</span>)}</div>
-              {experience.links.length > 0 && <div className="experience-links">
-                {experience.links.map((link) => <a href={link.href} target="_blank" rel="noreferrer" key={link.href}>{link.label} <span aria-hidden="true">↗</span></a>)}
+              {detailLinks.length > 0 && <div className="experience-links">
+                {detailLinks.map((link) => <a href={link.href} target="_blank" rel="noreferrer" key={link.href}>{link.label} <span aria-hidden="true">↗</span></a>)}
               </div>}
             </div>
           </div>

@@ -25,7 +25,7 @@ Last updated: 2026-09-02
 
 ## Experience
 
-Display rule: use a recruiter-scannable web summary rather than copying every resume bullet. Each role contains its date, location, title, and one visible positioning sentence. `VIEW DETAILS` reveals at most two strongest outcomes and compact technology tags; only one role expands at a time. The resume remains the complete record.
+Display rule: use a recruiter-scannable web summary rather than copying every resume bullet. Each role contains its date, location, title, and one visible positioning sentence. Verified official websites link from the company name. `VIEW DETAILS` reveals at most two strongest outcomes and compact technology tags; only one role expands at a time. The resume remains the complete record.
 
 Section introduction:
 

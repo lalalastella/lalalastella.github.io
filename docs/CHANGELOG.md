@@ -2,6 +2,7 @@
 
 ## 2026-09-13
 
+- Moved official organization links from expanded `WEBSITE` buttons into the company names, with a subtle external-link cue and hover treatment.
 - Updated the securities experience to the current official name, Guolian Minsheng Securities.
 - Replaced the historical mark with the supplied official Guolian Minsheng wordmark.
 - Added verified official websites to the expanded Experience entries for Alibaba Group, Capybara Science Lab, FessorAI, NextTier, Beijing Join-Cheer Software, and Guolian Minsheng Securities.
