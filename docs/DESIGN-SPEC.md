@@ -94,7 +94,7 @@ Experience is listed before Projects. Capybara Science Lab appears only in the d
 - Timeline nodes remain quiet coordinates; even the current-role node uses only a restrained mint outline.
 - As the visitor scrolls, the company logo and company/role copy—not the sequence number—rise into clarity. The entry nearest the reading zone receives the strongest contrast, mint role accent, and restrained logo glow; revealed entries remain readable.
 - Default copy is a curated web summary rather than the complete resume: one positioning sentence remains visible, while an accessible `VIEW DETAILS` control smoothly reveals up to two strongest outcomes and compact technology tags. Only one role is expanded at a time.
-- Relevant public product links appear only in the expanded layer. FocusTrail exposes separate `ADTI TEST` and `PRODUCT DEMO` actions so the default timeline remains concise.
+- Relevant official organization and public product links appear only in the expanded layer. Organization buttons use `WEBSITE`; FocusTrail exposes separate `ADTI TEST` and `PRODUCT DEMO` actions so the default timeline remains concise.
 - Official logos are preferred to text placeholders.
 - Wide wordmarks may use a wider logo cell; square icons should remain visually consistent.
 

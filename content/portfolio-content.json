@@ -158,7 +158,9 @@
           "Improved shopping retrieval Recall@10 from 70% to 85% and transformed 100M raw interactions into 86.3M training records across 987,992 users."
         ],
         "technology": ["Python", "RAG", "BGE", "Evaluation", "Data Pipelines"],
-        "links": []
+        "links": [
+          { "label": "WEBSITE", "href": "https://www.alibabagroup.com/en-US" }
+        ]
       },
       {
         "company": "Capybara Science Lab, UCI",
@@ -172,7 +174,9 @@
           "Building a trajectory-level hypothesis-tracking framework to compare four search policies across localization quality, patch correctness, hypothesis survival, and cost."
         ],
         "technology": ["Python", "mini-swe-agent", "SWE-bench", "Agent Evaluation"],
-        "links": []
+        "links": [
+          { "label": "WEBSITE", "href": "https://capybara.science/" }
+        ]
       },
       {
         "company": "FessorAI · UCI Capstone",
@@ -217,7 +221,9 @@
           "Raised function-calling accuracy from 82.4% to 91.1% while reducing average tool calls from 2.5 to 1.6 and estimated cost by 36%."
         ],
         "technology": ["Python", "FastAPI", "LangChain", "RAG", "Pydantic", "Docker", "MLflow"],
-        "links": []
+        "links": [
+          { "label": "WEBSITE", "href": "https://www.nexttiertech.com/" }
+        ]
       },
       {
         "company": "Beijing Join-Cheer Software Co., Ltd.",
@@ -231,7 +237,9 @@
           "Containerized and automated delivery for 10+ services with Docker, Kubernetes, and CI/CD, reducing deployment time by 40%."
         ],
         "technology": ["Python", "Flask", "Dify", "Docker", "Kubernetes", "CI/CD", "Alibaba Cloud"],
-        "links": []
+        "links": [
+          { "label": "WEBSITE", "href": "https://www.jiuqi.com.cn/" }
+        ]
       },
       {
         "company": "Guolian Minsheng Securities",
@@ -246,7 +254,7 @@
         ],
         "technology": ["Python", "SQL", "MaxCompute", "RDS", "DataV", "Testing"],
         "links": [
-          { "label": "LINKEDIN", "href": "https://www.linkedin.com/company/guolianminsheng-securities-co-ltd/" }
+          { "label": "WEBSITE", "href": "https://www.glsc.com.cn/" }
         ]
       }
     ]

@@ -3,7 +3,9 @@
 ## 2026-09-13
 
 - Updated the securities experience to the current official name, Guolian Minsheng Securities.
-- Replaced the historical mark with the supplied official Guolian Minsheng wordmark and added the verified LinkedIn company page.
+- Replaced the historical mark with the supplied official Guolian Minsheng wordmark.
+- Added verified official websites to the expanded Experience entries for Alibaba Group, Capybara Science Lab, NextTier, Beijing Join-Cheer Software, and Guolian Minsheng Securities.
+- Kept FocusTrail's product-specific actions and omitted an unverified FessorAI website.
 
 ## 2026-09-06
 

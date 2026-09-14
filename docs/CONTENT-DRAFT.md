@@ -35,6 +35,8 @@ Current entries:
 
 - **Alibaba Group** — AI Algorithm Intern · Jul 2026–Present · Hangzhou, China  
   Applied AI systems and production-oriented algorithm engineering.
+- **Capybara Science Lab, UCI** — Undergraduate Researcher · Apr 2026–Present · Irvine, CA
+  Investigating how software-engineering agents generate, retain, and abandon localization hypotheses across multi-step trajectories.
 - **FessorAI · UCI Capstone** — Software Engineer · Apr–Jun 2026 · Irvine, CA  
   Built a full-stack AI education platform that generates structured textbooks through a six-stage LLM workflow and lets users query and edit content with an agentic page assistant.
 - **FocusTrail** — Founder & Software Engineer · Jan 2026–Present · Irvine, CA  
@@ -49,11 +51,18 @@ Current entries:
   Contributed to an enterprise AI-agent platform and data services for government and financial-reporting workflows.
 - **Guolian Minsheng Securities** — Software Engineer Intern · Jul–Sep 2024 · Shanghai, China  
   Rebuilt Python/SQL ETL pipelines on MaxCompute, improving data accuracy by 25%; automated RDS validation and dashboards, reducing manual QA effort by 30%.
-  - Link: [LinkedIn](https://www.linkedin.com/company/guolianminsheng-securities-co-ltd/)
+
+Official organization links:
+
+- [Alibaba Group](https://www.alibabagroup.com/en-US)
+- [Capybara Science Lab](https://capybara.science/)
+- [NextTier](https://www.nexttiertech.com/)
+- [Beijing Join-Cheer Software](https://www.jiuqi.com.cn/)
+- [Guolian Minsheng Securities](https://www.glsc.com.cn/)
 
 Editorial decision:
 
-- Capybara Science Lab appears only in Research, where its advisor, timeline, research questions, and methodology can be presented without duplicating Experience.
+- Capybara Science Lab appears in Experience as a concise current role and in Research as the deeper methodology-focused story.
 
 ## Projects
 
