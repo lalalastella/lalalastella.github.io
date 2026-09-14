@@ -333,6 +333,12 @@ h1 { margin:20px 0 16px; font-family:var(--font-geist-sans),Arial,sans-serif; fo
 .about-view .toolkit { display:flex; flex-wrap:wrap; align-items:center; gap:8px; max-width:850px; }
 .about-view .toolkit span { flex:0 0 auto; justify-content:flex-start; padding:9px 12px; gap:8px; font-size:11px; white-space:nowrap; }
 .about-view .toolkit svg { width:17px; height:17px; flex-basis:17px; }
+.community-list { margin-top:36px; padding-top:22px; border-top:1px solid rgba(140,166,181,.2); }
+.community-list h3 { margin:0 0 14px; color:#f1f3f2; font-size:17px; }
+.community-list ul { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; margin:0; padding:0; list-style:none; }
+.community-list li { min-height:62px; padding:13px 15px; display:flex; flex-direction:column; justify-content:center; gap:5px; border:1px solid rgba(159,187,201,.2); background:rgba(8,24,34,.42); }
+.community-list strong { color:#e5ecef; font-size:14px; font-weight:630; }
+.community-list span { color:#83ead1; font:10px var(--font-geist-mono),monospace; letter-spacing:.055em; text-transform:uppercase; }
 .field-notes { margin-top:46px; padding-top:28px; border-top:1px solid rgba(140,166,181,.2); }
 .field-notes-heading { display:grid; grid-template-columns:120px minmax(0,1fr); column-gap:24px; }
 .field-notes-heading>span { grid-row:1/3; color:#83ead1; font:10px var(--font-geist-mono),monospace; letter-spacing:.1em; }
@@ -489,6 +495,7 @@ h1 { margin:20px 0 16px; font-family:var(--font-geist-sans),Arial,sans-serif; fo
   .about-view .about-portrait { width:min(260px,78vw); justify-self:start; }
   .about-view .toolkit { display:flex; }
   .about-view .toolkit span { padding:8px 10px; font-size:10px; }
+  .community-list ul { grid-template-columns:1fr; }
   .field-notes { margin-top:34px; }
   .field-notes-heading { grid-template-columns:1fr; }
   .field-notes-heading>span { grid-row:auto; margin-bottom:12px; }

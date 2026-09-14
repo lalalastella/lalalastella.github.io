@@ -423,6 +423,15 @@ function About() {
         <img src="/stella-linkedin-portrait.jpg" alt="Stella (Yuxuan) Jiang" />
       </figure>
     </div>
+    <section className="community-list" aria-labelledby="community-title">
+      <h3 id="community-title">{content.aboutSection.communityTitle}</h3>
+      <ul>
+        {content.aboutSection.community.map((item) => <li key={item.organization}>
+          <strong>{item.organization}</strong>
+          {item.role && <span>{item.role}</span>}
+        </li>)}
+      </ul>
+    </section>
     <section className="field-notes" aria-labelledby="field-notes-title">
       <div className="field-notes-heading">
         <span>FIELD NOTES</span>

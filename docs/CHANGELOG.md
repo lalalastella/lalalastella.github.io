@@ -1,5 +1,9 @@
 # Portfolio Change Log
 
+## 2026-09-14
+
+- Added a compact Leadership & Community list for UCI CUCS, UCI CSSA, and UCI HOX within About.
+
 ## 2026-09-13
 
 - Moved official organization links from expanded `WEBSITE` buttons into the company names, with a subtle external-link cue and hover treatment.

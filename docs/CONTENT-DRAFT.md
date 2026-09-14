@@ -172,6 +172,12 @@ Technical toolkit:
 
 Python · TypeScript · FastAPI · Django · Node.js · React · Next.js · PostgreSQL · Redis · RAG · LLM Agents · Evaluation · Docker · Pytest
 
+Leadership & Community:
+
+- UCI CUCS · Outreach Officer
+- UCI CSSA
+- UCI HOX
+
 ## Resume
 
 - Name: Stella (Yuxuan) Jiang

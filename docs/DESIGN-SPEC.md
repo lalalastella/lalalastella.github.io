@@ -120,6 +120,7 @@ Experience is listed before Projects. Capybara Science Lab appears only in the d
 - Desktop target: one viewport without scrolling.
 - Title and subtitle at top; main copy on left, LinkedIn portrait on right.
 - Technical toolkit sits directly below the introduction and to the left of the portrait.
+- Leadership & Community appears as a compact three-item list below the About overview, without adding another top-level navigation module.
 - Toolkit items are content-width chips, not stretched grid cells.
 - Use available space confidently: large readable copy and portrait, without making the page feel empty.
 
