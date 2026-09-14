@@ -4,6 +4,7 @@
 
 - Added a compact Leadership & Community list for UCI CUCS, UCI CSSA, and UCI HOX within About.
 - Added verified organization marks and clarified the roles as sponsorship, partnerships, events, and external relations while keeping the list date-free.
+- Restored the formal CUCS title, Outreach Officer, instead of using the responsibility label Sponsorship & Partnerships.
 
 ## 2026-09-13
 
