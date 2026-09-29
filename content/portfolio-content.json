@@ -149,10 +149,10 @@
       {
         "company": "Alibaba Group",
         "role": "AI Algorithm Intern",
-        "date": "Jul 2026 — Present",
+        "date": "Jul 2026 - Sep 2026",
         "location": "Hangzhou, China",
-        "current": true,
-        "summary": "Building production-oriented retrieval, evaluation, and data systems for shopping and community AI workflows.",
+        "current": false,
+        "summary": "Built production-oriented retrieval, evaluation, and data systems for shopping and community AI workflows.",
         "highlights": [
           "Built a 778-entry, 6,562-query retrieval benchmark; the selected BGE retriever reached 76.40% Top-1 and 91.34% Top-3 accuracy.",
           "Improved shopping retrieval Recall@10 from 70% to 85% and transformed 100M raw interactions into 86.3M training records across 987,992 users."

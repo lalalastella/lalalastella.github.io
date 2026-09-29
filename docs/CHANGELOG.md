@@ -3,6 +3,7 @@
 ## 2026-09-29
 
 - Replaced the public SWE and AI Systems resume PDFs with the current v6 application versions.
+- Updated the Alibaba experience end date to September 2026 across both public resumes and the website profile.
 - Kept SWE v6 as the default public resume and AI v6 as the alternate AI Systems version.
 - Refreshed the legacy canonical resume PDF to match the current SWE v6 default.
 
