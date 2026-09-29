@@ -183,8 +183,8 @@ Leadership & Community:
 - Name: Stella (Yuxuan) Jiang
 - Headline: AI Engineer · Full-Stack Software Engineer
 - Education: B.S. Computer Science · University of California, Irvine · Expected June 2027
-- Public version: Software Engineering + Applied AI Systems
-- Website behavior: embedded one-page preview with a secondary Download PDF action
+- Public versions: SWE v6 (default) and AI Systems v6
+- Website behavior: selectable embedded one-page previews with a secondary Download PDF action
 
 ## Contact
 
@@ -196,6 +196,6 @@ Leadership & Community:
 
 1. Do not invent metrics, dates, job titles, awards, or technologies.
 2. Avoid repeating the same item across Experience, Research, and Projects unless the repetition serves a distinct navigation purpose.
-3. Keep one public resume on the website; use the current SWE + Applied AI version as the broadest profile.
+3. Keep two public resume variants on the website: the current SWE general resume as the default and the current AI Systems general resume as the alternate.
 4. Keep the career content primary. The game interface is a visual system, not the subject of the copy.
 5. After every approved copy change, update this document and `content/portfolio-content.json` together.

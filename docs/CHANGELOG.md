@@ -1,5 +1,11 @@
 # Portfolio Change Log
 
+## 2026-09-29
+
+- Replaced the public SWE and AI Systems resume PDFs with the current v6 application versions.
+- Kept SWE v6 as the default public resume and AI v6 as the alternate AI Systems version.
+- Refreshed the legacy canonical resume PDF to match the current SWE v6 default.
+
 ## 2026-09-14
 
 - Added a compact Leadership & Community list for UCI CUCS, UCI CSSA, and UCI HOX within About.

@@ -129,7 +129,8 @@ Experience is listed before Projects. Capybara Science Lab appears only in the d
 - Desktop target: one viewport without scrolling.
 - Resume is embedded inside the website; it does not require leaving the site.
 - Left column provides identity, role, education, public-version note, and Download PDF.
-- Right column contains the one-page PDF preview.
+- A compact switcher selects the SWE default or AI Systems variant.
+- Right column contains the selected one-page PDF preview.
 - On mobile, columns stack and natural scrolling is allowed.
 
 ### Contact
@@ -183,7 +184,9 @@ Experience is listed before Projects. Capybara Science Lab appears only in the d
 | Alibaba Group logo | `public/brands/alibaba-group.png` | Active; official Alibaba Group media asset |
 | Beijing Join-Cheer logo | `public/brands/join-cheer.jpg` | Active; official bilingual horizontal mark extracted from the company's 2022 annual report |
 | Guolian Minsheng Securities logo | `public/brands/guolian-minsheng-securities.png` | Active; user-provided official current wordmark |
-| Public resume | `public/documents/stella-yuxuan-jiang-resume.pdf` | Active; embedded |
+| Public SWE resume | `public/documents/stella-jiang-resume-swe.pdf` | Active; embedded default |
+| Public AI Systems resume | `public/documents/stella-jiang-resume-ai.pdf` | Active; embedded alternate |
+| Legacy canonical resume URL | `public/documents/stella-yuxuan-jiang-resume.pdf` | Active; mirrors current SWE default |
 
 ## Maintenance Rules
 
