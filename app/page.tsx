@@ -238,7 +238,6 @@ function Projects() {
           </button>
           <div className="case-study" aria-hidden={!expanded}>
             <div>
-              {'detailImage' in project && <figure className="case-study-visual"><img src={project.detailImage} alt={project.detailImageAlt} /><figcaption>SYSTEM FLOW</figcaption></figure>}
               <div className="case-study-grid">{project.caseStudy.map((section) => <section key={section.label}><span>{section.label}</span><p>{section.text}</p></section>)}</div>
             </div>
           </div>
@@ -498,7 +497,13 @@ function Contact() {
 
 function Resume() {
   const [activeResume, setActiveResume] = useState(content.resumeSection.defaultVariant);
+  const [resumeLoading, setResumeLoading] = useState(true);
   const resume = content.resumeSection.variants.find((variant) => variant.id === activeResume) ?? content.resumeSection.variants[0];
+  const selectResume = (variantId: string) => {
+    if (variantId === activeResume) return;
+    setResumeLoading(true);
+    setActiveResume(variantId);
+  };
   return <div className="content-inner resume-content">
     <SectionIntro index="05" title={content.resumeSection.title} text={content.resumeSection.subtitle} />
     <div className="resume-layout">
@@ -509,7 +514,7 @@ function Resume() {
         <p className="resume-education"><GraduationCap aria-hidden="true" />{content.resumeSection.education}</p>
         <p className="resume-note">{content.resumeSection.note}</p>
         <div className="resume-switcher" aria-label="Resume version">
-          {content.resumeSection.variants.map((variant) => <button type="button" className={variant.id === activeResume ? 'active' : ''} onClick={() => setActiveResume(variant.id)} key={variant.id}>{variant.shortLabel}</button>)}
+          {content.resumeSection.variants.map((variant) => <button type="button" className={variant.id === activeResume ? 'active' : ''} onClick={() => selectResume(variant.id)} key={variant.id}>{variant.shortLabel}</button>)}
         </div>
         <a className="resume-button" href={resume.href} download>
           DOWNLOAD {resume.shortLabel} PDF <span>↓</span>
@@ -517,10 +522,18 @@ function Resume() {
       </div>
       <div className="resume-preview">
         <div className="resume-preview-bar"><span>{resume.fileLabel}</span><span>{resume.default ? 'DEFAULT · ' : ''}1 / 1</span></div>
-        <iframe
-          src={`${resume.href}#view=FitH&toolbar=0&navpanes=0`}
-          title={`Stella (Yuxuan) Jiang ${resume.shortLabel} resume`}
-        />
+        <div className="resume-preview-body">
+          <iframe
+            key={resume.id}
+            src={`${resume.href}#view=FitH&toolbar=0&navpanes=0`}
+            title={`Stella (Yuxuan) Jiang ${resume.shortLabel} resume`}
+            onLoad={() => setResumeLoading(false)}
+          />
+          <div className={`resume-loader ${resumeLoading ? 'is-visible' : ''}`} role="status" aria-hidden={!resumeLoading}>
+            <img src="/pixel-cat.png" alt="" />
+            <span>LOADING RESUME</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>;

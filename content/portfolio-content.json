@@ -125,7 +125,6 @@
         "meta": "Disk-Backed Indexing and Ranked Retrieval",
         "summary": "A Python search engine that keeps postings on disk, retrieves them through byte offsets, and ranks Boolean-AND candidates with TF-IDF, field boosts, proximity, and PageRank.",
         "demo": "/projects/atlassearch-demo.svg",
-        "secondaryDemo": "/projects/atlassearch-architecture.svg",
         "trace": "Parse → Partial offload → Merge → Offset lookup → Rank",
         "technology": "Python · Flask · NLTK · Inverted Index · PageRank",
         "featured": false,
@@ -134,8 +133,6 @@
           { "label": "What I built", "text": "Partial index offloads, an on-disk merge, and byte-offset lookup for query-specific postings." },
           { "label": "Evidence", "text": "Boolean AND retrieval ranked with TF-IDF, field boosts, proximity, and PageRank." }
         ],
-        "detailImage": "/projects/atlassearch-architecture.svg",
-        "detailImageAlt": "AtlasSearch disk-backed indexing and retrieval system flow",
         "links": [
           { "label": "GitHub", "href": "https://github.com/lalalastella/AtlasSearch" }
         ]

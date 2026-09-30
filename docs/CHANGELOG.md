@@ -2,6 +2,7 @@
 
 ## 2026-09-29
 
+- Removed the redundant AtlasSearch system-flow image and added a pixel-cat loading state while embedded resume PDFs load or switch versions.
 - Added the motto "Wander wide, converge within." to About and corrected the FocusTrail Experience start date to December 2025.
 - Changed the intro replay memory from permanent local storage to versioned session storage so the animation returns in a new browsing session.
 - Clarified the About introduction by identifying UC Irvine directly.

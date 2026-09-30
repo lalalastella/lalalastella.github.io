@@ -228,9 +228,6 @@ h1 { margin:20px 0 16px; font-family:var(--font-geist-sans),Arial,sans-serif; fo
 .case-study-grid section { padding:16px 0; border-top:1px solid rgba(151,181,194,.14); }
 .case-study-grid span { color:#83ead1; font:10px var(--font-geist-mono),monospace; letter-spacing:.07em; text-transform:uppercase; }
 .case-study-grid p { margin:7px 0 0; color:#b9c6cd; font-size:13px; line-height:1.52; }
-.case-study-visual { position:relative; margin:20px 0 4px; aspect-ratio:16/9; overflow:hidden; border:1px solid rgba(166,193,205,.24); background:#09131d; }
-.case-study-visual img { width:100%; height:100%; display:block; object-fit:cover; }
-.case-study-visual figcaption { position:absolute; right:9px; bottom:8px; padding:5px 7px; color:#d7e2e7; background:rgba(4,14,22,.8); font:8px var(--font-geist-mono),monospace; letter-spacing:.08em; }
 .experience-list { position:relative; }
 .experience-list::before { content:''; position:absolute; top:17px; bottom:17px; left:122px; width:1px; background:linear-gradient(180deg,rgba(103,220,192,.62),rgba(141,124,255,.24) 72%,rgba(141,124,255,.05)); }
 .experience-list article { position:relative; display:grid; grid-template-columns:104px 36px 112px minmax(0,1fr); gap:18px; align-items:start; padding:0 8px 34px 0; }
@@ -416,7 +413,12 @@ h1 { margin:20px 0 16px; font-family:var(--font-geist-sans),Arial,sans-serif; fo
 .resume-switcher button.active { color:#06121c; border-color:var(--mint); background:var(--mint); }
 .resume-preview { min-width:0; height:min(61vh,630px); display:flex; flex-direction:column; overflow:hidden; border:1px solid rgba(160,187,201,.28); background:#d9dde0; box-shadow:0 16px 36px rgba(0,0,0,.2); }
 .resume-preview-bar { height:35px; flex:0 0 35px; padding:0 13px; display:flex; align-items:center; justify-content:space-between; color:#cbd7dd; background:#081722; border-bottom:1px solid rgba(160,187,201,.28); font:10px var(--font-geist-mono),monospace; letter-spacing:.055em; }
+.resume-preview-body { position:relative; min-height:0; flex:1; overflow:hidden; background:#d9dde0; }
 .resume-preview iframe { width:100%; height:100%; display:block; border:0; background:#d9dde0; }
+.resume-loader { position:absolute; inset:0; z-index:2; display:grid; place-content:center; justify-items:center; gap:13px; pointer-events:none; opacity:0; visibility:hidden; background:radial-gradient(circle at 50% 43%,rgba(131,234,209,.12),transparent 26%),#0a1721; transition:opacity .3s ease,visibility 0s linear .3s; }
+.resume-loader.is-visible { opacity:1; visibility:visible; transition:opacity .18s ease; }
+.resume-loader img { width:72px; height:70px; object-fit:contain; image-rendering:pixelated; filter:drop-shadow(0 8px 11px rgba(0,0,0,.28)); animation:resume-cat-float 1.15s ease-in-out infinite; }
+.resume-loader span { color:#83ead1; font:9px var(--font-geist-mono),monospace; letter-spacing:.13em; }
 .content-view.resume-view { padding-top:30px; padding-bottom:32px; }
 .resume-view .content-back { position:relative; top:auto; margin-bottom:20px; padding:10px 14px; }
 .resume-view .resume-content .content-intro { grid-template-columns:54px minmax(0,1fr); column-gap:16px; margin-bottom:26px; }
@@ -442,6 +444,7 @@ h1 { margin:20px 0 16px; font-family:var(--font-geist-sans),Arial,sans-serif; fo
 @keyframes city-boot { from { transform:scale(1.075); filter:blur(9px) brightness(.42) saturate(.55); } to { transform:scale(1.025); filter:none; } }
 @keyframes cat-boot { 0% { opacity:0; transform:translateX(-8px); filter:brightness(2); } 28% { opacity:.85; transform:translateX(3px); } 48% { opacity:.34; transform:translateX(-2px); filter:brightness(1.5); } 72% { opacity:1; transform:translateX(1px); } 100% { opacity:1; transform:none; filter:none; } }
 @keyframes intro-rise { from { opacity:0; transform:translateY(13px); } to { opacity:1; transform:none; } }
+@keyframes resume-cat-float { 0%,100% { transform:translateY(0) rotate(-1deg); } 50% { transform:translateY(-7px) rotate(1deg); } }
 @keyframes title-rise { from { opacity:0; transform:translateY(28px); filter:blur(5px); } to { opacity:1; transform:none; filter:none; } }
 @keyframes boot-command-fade { 0% { opacity:0; } 10%,72% { opacity:1; } 100% { opacity:0; } }
 @keyframes boot-type { from { width:0; } to { width:35ch; } }
