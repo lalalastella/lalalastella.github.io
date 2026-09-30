@@ -416,7 +416,6 @@ function About() {
     <div className="about-overview">
       <div className="about-copy">
         {content.aboutSection.paragraphs.map((paragraph, index) => <p className={index === 0 ? 'lead-copy' : ''} key={paragraph}>{paragraph}</p>)}
-        <blockquote className="about-motto">{content.aboutSection.motto}</blockquote>
         <h3 className="toolkit-heading">{content.aboutSection.toolkitTitle}</h3>
         <div className="toolkit">{toolkit.map((item) => <span key={item}><TechnologyMark name={item} />{item}</span>)}</div>
       </div>
@@ -479,6 +478,10 @@ function About() {
         <span>{showAllNotes ? 'Show fewer notes' : `View all ${content.aboutSection.fieldNotes.length} notes`}</span>
         <b aria-hidden="true">{showAllNotes ? '−' : '+'}</b>
       </button>}
+      <footer className="field-notes-continuation">
+        <span>MORE FIELD NOTES TO COME</span>
+        <blockquote>{content.aboutSection.motto}</blockquote>
+      </footer>
     </section>
   </div>;
 }

@@ -168,7 +168,7 @@ Main copy:
 
 > Computer Science undergraduate with experience building production-oriented LLM applications, retrieval-augmented generation systems, agentic workflows, multimodal data pipelines, and full-stack AI products. Strong background in Python and TypeScript development across FastAPI, Django, Node.js, React, relational databases, asynchronous processing, testing, and cloud deployment. Interested in AI Engineer and Software Engineer roles focused on reliable, user-facing AI systems.
 
-Motto: **Wander wide, converge within.**
+Field Notes closing: **MORE FIELD NOTES TO COME** · **Wander wide, converge within.**
 
 Technical toolkit:
 
