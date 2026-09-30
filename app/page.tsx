@@ -41,7 +41,7 @@ export default function Home() {
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let played = false;
     try {
-      played = window.localStorage.getItem('stella-portfolio-intro-seen-v1') === 'true';
+      played = window.sessionStorage.getItem('stella-portfolio-intro-seen-v2') === 'true';
     } catch {
       played = false;
     }
@@ -53,7 +53,7 @@ export default function Home() {
     }
 
     try {
-      window.localStorage.setItem('stella-portfolio-intro-seen-v1', 'true');
+      window.sessionStorage.setItem('stella-portfolio-intro-seen-v2', 'true');
     } catch {
       // The animation still works when storage is unavailable.
     }

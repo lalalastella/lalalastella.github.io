@@ -2,6 +2,7 @@
 
 ## 2026-09-29
 
+- Changed the intro replay memory from permanent local storage to versioned session storage so the animation returns in a new browsing session.
 - Clarified the About introduction by identifying UC Irvine directly.
 - Shortened expanded community organization names by removing the repeated University of California, Irvine prefix.
 - Replaced report-style community descriptions with compact activity-name and strongest-impact rows.
