@@ -417,6 +417,7 @@ function About() {
     <div className="about-overview">
       <div className="about-copy">
         {content.aboutSection.paragraphs.map((paragraph, index) => <p className={index === 0 ? 'lead-copy' : ''} key={paragraph}>{paragraph}</p>)}
+        <blockquote className="about-motto">{content.aboutSection.motto}</blockquote>
         <h3 className="toolkit-heading">{content.aboutSection.toolkitTitle}</h3>
         <div className="toolkit">{toolkit.map((item) => <span key={item}><TechnologyMark name={item} />{item}</span>)}</div>
       </div>

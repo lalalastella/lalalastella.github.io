@@ -197,7 +197,7 @@
       {
         "company": "FocusTrail",
         "role": "Founder & Software Engineer",
-        "date": "Jan 2026 — Present",
+        "date": "Dec 2025 — Present",
         "location": "Irvine, CA",
         "current": true,
         "summary": "Building a local-first AI execution coach for adaptive task planning and recovery; selected for the Alibaba Tmall Campus One Person Company (OPC) student entrepreneurship program.",
@@ -298,6 +298,7 @@
     "paragraphs": [
       "Computer Science undergraduate at UC Irvine building reliable full-stack systems and user-facing AI products. My work spans Python and TypeScript development across FastAPI, Django, Node.js, React, relational databases, asynchronous processing, testing, cloud deployment, retrieval systems, and agentic workflows. I am interested in Software Engineer and AI Engineer roles where product quality depends on sound engineering."
     ],
+    "motto": "Wander wide, converge within.",
     "toolkitTitle": "Technical toolkit",
     "toolkit": ["Python", "TypeScript", "FastAPI", "Django", "Node.js", "React", "Next.js", "PostgreSQL", "Redis", "RAG", "LLM Agents", "Evaluation", "Docker", "Pytest"],
     "communityTitle": "Leadership & Community",

@@ -39,7 +39,7 @@ Current entries:
   Investigating how software-engineering agents generate, retain, and abandon localization hypotheses across multi-step trajectories.
 - **FessorAI · UCI Capstone** — Software Engineer · Apr–Jun 2026 · Irvine, CA  
   Built a full-stack AI education platform that generates structured textbooks through a six-stage LLM workflow and lets users query and edit content with an agentic page assistant.
-- **FocusTrail** — Founder & Software Engineer · Jan 2026–Present · Irvine, CA  
+- **FocusTrail** — Founder & Software Engineer · Dec 2025–Present · Irvine, CA
   Building a local-first AI execution coach for adaptive task planning and recovery; selected for the Alibaba Tmall Campus One Person Company (OPC) student entrepreneurship program.
   Detail layer:
   - Designed dynamic execution recovery that preserves completed work and regenerates the next actionable steps when attention drifts or plans change.
@@ -167,6 +167,8 @@ Subtitle:
 Main copy:
 
 > Computer Science undergraduate with experience building production-oriented LLM applications, retrieval-augmented generation systems, agentic workflows, multimodal data pipelines, and full-stack AI products. Strong background in Python and TypeScript development across FastAPI, Django, Node.js, React, relational databases, asynchronous processing, testing, and cloud deployment. Interested in AI Engineer and Software Engineer roles focused on reliable, user-facing AI systems.
+
+Motto: **Wander wide, converge within.**
 
 Technical toolkit:
 
