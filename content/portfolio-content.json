@@ -407,6 +407,7 @@
         "shortLabel": "SWE",
         "fileLabel": "STELLA_JIANG_SWE_RESUME.PDF",
         "href": "/documents/stella-jiang-resume-swe.pdf",
+        "previewHref": "/documents/stella-jiang-resume-swe-preview.png",
         "default": true
       },
       {
@@ -414,6 +415,7 @@
         "shortLabel": "APPLIED AI",
         "fileLabel": "STELLA_JIANG_AI_SYSTEMS_RESUME.PDF",
         "href": "/documents/stella-jiang-resume-ai.pdf",
+        "previewHref": "/documents/stella-jiang-resume-ai-preview.png",
         "default": false
       }
     ]

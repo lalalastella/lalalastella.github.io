@@ -501,25 +501,27 @@ function Contact() {
 function Resume() {
   const [activeResume, setActiveResume] = useState(content.resumeSection.defaultVariant);
   const [resumeLoading, setResumeLoading] = useState(true);
-  const resumeLoaderTimer = useRef<number | null>(null);
+  const resumeLoaderFrame = useRef<number | null>(null);
   const resume = content.resumeSection.variants.find((variant) => variant.id === activeResume) ?? content.resumeSection.variants[0];
 
   useEffect(() => {
     return () => {
-      if (resumeLoaderTimer.current !== null) window.clearTimeout(resumeLoaderTimer.current);
+      if (resumeLoaderFrame.current !== null) window.cancelAnimationFrame(resumeLoaderFrame.current);
     };
   }, []);
 
   const selectResume = (variantId: string) => {
     if (variantId === activeResume) return;
-    if (resumeLoaderTimer.current !== null) window.clearTimeout(resumeLoaderTimer.current);
+    if (resumeLoaderFrame.current !== null) window.cancelAnimationFrame(resumeLoaderFrame.current);
     setResumeLoading(true);
     setActiveResume(variantId);
   };
 
   const finishResumeLoad = () => {
-    if (resumeLoaderTimer.current !== null) window.clearTimeout(resumeLoaderTimer.current);
-    resumeLoaderTimer.current = window.setTimeout(() => setResumeLoading(false), 600);
+    if (resumeLoaderFrame.current !== null) window.cancelAnimationFrame(resumeLoaderFrame.current);
+    resumeLoaderFrame.current = window.requestAnimationFrame(() => {
+      resumeLoaderFrame.current = window.requestAnimationFrame(() => setResumeLoading(false));
+    });
   };
 
   return <div className="content-inner resume-content">
@@ -541,10 +543,11 @@ function Resume() {
       <div className="resume-preview">
         <div className="resume-preview-bar"><span>{resume.fileLabel}</span><span>{resume.default ? 'DEFAULT · ' : ''}1 / 1</span></div>
         <div className="resume-preview-body">
-          <iframe
+          <img
             key={resume.id}
-            src={`${resume.href}#view=FitH&toolbar=0&navpanes=0`}
-            title={`Stella (Yuxuan) Jiang ${resume.shortLabel} resume`}
+            className="resume-preview-image"
+            src={resume.previewHref}
+            alt={`Stella (Yuxuan) Jiang ${resume.shortLabel} resume preview`}
             onLoad={finishResumeLoad}
           />
           <div className={`resume-loader ${resumeLoading ? 'is-visible' : ''}`} role="status" aria-hidden={!resumeLoading}>

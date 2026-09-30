@@ -415,8 +415,8 @@ h1 { margin:20px 0 16px; font-family:var(--font-geist-sans),Arial,sans-serif; fo
 .resume-switcher button.active { color:#06121c; border-color:var(--mint); background:var(--mint); }
 .resume-preview { min-width:0; height:min(61vh,630px); display:flex; flex-direction:column; overflow:hidden; border:1px solid rgba(160,187,201,.28); background:#d9dde0; box-shadow:0 16px 36px rgba(0,0,0,.2); }
 .resume-preview-bar { height:35px; flex:0 0 35px; padding:0 13px; display:flex; align-items:center; justify-content:space-between; color:#cbd7dd; background:#081722; border-bottom:1px solid rgba(160,187,201,.28); font:10px var(--font-geist-mono),monospace; letter-spacing:.055em; }
-.resume-preview-body { position:relative; min-height:0; flex:1; overflow:hidden; background:#d9dde0; }
-.resume-preview iframe { width:100%; height:100%; display:block; border:0; background:#d9dde0; }
+.resume-preview-body { position:relative; min-height:0; flex:1; overflow:auto; background:#d9dde0; scrollbar-color:#72808a #c8cdd0; }
+.resume-preview-image { width:100%; height:auto; display:block; background:#fff; }
 .resume-loader { position:absolute; inset:0; z-index:2; display:grid; place-content:center; justify-items:center; gap:11px; pointer-events:none; opacity:0; visibility:hidden; background:#0a1721; transition:opacity .3s ease,visibility 0s linear .3s; }
 .resume-loader.is-visible { opacity:1; visibility:visible; transition:opacity .18s ease; }
 .resume-loader-scene { position:relative; width:138px; height:84px; display:grid; place-items:end center; overflow:hidden; }

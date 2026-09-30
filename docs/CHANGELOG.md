@@ -122,7 +122,8 @@
 
 ### Engineering
 
-- Kept the transparent pixel-cat Resume loader active on first open and every resume switch until the embedded PDF reports ready, with a short paint buffer before the overlay fades.
+- Kept the transparent pixel-cat Resume loader active on first open and every resume switch until the rendered PDF page is visibly ready, avoiding Chrome's premature iframe load event.
+- Added verified first-page previews for both resume variants while preserving the original PDFs as the download files.
 - Restyled the Resume loader as a minimal offline-dinosaur-inspired running scene with a moving pixel track and no white image card.
 - Fixed the GitHub icon import by using the correct icon package.
 - Centralized live website copy in `content/portfolio-content.json`.
