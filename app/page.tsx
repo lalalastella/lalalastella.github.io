@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { Bot, BrainCircuit, ChartNoAxesCombined, Database, FileText, Film, GraduationCap, Mail, Search, ShieldCheck } from 'lucide-react';
+import { Bot, BrainCircuit, ChartNoAxesCombined, ChevronDown, Database, FileText, Film, GraduationCap, Mail, Search, ShieldCheck } from 'lucide-react';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa6';
 import { SiDjango, SiDocker, SiFastapi, SiNextdotjs, SiNodedotjs, SiPostgresql, SiPytest, SiPython, SiReact, SiRedis, SiTypescript } from 'react-icons/si';
 import content from '../content/portfolio-content.json';
@@ -410,6 +410,7 @@ function Research() {
 
 function About() {
   const [showAllNotes, setShowAllNotes] = useState(false);
+  const [expandedCommunity, setExpandedCommunity] = useState<string | null>(null);
   const visibleNotes = showAllNotes ? content.aboutSection.fieldNotes : content.aboutSection.fieldNotes.slice(0, 3);
   return <div className="content-inner about-content">
     <SectionIntro index="04" title={content.aboutSection.title} text={content.aboutSection.subtitle} />
@@ -426,13 +427,35 @@ function About() {
     <section className="community-list" aria-labelledby="community-title">
       <h3 id="community-title">{content.aboutSection.communityTitle}</h3>
       <ul>
-        {content.aboutSection.community.map((item) => <li key={item.organization}>
-          <span className={`community-mark ${item.organization === 'UCI CUCS' ? 'is-wordmark' : ''}`}><img src={item.logo} alt={item.logoAlt} /></span>
-          <div>
-            <strong>{item.organization}</strong>
-            <span>{item.role}</span>
-          </div>
-        </li>)}
+        {content.aboutSection.community.map((item, index) => {
+          const isExpanded = expandedCommunity === item.organization;
+          const detailsId = `community-details-${index}`;
+          return <li className={isExpanded ? 'is-open' : ''} key={item.organization}>
+            <div className="community-card">
+              <button className="community-card-toggle" type="button" aria-expanded={isExpanded} aria-controls={detailsId} onClick={() => setExpandedCommunity(isExpanded ? null : item.organization)}>
+                <span className={`community-mark ${item.organization === 'UCI CUCS' ? 'is-wordmark' : ''}`}><img src={item.logo} alt={item.logoAlt} /></span>
+                <span className="community-card-heading">
+                  <strong>{item.organization}</strong>
+                  <span>{item.role}</span>
+                </span>
+                <ChevronDown className="community-chevron" aria-hidden="true" />
+              </button>
+              <div className="community-details-shell" id={detailsId} aria-hidden={!isExpanded}>
+                <div className="community-details-clip">
+                  <div className="community-details">
+                    <p className="community-full-name">{item.fullName}</p>
+                    <p className="community-date">{item.date}</p>
+                    <div className="community-activities">
+                      {item.activities.map((activity) => <div className="community-activity" key={activity.name}>
+                        <strong>{activity.name}</strong>
+                        <span>{activity.impact}</span>
+                      </div>)}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>})}
       </ul>
     </section>
     <section className="field-notes" aria-labelledby="field-notes-title">
@@ -517,7 +540,7 @@ function OrganizationMark({ company }: { company: string }) {
   if (company.startsWith('FessorAI')) return <span className="org-logo fessor-logo"><img src="/brands/fessorai.png" alt="FessorAI logo" /></span>;
   if (company === 'FocusTrail') return <span className="org-logo focustrail-logo"><img src="/brands/focustrail.svg" alt="" /><strong>FocusTrail</strong></span>;
   if (company === 'NextTier') return <span className="org-logo nexttier-logo"><img src="/brands/nexttier.png" alt="NextTier logo" /></span>;
-  if (company.startsWith('Beijing Join-Cheer')) return <span className="org-logo join-cheer-logo"><img src="/brands/join-cheer.jpg" alt="JOIN-CHEER and Beijing Jiuqi Software official logo" /></span>;
+  if (company === 'Join-Cheer') return <span className="org-logo join-cheer-logo"><img src="/brands/join-cheer.jpg" alt="Join-Cheer logo" /></span>;
   if (company.startsWith('Guolian Minsheng')) return <span className="org-logo guolian-logo"><img src="/brands/guolian-minsheng-securities.png" alt="Guolian Minsheng Securities official logo" /></span>;
   return <span className="org-logo org-wordmark">ORG</span>;
 }

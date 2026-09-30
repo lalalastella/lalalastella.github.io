@@ -2,6 +2,13 @@
 
 ## 2026-09-29
 
+- Clarified the About introduction by identifying UC Irvine directly.
+- Shortened expanded community organization names by removing the repeated University of California, Irvine prefix.
+- Replaced report-style community descriptions with compact activity-name and strongest-impact rows.
+- Rebuilt the Leadership & Community interaction as a smooth single-open accordion with synchronized height, fade, arrow, and card-state transitions.
+- Renamed the public AI resume selector from AI Systems to Applied AI for clearer recruiter-facing positioning.
+- Shortened the public Experience display name from the full legal entity name to Join-Cheer.
+- Added expandable Leadership & Community cards in About with organization full names, dates, impact summaries, and activity details while preserving the compact default layout.
 - Replaced the public SWE and AI Systems resume PDFs with the current v6 application versions.
 - Updated the Alibaba experience end date to September 2026 across both public resumes and the website profile.
 - Kept SWE v6 as the default public resume and AI v6 as the alternate AI Systems version.

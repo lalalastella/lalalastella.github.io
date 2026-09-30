@@ -228,7 +228,7 @@
         ]
       },
       {
-        "company": "Beijing Join-Cheer Software Co., Ltd.",
+        "company": "Join-Cheer",
         "role": "Software Engineer Intern",
         "date": "Jun 2025 — Sep 2025",
         "location": "Beijing, China",
@@ -296,15 +296,50 @@
     "title": "About Stella",
     "subtitle": "I build software that stays useful beyond the first successful demo.",
     "paragraphs": [
-      "Computer Science undergraduate building reliable full-stack systems and user-facing AI products. My work spans Python and TypeScript development across FastAPI, Django, Node.js, React, relational databases, asynchronous processing, testing, cloud deployment, retrieval systems, and agentic workflows. I am interested in Software Engineer and AI Engineer roles where product quality depends on sound engineering."
+      "Computer Science undergraduate at UC Irvine building reliable full-stack systems and user-facing AI products. My work spans Python and TypeScript development across FastAPI, Django, Node.js, React, relational databases, asynchronous processing, testing, cloud deployment, retrieval systems, and agentic workflows. I am interested in Software Engineer and AI Engineer roles where product quality depends on sound engineering."
     ],
     "toolkitTitle": "Technical toolkit",
     "toolkit": ["Python", "TypeScript", "FastAPI", "Django", "Node.js", "React", "Next.js", "PostgreSQL", "Redis", "RAG", "LLM Agents", "Evaluation", "Docker", "Pytest"],
     "communityTitle": "Leadership & Community",
     "community": [
-      { "organization": "UCI CUCS", "role": "Outreach Officer", "logo": "/brands/uci-cucs.png", "logoAlt": "UCI CUCS logo" },
-      { "organization": "UCI CSSA", "role": "Events Department", "logo": "/brands/uci-cssa.png", "logoAlt": "UCI CSSA logo" },
-      { "organization": "UCI HOX", "role": "Events & External Relations", "logo": "/brands/uci-hox.png", "logoAlt": "Eta Omega Chi logo" }
+      {
+        "organization": "UCI CUCS",
+        "fullName": "Chinese Undergraduate Computer Science Association",
+        "role": "Outreach Officer",
+        "date": "Oct 2025 - Present",
+        "activities": [
+          { "name": "Industry Partnerships", "impact": "MSX, Huaqin, and LaiOffer" },
+          { "name": "Technical Events", "impact": "Industry talks, hackathons, and career programs" },
+          { "name": "Career Resources", "impact": "Internship and recruiting opportunities for members" }
+        ],
+        "logo": "/brands/uci-cucs.png",
+        "logoAlt": "UCI CUCS logo"
+      },
+      {
+        "organization": "UCI CSSA",
+        "fullName": "Chinese Students and Scholars Association",
+        "role": "Events Department",
+        "date": "Jan 2024 - Present",
+        "activities": [
+          { "name": "Chinese New Year Gala", "impact": "Backstage and program operations for nearly 1,000 attendees" },
+          { "name": "Yacht Party", "impact": "Check-in and crowd flow for 100+ guests" }
+        ],
+        "logo": "/brands/uci-cssa.png",
+        "logoAlt": "UCI CSSA logo"
+      },
+      {
+        "organization": "UCI HOX",
+        "fullName": "Eta Omega Chi",
+        "role": "Events & External Relations",
+        "date": "Apr 2024 - Present",
+        "activities": [
+          { "name": "Texas Hold'em Tournament", "impact": "First-of-its-kind tournament from setup to live table operations" },
+          { "name": "X-Party", "impact": "Venue, DJ, ticketing, check-in, and crowd flow" },
+          { "name": "Combined Impact", "impact": "100+ participants and four-figure profit across both events" }
+        ],
+        "logo": "/brands/uci-hox.png",
+        "logoAlt": "Eta Omega Chi logo"
+      }
     ],
     "fieldNotes": [
       {
@@ -378,7 +413,7 @@
       },
       {
         "id": "ai",
-        "shortLabel": "AI SYSTEMS",
+        "shortLabel": "APPLIED AI",
         "fileLabel": "STELLA_JIANG_AI_SYSTEMS_RESUME.PDF",
         "href": "/documents/stella-jiang-resume-ai.pdf",
         "default": false

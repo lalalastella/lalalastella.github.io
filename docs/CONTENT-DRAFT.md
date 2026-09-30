@@ -47,7 +47,7 @@ Current entries:
   - Links: [ADTI Test](https://focustrail-adti.jyxsju.chatgpt.site/) · [Product Demo](https://focus-trail.vercel.app/)
 - **NextTier** — Software Engineer Intern · Dec 2025–Feb 2026 · Sacramento, CA  
   Developed applied AI workflows, backend services, and evaluation capabilities for a policy-grounded expense-audit copilot.
-- **Beijing Join-Cheer Software Co., Ltd.** — Software Engineer Intern · Jun–Sep 2025 · Beijing, China  
+- **Join-Cheer** — Software Engineer Intern · Jun–Sep 2025 · Beijing, China
   Contributed to an enterprise AI-agent platform and data services for government and financial-reporting workflows.
 - **Guolian Minsheng Securities** — Software Engineer Intern · Jul–Sep 2024 · Shanghai, China  
   Rebuilt Python/SQL ETL pipelines on MaxCompute, improving data accuracy by 25%; automated RDS validation and dashboards, reducing manual QA effort by 30%.
@@ -58,7 +58,7 @@ Official organization links:
 - [Capybara Science Lab](https://capybara.science/)
 - [FessorAI](https://fessor.ai/)
 - [NextTier](https://www.nexttiertech.com/)
-- [Beijing Join-Cheer Software](https://www.jiuqi.com.cn/)
+- [Join-Cheer](https://www.jiuqi.com.cn/)
 - [Guolian Minsheng Securities](https://www.glsc.com.cn/)
 
 Editorial decision:
@@ -174,16 +174,27 @@ Python · TypeScript · FastAPI · Django · Node.js · React · Next.js · Post
 
 Leadership & Community:
 
-- UCI CUCS · Outreach Officer
-- UCI CSSA · Events Department
-- UCI HOX · Events & External Relations
+- UCI CUCS · Outreach Officer · Oct 2025 - Present
+  - Chinese Undergraduate Computer Science Association
+  - Industry Partnerships: MSX, Huaqin, and LaiOffer
+  - Technical Events: Industry talks, hackathons, and career programs
+  - Career Resources: Internship and recruiting opportunities for members
+- UCI CSSA · Events Department · Jan 2024 - Present
+  - Chinese Students and Scholars Association
+  - Chinese New Year Gala: Backstage and program operations for nearly 1,000 attendees
+  - Yacht Party: Check-in and crowd flow for 100+ guests
+- UCI HOX · Events & External Relations · Apr 2024 - Present
+  - Eta Omega Chi
+  - Texas Hold'em Tournament: First-of-its-kind tournament from setup to live table operations
+  - X-Party: Venue, DJ, ticketing, check-in, and crowd flow
+  - Combined Impact: 100+ participants and four-figure profit across both events
 
 ## Resume
 
 - Name: Stella (Yuxuan) Jiang
 - Headline: AI Engineer · Full-Stack Software Engineer
 - Education: B.S. Computer Science · University of California, Irvine · Expected June 2027
-- Public versions: SWE v6 (default) and AI Systems v6
+- Public versions: SWE v6 (default) and Applied AI v6
 - Website behavior: selectable embedded one-page previews with a secondary Download PDF action
 
 ## Contact
@@ -196,6 +207,6 @@ Leadership & Community:
 
 1. Do not invent metrics, dates, job titles, awards, or technologies.
 2. Avoid repeating the same item across Experience, Research, and Projects unless the repetition serves a distinct navigation purpose.
-3. Keep two public resume variants on the website: the current SWE general resume as the default and the current AI Systems general resume as the alternate.
+3. Keep two public resume variants on the website: the current SWE general resume as the default and the current Applied AI general resume as the alternate.
 4. Keep the career content primary. The game interface is a visual system, not the subject of the copy.
 5. After every approved copy change, update this document and `content/portfolio-content.json` together.
