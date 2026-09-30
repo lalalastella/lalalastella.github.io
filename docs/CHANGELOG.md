@@ -122,6 +122,8 @@
 
 ### Engineering
 
+- Kept the transparent pixel-cat Resume loader active on first open and every resume switch until the embedded PDF reports ready, with a short paint buffer before the overlay fades.
+- Restyled the Resume loader as a minimal offline-dinosaur-inspired running scene with a moving pixel track and no white image card.
 - Fixed the GitHub icon import by using the correct icon package.
 - Centralized live website copy in `content/portfolio-content.json`.
 - Added this living content draft, design specification, and change log.

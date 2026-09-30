@@ -501,12 +501,27 @@ function Contact() {
 function Resume() {
   const [activeResume, setActiveResume] = useState(content.resumeSection.defaultVariant);
   const [resumeLoading, setResumeLoading] = useState(true);
+  const resumeLoaderTimer = useRef<number | null>(null);
   const resume = content.resumeSection.variants.find((variant) => variant.id === activeResume) ?? content.resumeSection.variants[0];
+
+  useEffect(() => {
+    return () => {
+      if (resumeLoaderTimer.current !== null) window.clearTimeout(resumeLoaderTimer.current);
+    };
+  }, []);
+
   const selectResume = (variantId: string) => {
     if (variantId === activeResume) return;
+    if (resumeLoaderTimer.current !== null) window.clearTimeout(resumeLoaderTimer.current);
     setResumeLoading(true);
     setActiveResume(variantId);
   };
+
+  const finishResumeLoad = () => {
+    if (resumeLoaderTimer.current !== null) window.clearTimeout(resumeLoaderTimer.current);
+    resumeLoaderTimer.current = window.setTimeout(() => setResumeLoading(false), 600);
+  };
+
   return <div className="content-inner resume-content">
     <SectionIntro index="05" title={content.resumeSection.title} text={content.resumeSection.subtitle} />
     <div className="resume-layout">
@@ -530,11 +545,14 @@ function Resume() {
             key={resume.id}
             src={`${resume.href}#view=FitH&toolbar=0&navpanes=0`}
             title={`Stella (Yuxuan) Jiang ${resume.shortLabel} resume`}
-            onLoad={() => setResumeLoading(false)}
+            onLoad={finishResumeLoad}
           />
           <div className={`resume-loader ${resumeLoading ? 'is-visible' : ''}`} role="status" aria-hidden={!resumeLoading}>
-            <img src="/pixel-cat.png" alt="" />
-            <span>LOADING RESUME</span>
+            <div className="resume-loader-scene" aria-hidden="true">
+              <img className="resume-loader-cat" src="/pixel-cat.png" alt="" />
+              <span className="resume-loader-ground" />
+            </div>
+            <span className="resume-loader-label">LOADING RESUME</span>
           </div>
         </div>
       </div>
