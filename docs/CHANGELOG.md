@@ -111,6 +111,7 @@
 
 ### Assets
 
+- Replaced the Resume loader cat with a dedicated transparent-background cutout while preserving the orange-and-black pixel-art design.
 - Added the historical official Guolian Securities symbol with a bilingual horizontal name lockup for the Experience timeline.
 - Expanded the latest monochrome FocusTrail mark into a horizontal icon-and-name lockup for clearer recognition in Experience.
 - Added the official bilingual JOIN-CHEER / 久其软件 horizontal mark and enlarged the FessorAI artwork within its timeline frame.

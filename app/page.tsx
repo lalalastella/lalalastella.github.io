@@ -552,7 +552,7 @@ function Resume() {
           />
           <div className={`resume-loader ${resumeLoading ? 'is-visible' : ''}`} role="status" aria-hidden={!resumeLoading}>
             <div className="resume-loader-scene" aria-hidden="true">
-              <img className="resume-loader-cat" src="/pixel-cat.png" alt="" />
+              <img className="resume-loader-cat" src="/pixel-cat-loader-transparent.png" alt="" />
               <span className="resume-loader-ground" />
             </div>
             <span className="resume-loader-label">LOADING RESUME</span>
