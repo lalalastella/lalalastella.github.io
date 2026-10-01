@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import { Bot, BrainCircuit, ChartNoAxesCombined, ChevronDown, Database, FileText, Film, GraduationCap, Mail, Search, ShieldCheck } from 'lucide-react';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa6';
 import { SiDjango, SiDocker, SiFastapi, SiNextdotjs, SiNodedotjs, SiPostgresql, SiPytest, SiPython, SiReact, SiRedis, SiTypescript } from 'react-icons/si';
@@ -10,6 +10,17 @@ const modules = content.modules;
 const projects = content.projectsSection.projects;
 const experiences = content.experienceSection.roles;
 const toolkit = content.aboutSection.toolkit;
+type HeroVariant = 'real' | 'semi' | 'cg';
+
+const getHeroVariant = (): HeroVariant => {
+  const requestedVariant = new URLSearchParams(window.location.search).get('hero');
+  return requestedVariant === 'semi' || requestedVariant === 'cg' ? requestedVariant : 'real';
+};
+
+const subscribeToHeroVariant = (onStoreChange: () => void) => {
+  window.addEventListener('popstate', onStoreChange);
+  return () => window.removeEventListener('popstate', onStoreChange);
+};
 
 export default function Home() {
   const [entered, setEntered] = useState(false);
@@ -17,7 +28,7 @@ export default function Home() {
   const [selected, setSelected] = useState<number | null>(null);
   const [booting, setBooting] = useState(true);
   const [typedNameLength, setTypedNameLength] = useState(0);
-  const [heroVariant, setHeroVariant] = useState<'real' | 'semi' | 'cg'>('real');
+  const heroVariant = useSyncExternalStore(subscribeToHeroVariant, getHeroVariant, () => 'real');
   const contentViewRef = useRef<HTMLElement>(null);
 
   const openModule = (index: number) => {
@@ -33,49 +44,48 @@ export default function Home() {
   };
 
   useEffect(() => {
-    const requestedVariant = new URLSearchParams(window.location.search).get('hero');
-    setHeroVariant(requestedVariant === 'semi' || requestedVariant === 'cg' ? requestedVariant : 'real');
-  }, []);
-
-  useEffect(() => {
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let played = false;
-    try {
-      played = window.sessionStorage.getItem('stella-portfolio-intro-seen-v2') === 'true';
-    } catch {
-      played = false;
-    }
-
-    if (reducedMotion || played) {
-      setTypedNameLength(content.identity.heroFirstName.length + content.identity.heroLastName.length);
-      setBooting(false);
-      return;
-    }
-
-    try {
-      window.sessionStorage.setItem('stella-portfolio-intro-seen-v2', 'true');
-    } catch {
-      // The animation still works when storage is unavailable.
-    }
-
-    setTypedNameLength(0);
-    const firstLength = content.identity.heroFirstName.length;
-    const lastLength = content.identity.heroLastName.length;
     const typingTimers: number[] = [];
-    const letterInterval = 125;
-    const firstNameStart = 360;
-    const lastNameStart = firstNameStart + firstLength * letterInterval + 160;
+    let bootTimer: number | null = null;
+    const initializationFrame = window.requestAnimationFrame(() => {
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let played = false;
+      try {
+        played = window.sessionStorage.getItem('stella-portfolio-intro-seen-v2') === 'true';
+      } catch {
+        played = false;
+      }
 
-    for (let index = 1; index <= firstLength; index += 1) {
-      typingTimers.push(window.setTimeout(() => setTypedNameLength(index), firstNameStart + index * letterInterval));
-    }
-    for (let index = 1; index <= lastLength; index += 1) {
-      typingTimers.push(window.setTimeout(() => setTypedNameLength(firstLength + index), lastNameStart + index * letterInterval));
-    }
+      if (reducedMotion || played) {
+        setTypedNameLength(content.identity.heroFirstName.length + content.identity.heroLastName.length);
+        setBooting(false);
+        return;
+      }
 
-    const timer = window.setTimeout(() => setBooting(false), 3900);
+      try {
+        window.sessionStorage.setItem('stella-portfolio-intro-seen-v2', 'true');
+      } catch {
+        // The animation still works when storage is unavailable.
+      }
+
+      const firstLength = content.identity.heroFirstName.length;
+      const lastLength = content.identity.heroLastName.length;
+      const letterInterval = 125;
+      const firstNameStart = 360;
+      const lastNameStart = firstNameStart + firstLength * letterInterval + 160;
+
+      for (let index = 1; index <= firstLength; index += 1) {
+        typingTimers.push(window.setTimeout(() => setTypedNameLength(index), firstNameStart + index * letterInterval));
+      }
+      for (let index = 1; index <= lastLength; index += 1) {
+        typingTimers.push(window.setTimeout(() => setTypedNameLength(firstLength + index), lastNameStart + index * letterInterval));
+      }
+
+      bootTimer = window.setTimeout(() => setBooting(false), 3900);
+    });
+
     return () => {
-      window.clearTimeout(timer);
+      window.cancelAnimationFrame(initializationFrame);
+      if (bootTimer !== null) window.clearTimeout(bootTimer);
       typingTimers.forEach((typingTimer) => window.clearTimeout(typingTimer));
     };
   }, []);
