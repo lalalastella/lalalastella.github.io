@@ -349,6 +349,7 @@ function Experience() {
         const expanded = expandedCompany === experience.company;
         const websiteLink = experience.links.find((link) => link.label === 'WEBSITE');
         const detailLinks = experience.links.filter((link) => link.label !== 'WEBSITE');
+        const caseStudy = 'caseStudy' in experience ? experience.caseStudy : [];
         return <article key={experience.company} className={expanded ? 'is-expanded' : ''}>
         <time className="timeline-date">{experience.date}</time>
         <span className={`timeline-node ${experience.current ? 'is-current' : ''}`}>0{index + 1}</span>
@@ -374,16 +375,18 @@ function Experience() {
           </button>
           <div className="experience-details" aria-hidden={!expanded}>
             <div>
-              <div className="experience-case-header">
-                <span>CASE STUDY</span>
-                <b>From problem context to verified behavior</b>
-              </div>
-              <div className="experience-case-grid">
-                {experience.caseStudy.map((section, sectionIndex) => <section key={section.label}>
-                  <span>0{sectionIndex + 1} / {section.label}</span>
-                  <p>{section.text}</p>
-                </section>)}
-              </div>
+              {caseStudy.length > 0 && <>
+                <div className="experience-case-header">
+                  <span>CASE STUDY</span>
+                  <b>Problem, system, proof</b>
+                </div>
+                <div className="experience-case-grid">
+                  {caseStudy.map((section, sectionIndex) => <section key={section.label}>
+                    <span>0{sectionIndex + 1} / {section.label}</span>
+                    <p>{section.text}</p>
+                  </section>)}
+                </div>
+              </>}
               <div className="experience-notes">
                 <span>IMPLEMENTATION NOTES</span>
                 <ul>{experience.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}</ul>
