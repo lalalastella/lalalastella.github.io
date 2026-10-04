@@ -541,9 +541,9 @@ h1 { margin:20px 0 16px; font-family:var(--font-geist-sans),Arial,sans-serif; fo
   .resume-view .content-back { margin-bottom:24px; }
   .resume-view .resume-content .content-intro { grid-template-columns:36px minmax(0,1fr); column-gap:9px; margin-bottom:30px; }
   .resume-layout { grid-template-columns:1fr; }
-  .resume-preview { height:72vh; min-height:520px; }
-  .resume-preview-body { display:block; overflow:auto; cursor:zoom-in; scrollbar-color:#72808a #c8cdd0; }
-  .resume-preview-image { position:static; width:100%; height:auto; max-width:none; max-height:none; object-fit:fill; filter:none; }
+  .resume-preview { height:auto; min-height:0; }
+  .resume-preview-body { flex:none; aspect-ratio:8.5/11; overflow:hidden; cursor:zoom-in; }
+  .resume-preview-image { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; filter:none; }
   .contact-links a { grid-template-columns:105px 1fr auto; font-size:14px; overflow-wrap:anywhere; }
 }
 @media (max-width:480px) {
@@ -607,7 +607,6 @@ h1 { margin:20px 0 16px; font-family:var(--font-geist-sans),Arial,sans-serif; fo
   .field-note-grid article { padding-inline:16px; }
   .field-note-image { margin-inline:-16px; }
   .resume-card { padding:24px 20px; }
-  .resume-preview { height:64vh; min-height:430px; }
   .contact-links { margin-top:34px; }
   .contact-links a { grid-template-columns:1fr auto; gap:8px 12px; padding:20px 2px; }
   .contact-links .contact-label { grid-column:1/3; }
