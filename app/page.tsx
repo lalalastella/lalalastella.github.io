@@ -374,7 +374,20 @@ function Experience() {
           </button>
           <div className="experience-details" aria-hidden={!expanded}>
             <div>
-              <ul>{experience.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}</ul>
+              <div className="experience-case-header">
+                <span>CASE STUDY</span>
+                <b>From problem context to verified behavior</b>
+              </div>
+              <div className="experience-case-grid">
+                {experience.caseStudy.map((section, sectionIndex) => <section key={section.label}>
+                  <span>0{sectionIndex + 1} / {section.label}</span>
+                  <p>{section.text}</p>
+                </section>)}
+              </div>
+              <div className="experience-notes">
+                <span>IMPLEMENTATION NOTES</span>
+                <ul>{experience.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}</ul>
+              </div>
               <div className="experience-tech">{experience.technology.map((item) => <span key={item}>{item}</span>)}</div>
               {detailLinks.length > 0 && <div className="experience-links">
                 {detailLinks.map((link) => <a href={link.href} target="_blank" rel="noreferrer" key={link.href}>{link.label} <span aria-hidden="true">↗</span></a>)}

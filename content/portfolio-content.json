@@ -141,7 +141,7 @@
   },
   "experienceSection": {
     "title": "Experience",
-    "introduction": "Engineering experience across applied AI, product development, data systems, and full-stack software.",
+    "introduction": "Selected engineering work, expanded beyond the resume to show the problem, system design, implementation decisions, and evidence behind each result.",
     "roles": [
       {
         "company": "Alibaba Group",
@@ -149,12 +149,19 @@
         "date": "Jul 2026 - Sep 2026",
         "location": "Hangzhou, China",
         "current": false,
-        "summary": "Built production-oriented retrieval, evaluation, and data systems for shopping and community AI workflows.",
-        "highlights": [
-          "Built a 778-entry, 6,562-query retrieval benchmark; the selected BGE retriever reached 76.40% Top-1 and 91.34% Top-3 accuracy.",
-          "Improved shopping retrieval Recall@10 from 70% to 85% and transformed 100M raw interactions into 86.3M training records across 987,992 users."
+        "summary": "Built retrieval, transactional, and data systems for Tmall Campus, a digital-services ecosystem serving 800+ universities and nearly 20 million students.",
+        "caseStudy": [
+          { "label": "Context", "text": "Worked across campus knowledge search, shopping discovery, user-profile data, and venue-booking workflows where model quality and service reliability had to be evaluated separately." },
+          { "label": "System", "text": "Combined sparse and dense retrieval, offline evaluation, batch profile processing, PostgreSQL transactions, and observable event delivery rather than treating the work as a single model endpoint." },
+          { "label": "Validation", "text": "Used labeled retrieval sets, a 1,000-request ranking evaluation, concurrency tests, backend and browser tests, and regression cases to verify behavior before production selection." }
         ],
-        "technology": ["Python", "RAG", "BGE", "Evaluation", "Data Pipelines"],
+        "highlights": [
+          "Built a Python retrieval service and benchmark covering 778 entries and 6,562 queries. Comparing BM25, BGE, and reciprocal-rank fusion led to BGE selection at 76.40% Top-1 and 91.34% Top-3 accuracy.",
+          "Combined ItemCF, field-aware BM25, dense embeddings, and weighted reciprocal-rank fusion, improving ranking-stage Recall@10 from 70% to 85% in a 1,000-request offline evaluation.",
+          "Transformed 100M raw interactions into 86.3M training records for 987,992 users, isolating offline computation from latency-sensitive online profile reads.",
+          "Implemented idempotent venue booking with PostgreSQL and SQLAlchemy transactions, a FIFO waitlist, transactional outbox, and leader leases. A 20-request concurrency test produced one successful admission, 19 conflict rejections, and zero overselling."
+        ],
+        "technology": ["Python", "RAG", "BGE", "PostgreSQL", "SQLAlchemy", "React", "TypeScript", "Node.js", "Evaluation", "Data Pipelines"],
         "links": [
           { "label": "WEBSITE", "href": "https://www.alibabagroup.com/en-US" }
         ]
@@ -166,9 +173,15 @@
         "location": "Irvine, CA",
         "current": true,
         "summary": "Investigating how software-engineering agents generate, retain, and abandon localization hypotheses across multi-step trajectories.",
+        "caseStudy": [
+          { "label": "Question", "text": "A final pass or fail score does not explain whether an agent never formed the right hypothesis, selected the wrong action, or abandoned a correct direction later." },
+          { "label": "Method", "text": "Extract and track hypotheses from reasoning trajectories, then label generation, selection, and execution failures at the step level." },
+          { "label": "Evaluation", "text": "Compare four search policies across localization quality, patch correctness, hypothesis survival, and token and step cost on 50 verified instances." }
+        ],
         "highlights": [
           "Analyzing 50 SWE-bench Verified Mini instances with mini-swe-agent to classify generation, selection, and execution failures.",
-          "Building a trajectory-level hypothesis-tracking framework to compare four search policies across localization quality, patch correctness, hypothesis survival, and cost."
+          "Building a trajectory-level hypothesis-tracking framework that records when plausible localization hypotheses emerge, survive, or disappear.",
+          "Separating search quality from final patch correctness so policy comparisons reveal how an agent reached its outcome, not only whether the patch passed."
         ],
         "technology": ["Python", "mini-swe-agent", "SWE-bench", "Agent Evaluation"],
         "links": [
@@ -182,9 +195,16 @@
         "location": "Irvine, CA",
         "current": false,
         "summary": "Built a full-stack AI education platform that generates structured textbooks through a six-stage LLM workflow and lets users query and edit content with an agentic page assistant.",
+        "caseStudy": [
+          { "label": "Context", "text": "Textbook generation is a long-running, multi-output workflow. Users need durable progress, visible intermediate results, and reliable in-page edits instead of waiting on one opaque request." },
+          { "label": "Architecture", "text": "A provider-agnostic six-stage workflow persists content state in PostgreSQL, runs work through Django, Celery, and Redis, and streams text and tool events into editable React blocks." },
+          { "label": "Reliability", "text": "Dependency-aware scheduling, retries, durable job state, failure recovery, focused tests, fault injection, and full-section context propagation address both backend and editing failures." }
+        ],
         "highlights": [
-          "Built a six-stage LLM workflow spanning multiple model providers with asynchronous Django, Celery, Redis, and PostgreSQL jobs.",
-          "Developed a 28-tool Page Assistant with native function calling, persistent memory, and WebSocket-based progress updates."
+          "Built a six-stage workflow that turns a topic into textbook content, exercises, code, images, and video while supporting OpenAI, Gemini, Claude, and Grok through one interface.",
+          "Separated long-running generation from web requests with Celery and Redis, persisted execution state in PostgreSQL, and synchronized progress through Django Channels, Redis, and WebSockets.",
+          "Developed a 28-tool Page Assistant with native function calling and conversation memory, using a stable block contract so generated output remains directly editable in React.",
+          "Resolved long-form editing failures by removing a 1,000-character truncation and propagating full-section context through the editing path."
         ],
         "technology": ["Python", "Django", "Celery", "Redis", "PostgreSQL", "LLM Tools"],
         "links": [
@@ -198,9 +218,16 @@
         "location": "Irvine, CA",
         "current": true,
         "summary": "Building a local-first AI execution coach for adaptive task planning and recovery; selected for the Alibaba Tmall Campus One Person Company (OPC) student entrepreneurship program.",
+        "caseStudy": [
+          { "label": "Product Problem", "text": "Plans break when priorities shift or attention drifts. The product must preserve completed work, identify what changed, and produce a useful next action instead of restarting the plan." },
+          { "label": "Execution Model", "text": "Multimodal inputs become a versioned task DAG with explicit dependencies, insertions, deferrals, validation, state reconciliation, deterministic fallback, and undo." },
+          { "label": "Privacy Boundary", "text": "A local-first architecture keeps raw activity data on device, applies pre-inference privacy filters, and routes only eligible work to local or cloud models." }
+        ],
         "highlights": [
-          "Designed dynamic execution recovery that preserves completed work and regenerates the next actionable steps when attention drifts or plans change.",
-          "Launched the ADTI attention-personality test and 16 original character identities—one for each personality type—extending them into a desktop companion that uses local activity signals to visualize goal progress, flag distraction, and guide recovery."
+          "Built a Gemma-powered multimodal pipeline that turns PDFs, screenshots, and notes into structured task DAGs for planning, progress tracking, and recovery.",
+          "Implemented dependency-aware replanning with task insertion, deferral, validation, state reconciliation, deterministic fallback, and undo so schedule changes do not erase completed work.",
+          "Shipped React, Node.js, Express, and SSE prototypes across web and macOS or Windows, with activity classification, model routing, provider failover, and real-time feedback.",
+          "Extended the product with the ADTI attention-personality test, 16 original character identities, and a desktop companion that visualizes progress and guides recovery."
         ],
         "technology": ["React", "Node.js", "Express", "Gemma", "SSE", "Local-First AI"],
         "links": [
@@ -215,9 +242,16 @@
         "location": "Sacramento, CA",
         "current": false,
         "summary": "Developed AI workflows, backend services, and evaluation capabilities for a policy-grounded expense-audit copilot.",
+        "caseStudy": [
+          { "label": "Context", "text": "Expense review required evidence from receipts, reports, policies, and internal APIs. Recommendations needed to remain traceable to policy rather than rely on free-form model judgment." },
+          { "label": "System", "text": "A LangChain retrieval pipeline grounds decisions in company policy, while typed FastAPI and Pydantic services separate stateless audit logic from policy and receipt storage." },
+          { "label": "Evaluation", "text": "Structured outputs, function schemas, health checks, Dockerized services, and MLflow comparisons made reliability, retrieval quality, latency, and cost visible before release." }
+        ],
         "highlights": [
-          "Reduced average expense-review time from 6.4 to 2.1 minutes with a LangChain RAG workflow and policy-grounded recommendations.",
-          "Raised function-calling accuracy from 82.4% to 91.1% while reducing average tool calls from 2.5 to 1.6 and estimated cost by 36%."
+          "Built an expense-audit service that analyzes receipts and reports, validates transaction details, and generates policy-grounded approve, review, or reject recommendations, reducing median review time from 6.4 to 2.1 minutes per report.",
+          "Implemented policy retrieval with document chunking, OpenAI embeddings, vector search, and context-grounded generation to keep recommendations tied to company rules.",
+          "Used structured outputs and function calling to extract receipt fields, flag missing data, query internal expense APIs, and recognize duplicate queries. Average tool calls fell from 2.5 to 1.6 per audit and token cost fell by 36%.",
+          "Designed a modular FastAPI and Pydantic backend with typed validation, error handling, structured logging, health checks, Docker packaging, and MLflow evaluation pipelines."
         ],
         "technology": ["Python", "FastAPI", "LangChain", "RAG", "Pydantic", "Docker", "MLflow"],
         "links": [
@@ -231,9 +265,16 @@
         "location": "Beijing, China",
         "current": false,
         "summary": "Contributed to an enterprise AI-agent platform and data services for government and financial-reporting workflows.",
+        "caseStudy": [
+          { "label": "Context", "text": "An internal agent platform was moving from Dify to Nuwa GPT while preserving existing workflows and connecting heterogeneous reporting data to model-callable services." },
+          { "label": "Platform Work", "text": "Python and Flask REST services on Alibaba Cloud ECS and OSS normalized structured and unstructured sources into reusable tools for agent workflows." },
+          { "label": "Operations", "text": "Docker and Kubernetes delivery, CI/CD automation, Function Compute health checks, and runtime metrics made migration failures easier to detect and recover from." }
+        ],
         "highlights": [
-          "Supported the migration of agent workflows from Dify to the Nuwa GPT platform and developed Python/Flask tools backed by ECS and OSS.",
-          "Containerized and automated delivery for 10+ services with Docker, Kubernetes, and CI/CD, reducing deployment time by 40%."
+          "Led migration work from Dify to the Nuwa GPT internal agent platform while preserving compatibility with legacy workflow behavior.",
+          "Built Python and Flask REST services on Alibaba Cloud ECS and OSS to normalize structured and unstructured data into agent-callable tools.",
+          "Automated Docker and Kubernetes CI/CD releases across 10+ services, reducing deployment time by approximately 40% and removing manual rollback steps.",
+          "Instrumented Function Compute with health checks and runtime metrics to surface post-migration failures earlier across distributed services."
         ],
         "technology": ["Python", "Flask", "Dify", "Docker", "Kubernetes", "CI/CD", "Alibaba Cloud"],
         "links": [
@@ -247,6 +288,11 @@
         "location": "Shanghai, China",
         "current": false,
         "summary": "Built and validated financial-data workflows supporting investment-research operations.",
+        "caseStudy": [
+          { "label": "Context", "text": "Investment-research workflows depended on consistent financial data moving from source systems into downstream analysis and reporting views." },
+          { "label": "Pipeline", "text": "Python and SQL ETL jobs on MaxCompute standardized transformations, while RDS validation and unit tests checked data before downstream use." },
+          { "label": "Visibility", "text": "DataV dashboards turned validation results and pipeline output into operational views that reduced repeated manual checking." }
+        ],
         "highlights": [
           "Rebuilt Python/SQL ETL pipelines on Alibaba Cloud MaxCompute, improving data accuracy by 25% and reducing downstream reconciliation issues.",
           "Automated RDS validation, unit testing, and DataV dashboards, reducing manual QA effort by 30%."
