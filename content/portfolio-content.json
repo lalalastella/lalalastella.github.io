@@ -150,11 +150,6 @@
         "location": "Hangzhou, China",
         "current": false,
         "summary": "Built retrieval, transactional, and data systems for Tmall Campus, a digital-services ecosystem serving 800+ universities and nearly 20 million students.",
-        "caseStudy": [
-          { "label": "Context", "text": "Campus search, discovery, profile, and booking workflows required both model-quality and service-reliability validation." },
-          { "label": "System", "text": "Combined hybrid retrieval, offline evaluation, batch processing, transactional booking, and observable event delivery." },
-          { "label": "Validation", "text": "Verified behavior with labeled queries, ranking evaluation, concurrency tests, browser tests, and regression cases." }
-        ],
         "highlights": [
           "Benchmarked BM25, BGE, and reciprocal-rank fusion across 778 entries and 6,562 queries. BGE reached 76.40% Top-1 and 91.34% Top-3 accuracy.",
           "Improved ranking-stage Recall@10 from 70% to 85%, and transformed 100M interactions into 86.3M training records for 987,992 users through isolated batch processing.",
@@ -172,11 +167,6 @@
         "location": "Irvine, CA",
         "current": true,
         "summary": "Investigating how software-engineering agents generate, retain, and abandon localization hypotheses across multi-step trajectories.",
-        "caseStudy": [
-          { "label": "Question", "text": "A final score cannot explain when an agent formed, selected, or abandoned a correct hypothesis." },
-          { "label": "Method", "text": "Track hypotheses through reasoning trajectories and classify generation, selection, and execution failures." },
-          { "label": "Evaluation", "text": "Compare four search policies on 50 SWE-bench Verified Mini instances." }
-        ],
         "highlights": [
           "Analyzing 50 SWE-bench Verified Mini instances with mini-swe-agent to classify generation, selection, and execution failures.",
           "Comparing localization quality, patch correctness, hypothesis survival, and token and step cost across four search policies."
@@ -193,11 +183,6 @@
         "location": "Irvine, CA",
         "current": false,
         "summary": "Built a full-stack AI education platform that generates structured textbooks through a six-stage LLM workflow and lets users query and edit content with an agentic page assistant.",
-        "caseStudy": [
-          { "label": "Context", "text": "Long-running textbook generation needed durable progress, visible output, and reliable in-page editing." },
-          { "label": "Architecture", "text": "A provider-agnostic workflow connects Django, Celery, Redis, PostgreSQL, WebSockets, and editable React blocks." },
-          { "label": "Reliability", "text": "Durable state, retries, fault tests, and full-section context protect generation and editing workflows." }
-        ],
         "highlights": [
           "Built a six-stage workflow for textbook content, exercises, code, images, and video across four interchangeable LLM providers.",
           "Separated long-running work from web requests with Celery and Redis, persisted state in PostgreSQL, and streamed progress through WebSockets.",
@@ -215,11 +200,6 @@
         "location": "Irvine, CA",
         "current": true,
         "summary": "Building a local-first AI execution coach for adaptive task planning and recovery; selected for the Alibaba Tmall Campus One Person Company (OPC) student entrepreneurship program.",
-        "caseStudy": [
-          { "label": "Product Problem", "text": "Recover changing plans without discarding work the user has already completed." },
-          { "label": "Execution Model", "text": "Turn multimodal inputs into versioned task DAGs with dependency-aware replanning and undo." },
-          { "label": "Privacy Boundary", "text": "Keep raw activity on device and filter content before local or cloud inference." }
-        ],
         "highlights": [
           "Built a Gemma-powered pipeline that converts PDFs, screenshots, and notes into structured task DAGs.",
           "Implemented dependency-aware replanning, state reconciliation, deterministic fallback, and undo to preserve completed work.",
@@ -238,11 +218,6 @@
         "location": "Sacramento, CA",
         "current": false,
         "summary": "Developed AI workflows, backend services, and evaluation capabilities for a policy-grounded expense-audit copilot.",
-        "caseStudy": [
-          { "label": "Context", "text": "Expense decisions needed traceable evidence from receipts, reports, policies, and internal APIs." },
-          { "label": "System", "text": "Policy RAG grounds recommendations while FastAPI and Pydantic enforce typed service boundaries." },
-          { "label": "Evaluation", "text": "Structured outputs, health checks, Docker, and MLflow made quality, latency, and cost measurable." }
-        ],
         "highlights": [
           "Built a policy-grounded audit service for receipts and reports, reducing median review time from 6.4 to 2.1 minutes per report.",
           "Implemented document chunking, embeddings, vector search, and context-grounded generation over company policies.",
@@ -262,8 +237,7 @@
         "summary": "Contributed to an enterprise AI-agent platform and data services for government and financial-reporting workflows.",
         "highlights": [
           "Migrated workflows from Dify to Nuwa GPT and built Python and Flask services that exposed heterogeneous data as agent-callable tools.",
-          "Automated Docker and Kubernetes delivery across 10+ services, cutting deployment time by approximately 40% and removing manual rollbacks.",
-          "Added Function Compute health checks and runtime metrics to surface post-migration failures earlier."
+          "Automated Docker and Kubernetes delivery across 10+ services, cutting deployment time by approximately 40%, removing manual rollbacks, and adding health checks and runtime metrics."
         ],
         "technology": ["Python", "Flask", "Dify", "Docker", "Kubernetes", "CI/CD", "Alibaba Cloud"],
         "links": [
