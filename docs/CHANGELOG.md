@@ -1,5 +1,10 @@
 # Portfolio Change Log
 
+## 2026-10-04
+
+- Replaced the default public SWE resume and its first-page preview with the current SWE v8 baseline.
+- Refreshed the legacy canonical resume PDF to match SWE v8 while keeping Applied AI v6 unchanged.
+
 ## 2026-09-29
 
 - Moved the motto from the About overview to a "More Field Notes to Come" closing below Field Notes.

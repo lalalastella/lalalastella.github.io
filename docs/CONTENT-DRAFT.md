@@ -196,7 +196,7 @@ Leadership & Community:
 - Name: Stella (Yuxuan) Jiang
 - Headline: AI Engineer · Full-Stack Software Engineer
 - Education: B.S. Computer Science · University of California, Irvine · Expected June 2027
-- Public versions: SWE v6 (default) and Applied AI v6
+- Public versions: SWE v8 (default) and Applied AI v6
 - Website behavior: selectable embedded one-page previews with a secondary Download PDF action
 
 ## Contact
