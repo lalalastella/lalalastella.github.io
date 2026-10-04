@@ -398,7 +398,8 @@
     "name": "Stella (Yuxuan) Jiang",
     "headline": "Software Engineer · Applied AI",
     "education": "B.S. Computer Science · University of California, Irvine · Expected June 2027",
-    "button": "VIEW RESUME",
+    "button": "OPEN FULL PDF",
+    "downloadButton": "DOWNLOAD PDF",
     "defaultVariant": "swe",
     "note": "SWE Resume · Primary",
     "variants": [

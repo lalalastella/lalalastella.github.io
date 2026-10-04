@@ -546,13 +546,18 @@ function Resume() {
         <div className="resume-switcher" aria-label="Resume version">
           {content.resumeSection.variants.map((variant) => <button type="button" className={variant.id === activeResume ? 'active' : ''} onClick={() => selectResume(variant.id)} key={variant.id}>{variant.shortLabel}</button>)}
         </div>
-        <a className="resume-button" href={resume.href} download>
-          DOWNLOAD {resume.shortLabel} PDF <span>↓</span>
-        </a>
+        <div className="resume-actions">
+          <a className="resume-button" href={resume.href} target="_blank" rel="noreferrer">
+            {content.resumeSection.button} <span>↗</span>
+          </a>
+          <a className="resume-download" href={resume.href} download>
+            {content.resumeSection.downloadButton} <span>↓</span>
+          </a>
+        </div>
       </div>
       <div className="resume-preview">
         <div className="resume-preview-bar"><span>{resume.fileLabel}</span><span>{resume.default ? 'DEFAULT · ' : ''}1 / 1</span></div>
-        <div className="resume-preview-body">
+        <a className="resume-preview-body" href={resume.href} target="_blank" rel="noreferrer" aria-label={`Open the full ${resume.shortLabel} resume PDF in a new tab`}>
           <img
             key={resume.id}
             className="resume-preview-image"
@@ -567,7 +572,7 @@ function Resume() {
             </div>
             <span className="resume-loader-label">LOADING RESUME</span>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </div>;

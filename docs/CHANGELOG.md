@@ -4,6 +4,7 @@
 
 - Replaced the default public SWE resume and its first-page preview with the current SWE v8 baseline.
 - Refreshed the legacy canonical resume PDF to match SWE v8 while keeping Applied AI v6 unchanged.
+- Changed desktop resume previews to show the complete one-page layout, made the preview open the full PDF, and separated OPEN FULL PDF from the secondary download action.
 
 ## 2026-09-29
 

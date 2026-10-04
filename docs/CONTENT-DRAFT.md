@@ -197,7 +197,7 @@ Leadership & Community:
 - Headline: AI Engineer · Full-Stack Software Engineer
 - Education: B.S. Computer Science · University of California, Irvine · Expected June 2027
 - Public versions: SWE v8 (default) and Applied AI v6
-- Website behavior: selectable embedded one-page previews with a secondary Download PDF action
+- Website behavior: selectable full-page previews; clicking a preview or OPEN FULL PDF opens the source PDF in a new tab, with DOWNLOAD PDF retained as a secondary action
 
 ## Contact
 
