@@ -1,5 +1,12 @@
 # Portfolio Change Log
 
+## 2026-10-07
+
+- Replaced the default public SWE resume and its first-page preview with the latest SWE v6 baseline.
+- Refreshed the FessorAI multi-provider bullet to describe four LLM providers connected through provider-agnostic interfaces.
+- Refreshed the legacy canonical resume PDF to match SWE v6 while keeping Applied AI v6 unchanged.
+- Preserved the stable public resume URLs so existing portfolio links continue to work.
+
 ## 2026-10-04
 
 - Replaced the default public SWE resume and its first-page preview with the current SWE v8 baseline.
