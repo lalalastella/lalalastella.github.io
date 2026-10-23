@@ -179,11 +179,11 @@ export default function Home() {
         <div className="topbar-actions">
           <div className="system-status"><span /><b>{content.identity.status}</b></div>
           {entered && <div className="theme-switcher" role="group" aria-label="Color theme">
-            <button type="button" className={theme === 'day' ? 'active' : ''} aria-pressed={theme === 'day'} onClick={() => chooseTheme('day')}>
-              <Sun aria-hidden="true" /><span>DAY</span>
+            <button type="button" className={theme === 'day' ? 'active' : ''} aria-label="Use day theme" title="Day theme" aria-pressed={theme === 'day'} onClick={() => chooseTheme('day')}>
+              <Sun aria-hidden="true" />
             </button>
-            <button type="button" className={theme === 'night' ? 'active' : ''} aria-pressed={theme === 'night'} onClick={() => chooseTheme('night')}>
-              <Moon aria-hidden="true" /><span>NIGHT</span>
+            <button type="button" className={theme === 'night' ? 'active' : ''} aria-label="Use night theme" title="Night theme" aria-pressed={theme === 'night'} onClick={() => chooseTheme('night')}>
+              <Moon aria-hidden="true" />
             </button>
           </div>}
         </div>

@@ -23,10 +23,10 @@ body { color:var(--paper); font-family:var(--font-geist-sans),Arial,sans-serif; 
 .system-status b { font:inherit; font-weight:400; }
 .system-status span { display:inline-block; width:7px; height:7px; margin-right:8px; border-radius:50%; background:var(--mint); box-shadow:0 0 9px var(--mint); animation:pulse 2s infinite; }
 .theme-switcher { display:flex; gap:2px; padding:3px; border:1px solid rgba(202,220,232,.18); border-radius:999px; background:rgba(4,13,21,.42); backdrop-filter:blur(12px); }
-.theme-switcher button { min-width:67px; padding:7px 9px; display:flex; align-items:center; justify-content:center; gap:6px; color:#9fb0ba; border:0; border-radius:999px; background:transparent; font:650 9px var(--font-geist-mono),monospace; letter-spacing:.08em; cursor:pointer; transition:color .22s ease,background .22s ease,box-shadow .22s ease; }
+.theme-switcher button { width:34px; height:30px; padding:0; display:grid; place-items:center; color:#9fb0ba; border:0; border-radius:999px; background:transparent; cursor:pointer; transition:color .22s ease,background .22s ease,box-shadow .22s ease; }
 .theme-switcher button:hover { color:#f5f8f8; }
 .theme-switcher button.active { color:#07141d; background:#f3f5f1; box-shadow:0 3px 10px rgba(0,0,0,.18); }
-.theme-switcher svg { width:13px; height:13px; stroke-width:1.8; }
+.theme-switcher svg { width:14px; height:14px; stroke-width:1.8; }
 .hero { position:relative; z-index:2; width:min(650px,50vw); min-height:100svh; display:flex; flex-direction:column; justify-content:center; padding:130px 0 92px clamp(28px,7vw,124px); transition:opacity .55s ease,transform .8s cubic-bezier(.2,.8,.2,1),visibility .55s; }
 .eyebrow { display:flex; gap:20px; color:#86ead2; font:12px var(--font-geist-mono),monospace; letter-spacing:.13em; } .eyebrow span+span { color:#a9bac5; }
 h1 { margin:20px 0 16px; font-family:var(--font-geist-sans),Arial,sans-serif; font-size:clamp(64px,7.1vw,124px); font-weight:760; line-height:.88; letter-spacing:-.045em; text-shadow:0 2px 2px rgba(0,0,0,.62),0 8px 36px rgba(0,0,0,.55); }
@@ -570,8 +570,7 @@ h1 { margin:20px 0 16px; font-family:var(--font-geist-sans),Arial,sans-serif; fo
   .system-status { max-width:128px; font-size:9px; line-height:1.45; letter-spacing:.075em; text-align:right; }
   .system-status span { width:6px; height:6px; margin-right:5px; }
   .system-status b { display:none; }
-  .theme-switcher button { min-width:36px; padding:7px; }
-  .theme-switcher button span { display:none; }
+  .theme-switcher button { width:32px; height:28px; }
   .hero { padding:92px 20px max(46px,env(safe-area-inset-bottom)); }
   h1 { margin:16px 0 13px; font-size:clamp(52px,17vw,72px); }
   .role-sequence { margin-top:12px; }
