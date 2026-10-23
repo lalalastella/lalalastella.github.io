@@ -177,6 +177,14 @@ export default function Home() {
           <span className="brand-copy">{content.identity.fullName.toUpperCase()}</span>
         </button>
         <div className="topbar-actions">
+          {entered && <nav className="topbar-shortcuts" aria-label="Quick links">
+            <button type="button" onClick={() => openModule(5)} title="Resume">
+              <FileText aria-hidden="true" /><span>RESUME</span>
+            </button>
+            <button type="button" onClick={() => openModule(6)} title="Contact">
+              <Mail aria-hidden="true" /><span>CONTACT</span>
+            </button>
+          </nav>}
           <div className="system-status"><span /><b>{content.identity.status}</b></div>
           {entered && <div className="theme-switcher" role="group" aria-label="Color theme">
             <button type="button" className={theme === 'day' ? 'active' : ''} aria-label="Use day theme" title="Day theme" aria-pressed={theme === 'day'} onClick={() => chooseTheme('day')}>
@@ -344,49 +352,56 @@ function PantryAgentDemo() {
 
 function Experience() {
   const timelineRef = useRef<HTMLDivElement>(null);
+  const [activeExperience, setActiveExperience] = useState(0);
+  const [timelineProgress, setTimelineProgress] = useState(0);
 
   useEffect(() => {
-    const entries = timelineRef.current?.querySelectorAll<HTMLElement>('article');
-    if (!entries?.length) return;
+    const timeline = timelineRef.current;
+    const entries = timeline?.querySelectorAll<HTMLElement>('article');
+    const scroller = timeline?.closest<HTMLElement>('.content-view');
+    if (!timeline || !entries?.length || !scroller) return;
 
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      entries.forEach((entry) => entry.classList.add('is-visible'));
-      return;
-    }
-
-    const observer = new IntersectionObserver((observed) => {
-      observed.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
+    let animationFrame: number | null = null;
+    const updateTimeline = () => {
+      if (animationFrame !== null) return;
+      animationFrame = window.requestAnimationFrame(() => {
+        animationFrame = null;
+        const scrollerRect = scroller.getBoundingClientRect();
+        const marker = scrollerRect.top + Math.min(scroller.clientHeight * .42, 360);
+        const centers = Array.from(entries, (entry) => {
+          const rect = entry.getBoundingClientRect();
+          return rect.top + Math.min(rect.height * .25, 58);
+        });
+        let nextActive = 0;
+        centers.forEach((center, index) => {
+          if (center <= marker) nextActive = index;
+        });
+        const first = centers[0];
+        const last = centers[centers.length - 1];
+        const nextProgress = last === first ? 1 : Math.max(0, Math.min(1, (marker - first) / (last - first)));
+        setActiveExperience(nextActive);
+        setTimelineProgress(nextProgress);
       });
-    }, { threshold: 0.22, rootMargin: '0px 0px -10% 0px' });
+    };
 
-    const focusObserver = new IntersectionObserver((observed) => {
-      observed.forEach((entry) => {
-        entry.target.classList.toggle('is-active', entry.isIntersecting);
-      });
-    }, { threshold: 0.12, rootMargin: '-28% 0px -38% 0px' });
-
-    entries.forEach((entry, index) => {
-      entry.style.setProperty('--timeline-delay', `${Math.min(index * 45, 180)}ms`);
-      observer.observe(entry);
-      focusObserver.observe(entry);
-    });
-
+    scroller.addEventListener('scroll', updateTimeline, { passive: true });
+    window.addEventListener('resize', updateTimeline);
+    updateTimeline();
     return () => {
-      observer.disconnect();
-      focusObserver.disconnect();
+      scroller.removeEventListener('scroll', updateTimeline);
+      window.removeEventListener('resize', updateTimeline);
+      if (animationFrame !== null) window.cancelAnimationFrame(animationFrame);
     };
   }, []);
 
   return <div className="content-inner">
     <SectionIntro index="02" title={content.experienceSection.title} />
     <div className="experience-list" ref={timelineRef}>
-      {experiences.map((experience) => {
+      <span className="experience-progress" style={{ transform: `scaleY(${timelineProgress})` }} aria-hidden="true" />
+      {experiences.map((experience, index) => {
         const websiteLink = experience.links.find((link) => link.label === 'WEBSITE');
-        return <article key={experience.company}>
+        const timelineState = index === activeExperience ? 'is-active' : index < activeExperience ? 'is-passed' : 'is-upcoming';
+        return <article className={timelineState} key={experience.company}>
         <time className="timeline-date">{experience.date}</time>
         <div className={`timeline-mark ${experience.current ? 'is-current' : ''}`}><OrganizationMark company={experience.company} /></div>
         <div className="experience-copy">
