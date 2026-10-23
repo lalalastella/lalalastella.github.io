@@ -86,7 +86,7 @@ h1 { margin:20px 0 16px; font-family:var(--font-geist-sans),Arial,sans-serif; fo
 .is-reading .terminal { top:126px; left:clamp(20px,2.7vw,48px); width:clamp(128px,10vw,156px); height:auto; opacity:1; visibility:visible; transform:none; filter:none; border:0; background:transparent; box-shadow:none; backdrop-filter:none; }
 .is-reading .terminal::before,.is-reading .terminal::after { opacity:0; }
 .is-reading .terminal-head { height:0; padding:0; border:0; opacity:0; }
-.is-reading .terminal-body { padding:0; overflow:hidden; border-radius:24px; }
+.is-reading .terminal-body { padding:0; overflow:hidden; border-radius:0; }
 .is-reading .command,.is-reading .select-label { max-height:0; margin:0; opacity:0; transform:translateX(-8px); }
 .is-reading .module-list button { min-height:44px; padding:0 7px 0 11px; grid-template-columns:22px minmax(0,1fr) 0; border-color:rgba(138,168,185,.11); }
 .is-reading .module-list button.active { padding-left:16px; transform:none; }
