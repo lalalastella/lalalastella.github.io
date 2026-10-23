@@ -9,8 +9,8 @@
     "introduction": "Building reliable software systems and user-facing AI products across backend services, data pipelines, full-stack development, retrieval, and evaluation."
   },
   "ui": {
-    "enterPortfolio": "ENTER PORTFOLIO",
-    "viewResume": "VIEW RESUME",
+    "enterPortfolio": "OPEN PORTFOLIO",
+    "viewResume": "RESUME",
     "terminalTitle": "STELLA / PORTFOLIO",
     "terminalPromptUser": "stella@portfolio:~$",
     "terminalCommand": "open",
@@ -19,12 +19,13 @@
     "backToMenu": "BACK TO MENU"
   },
   "modules": [
-    { "number": "01", "title": "EXPERIENCE", "detail": "Engineering, product, and industry experience" },
-    { "number": "02", "title": "PROJECTS", "detail": "FocusTrail · PantryAgent · Intent2Escrow · selected systems" },
-    { "number": "03", "title": "RESEARCH", "detail": "LLM agent reliability · trajectory evaluation" },
-    { "number": "04", "title": "ABOUT", "detail": "Background, focus, and technical toolkit" },
-    { "number": "05", "title": "RESUME", "detail": "Education · experience · selected work" },
-    { "number": "06", "title": "CONTACT", "detail": "Email · GitHub · LinkedIn" }
+    { "number": "01", "title": "ABOUT", "detail": "Background · focus · technical toolkit" },
+    { "number": "02", "title": "EXPERIENCE", "detail": "Engineering, product, and industry experience" },
+    { "number": "03", "title": "PROJECTS", "detail": "FocusTrail · PantryAgent · Intent2Escrow · selected systems" },
+    { "number": "04", "title": "RESEARCH", "detail": "Agent reliability · failure diagnosis · spatial optimization" },
+    { "number": "05", "title": "ACTIVITIES", "detail": "Leadership · community · field notes" },
+    { "number": "06", "title": "RESUME", "detail": "Education · experience · selected work" },
+    { "number": "07", "title": "CONTACT", "detail": "Email · GitHub · LinkedIn" }
   ],
   "projectsSection": {
     "title": "Selected Projects",
@@ -141,7 +142,7 @@
   },
   "experienceSection": {
     "title": "Experience",
-    "introduction": "Selected engineering work, expanded beyond the resume to show the problem, system design, implementation decisions, and evidence behind each result.",
+    "introduction": "Selected engineering and research experience, summarized for a clear view of role, scope, and contribution.",
     "roles": [
       {
         "company": "Alibaba Group",
@@ -149,7 +150,7 @@
         "date": "Jul 2026 - Sep 2026",
         "location": "Hangzhou, China",
         "current": false,
-        "summary": "Built retrieval, transactional, and data systems for Tmall Campus, a digital-services ecosystem serving 800+ universities and nearly 20 million students.",
+        "summary": "Built retrieval, transactional, and data systems for Tmall Campus, improving ranking Recall@10 from 70% to 85% for an ecosystem serving 800+ universities and nearly 20 million students.",
         "highlights": [
           "Benchmarked BM25, BGE, and reciprocal-rank fusion across 778 entries and 6,562 queries. BGE reached 76.40% Top-1 and 91.34% Top-3 accuracy.",
           "Improved ranking-stage Recall@10 from 70% to 85%, and transformed 100M interactions into 86.3M training records for 987,992 users through isolated batch processing.",
@@ -166,7 +167,7 @@
         "date": "Apr 2026 - Present",
         "location": "Irvine, CA",
         "current": true,
-        "summary": "Investigating how software-engineering agents generate, retain, and abandon localization hypotheses across multi-step trajectories.",
+        "summary": "Evaluating how software-engineering agents generate, retain, and abandon localization hypotheses across 50 SWE-bench Verified Mini tasks and four search policies.",
         "highlights": [
           "Analyzing 50 SWE-bench Verified Mini instances with mini-swe-agent to classify generation, selection, and execution failures.",
           "Comparing localization quality, patch correctness, hypothesis survival, and token and step cost across four search policies."
@@ -217,7 +218,7 @@
         "date": "Dec 2025 — Feb 2026",
         "location": "Sacramento, CA",
         "current": false,
-        "summary": "Developed AI workflows, backend services, and evaluation capabilities for a policy-grounded expense-audit copilot.",
+        "summary": "Built policy-grounded AI workflows and backend services for an expense-audit copilot, reducing median review time from 6.4 to 2.1 minutes per report.",
         "highlights": [
           "Built a policy-grounded audit service for receipts and reports, reducing median review time from 6.4 to 2.1 minutes per report.",
           "Implemented document chunking, embeddings, vector search, and context-grounded generation over company policies.",
@@ -234,7 +235,7 @@
         "date": "Jun 2025 — Sep 2025",
         "location": "Beijing, China",
         "current": false,
-        "summary": "Contributed to an enterprise AI-agent platform and data services for government and financial-reporting workflows.",
+        "summary": "Built agent-callable data services and automated delivery for an enterprise AI platform, reducing deployment time across 10+ services by approximately 40%.",
         "highlights": [
           "Migrated workflows from Dify to Nuwa GPT and built Python and Flask services that exposed heterogeneous data as agent-callable tools.",
           "Automated Docker and Kubernetes delivery across 10+ services, cutting deployment time by approximately 40%, removing manual rollbacks, and adding health checks and runtime metrics."
@@ -250,7 +251,7 @@
         "date": "Jul 2024 — Sep 2024",
         "location": "Shanghai, China",
         "current": false,
-        "summary": "Built and validated financial-data workflows supporting investment-research operations.",
+        "summary": "Rebuilt and validated Python and SQL financial-data workflows, improving data accuracy by 25% and reducing manual QA effort by 30%.",
         "highlights": [
           "Rebuilt Python/SQL ETL pipelines on Alibaba Cloud MaxCompute, improving data accuracy by 25% and reducing downstream reconciliation issues.",
           "Automated RDS validation, unit testing, and DataV dashboards, reducing manual QA effort by 30%."
@@ -264,32 +265,46 @@
   },
   "researchSection": {
     "title": "Research",
-    "subtitle": "Applied AI systems, agent reliability, and evaluation.",
+    "subtitle": "Across optimization, diagnostic AI, and agent evaluation, my research focuses on building intelligent systems that make reliable decisions under real-world constraints.",
     "entries": [
       {
         "title": "Trajalysis",
-        "subtitle": "LLM Agent Reliability & Evaluation",
+        "subtitle": "LLM Agent Reliability & Trajectory-Level Evaluation",
         "metaLines": [
           "Undergraduate Researcher · Capybara Science Lab, UCI",
-          "Advised by Prof. Thomas Zimmermann · April 2026–Present"
+          "Advised by Prof. Thomas Zimmermann · April 2026 to Present"
         ],
-        "lead": "Studying when correct localization hypotheses emerge, persist, or disappear across software-engineering agent trajectories.",
+        "lead": "Studying when correct bug-localization hypotheses emerge, persist, or are forgotten across software-engineering agent trajectories.",
         "framework": ["Generate hypotheses", "Select action", "Execute", "Evaluate outcome"],
-        "body": "I am conducting a trajectory-level study across 50 SWE-bench Verified Mini instances using mini-swe-agent. The work extracts hypotheses from reasoning traces to classify generation, selection, and execution failures and compares four search policies on localization quality, patch correctness, hypothesis survival, and token and step cost.",
-        "result": "Evaluation scope: 50 SWE-bench Verified Mini instances · four search policies · trajectory-level hypothesis tracking.",
+        "body": "Built a Python evaluation pipeline for 50 SWE-bench Verified Mini tasks and four search strategies. The analysis connects localization behavior with patch correctness, hypothesis persistence, and token and operation cost to explain why an agent succeeds or fails.",
+        "result": "50 SWE-bench Verified Mini tasks · 4 strategies · trajectory-level failure analysis.",
         "technology": "mini-swe-agent · SWE-bench Verified Mini · Python · Agent Evaluation"
       },
       {
         "title": "Cost-Aware Active Failure Diagnosis",
-        "subtitle": "Applied AI Systems Research · Summer 2026",
+        "subtitle": "Retrieval-Augmented Language Models · Applied AI Systems",
         "metaLines": [
-          "Research project under the guidance of Prof. Kalev Kask"
+          "Student Researcher · Department of Computer Science, UCI",
+          "Advised by Prof. Kalev Kask · June 2026 to August 2026"
         ],
-        "lead": "A decision-support system for diagnosing software-service failures when the available evidence is incomplete, noisy, or misleading.",
-        "framework": ["Classify root cause", "Retrieve evidence", "Select action", "Validate policy"],
-        "body": "Co-developed a leakage-controlled research pipeline spanning root-cause classification, retrieval-augmented diagnosis, and cost-aware diagnostic action selection. The study evaluates eight balanced root-cause categories across 32 independent scenarios and 384 deterministic incident variants, with six offline action-selection policies and four scenario-group cross-validation folds.",
-        "result": "A learned Selective RAG gate preserved the accuracy of Always-RAG on Qwen 9B (0.794 vs. 0.792) while reducing retrieval invocation from 100% to 34.4%, harmful switches from 14 to 6, and estimated sequential latency from 4.050s to 2.703s.",
-        "technology": "Python · RAG · Qwen · Ollama · TF-IDF · Logistic Regression · Pytest"
+        "lead": "Diagnosing software-service and API failures from partial logs, stack traces, and metrics when the available evidence is incomplete or misleading.",
+        "framework": ["Classify root cause", "Gate retrieval", "Choose next check", "Validate policy"],
+        "body": "Built a leakage-controlled benchmark with 384 incident variants and six sequential diagnostic policies. The system combines selective retrieval with cost-weighted information gain to decide when external context is useful and which diagnostic check should come next.",
+        "result": "384 incident variants · 0.794 accuracy · 34.4% retrieval use · 2.703s estimated latency.",
+        "technology": "Python · RAG · Qwen · Ollama · TF-IDF · Logistic Regression · Nearest Neighbors · Information Gain · Pytest"
+      },
+      {
+        "title": "EV Charging Equity & Location Optimization",
+        "subtitle": "UROP Research · Spatial Analytics & Optimization",
+        "metaLines": [
+          "UROP Research Project · University of California, Irvine · 2024 to 2025",
+          "Advised by Prof. Veronica Berrocal · Department of Statistics"
+        ],
+        "lead": "Optimizing where Orange County should add EV charging stations while balancing projected demand, infrastructure constraints, and equitable access.",
+        "framework": ["Map access gaps", "Model demand", "Score equity", "Optimize sites"],
+        "body": "Combined charging-station locations, demographic indicators, and road access with clustering, Random Forest demand modeling, and mixed-integer optimization. The model recommends new sites while balancing projected demand, infrastructure limits, budget, and equitable access.",
+        "result": "50%+ projected coverage gain · underserved areas showed about 30% higher population density · high-need areas included Santa Ana, Anaheim, and Irvine.",
+        "technology": "Python · Geospatial Analytics · K-Means · DBSCAN · Random Forest · Mixed-Integer Linear Programming"
       }
     ]
   },
@@ -297,11 +312,32 @@
     "title": "About Stella",
     "subtitle": "I build software that stays useful beyond the first successful demo.",
     "paragraphs": [
-      "Computer Science undergraduate at UC Irvine building reliable full-stack systems and user-facing AI products. My work spans Python and TypeScript development across FastAPI, Django, Node.js, React, relational databases, asynchronous processing, testing, cloud deployment, retrieval systems, and agentic workflows. I am interested in Software Engineer and AI Engineer roles where product quality depends on sound engineering."
+      {
+        "segments": [
+          { "text": "I am a Computer Science undergraduate at " },
+          { "text": "UC Irvine", "href": "https://uci.edu/", "emphasis": true },
+          { "text": ", graduating in March 2027. I build " },
+          { "text": "reliable full-stack systems and user-facing AI products", "emphasis": true },
+          { "text": ", with a focus on backend engineering, retrieval, agent workflows, and evaluation. At UCI, my research examines how software-engineering agents reason, retain useful hypotheses, and fail across multi-step trajectories." }
+        ]
+      },
+      {
+        "segments": [
+          { "text": "My experience spans " },
+          { "text": "Software Engineering and AI internships across the United States and China", "emphasis": true },
+          { "text": ", including work at " },
+          { "text": "Alibaba Group", "href": "https://www.alibabagroup.com/en-US" },
+          { "text": ", NextTier, Join-Cheer, " },
+          { "text": "FessorAI", "href": "https://fessor.ai/" },
+          { "text": ", and others. I am also the founder of " },
+          { "text": "FocusTrail", "href": "https://focus-trail.vercel.app/", "emphasis": true },
+          { "text": ", a local-first AI execution coach selected for the Alibaba Tmall Campus OPC student entrepreneurship program. Across research, industry, and product building, I care about turning AI capabilities into dependable software that people can actually use." }
+        ]
+      }
     ],
     "motto": "Wander wide, converge within.",
-    "toolkitTitle": "Technical toolkit",
-    "toolkit": ["Python", "TypeScript", "FastAPI", "Django", "Node.js", "React", "Next.js", "PostgreSQL", "Redis", "RAG", "LLM Agents", "Evaluation", "Docker", "Pytest"],
+    "toolkitTitle": "Technical Toolkit",
+    "toolkit": ["Python", "TypeScript", "Java", "SQL", "FastAPI", "Django", "Flask", "Node.js", "React", "Next.js", "PostgreSQL", "Redis", "SQLAlchemy", "Celery", "LangChain", "RAG", "LLM Agents", "Model Evaluation", "Docker", "Kubernetes", "CI/CD", "Pytest"],
     "communityTitle": "Leadership & Community",
     "community": [
       {
@@ -401,7 +437,7 @@
     "subtitle": "A concise overview of my education, engineering experience, research, and selected work.",
     "name": "Stella (Yuxuan) Jiang",
     "headline": "Software Engineer · Applied AI",
-    "education": "B.S. Computer Science · University of California, Irvine · Expected March 2027",
+    "education": "B.S. Computer Science · University of California, Irvine · Expected Mar. 2027",
     "button": "OPEN FULL PDF",
     "downloadButton": "DOWNLOAD PDF",
     "defaultVariant": "swe",

@@ -1,9 +1,9 @@
 'use client';
 
-import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
-import { Bot, BrainCircuit, ChartNoAxesCombined, ChevronDown, Database, FileText, Film, GraduationCap, Mail, Search, ShieldCheck } from 'lucide-react';
-import { FaGithub, FaLinkedinIn } from 'react-icons/fa6';
-import { SiDjango, SiDocker, SiFastapi, SiNextdotjs, SiNodedotjs, SiPostgresql, SiPytest, SiPython, SiReact, SiRedis, SiTypescript } from 'react-icons/si';
+import { useEffect, useRef, useState, useSyncExternalStore, type MouseEvent } from 'react';
+import { Bot, BrainCircuit, ChartNoAxesCombined, ChevronDown, Database, FileText, Film, GitBranch, GraduationCap, Mail, Moon, Search, ShieldCheck, Sun } from 'lucide-react';
+import { FaGithub, FaJava, FaLinkedinIn } from 'react-icons/fa6';
+import { SiCelery, SiDjango, SiDocker, SiFastapi, SiFlask, SiKubernetes, SiLangchain, SiNextdotjs, SiNodedotjs, SiPostgresql, SiPytest, SiPython, SiReact, SiRedis, SiSqlalchemy, SiTypescript } from 'react-icons/si';
 import content from '../content/portfolio-content.json';
 
 const modules = content.modules;
@@ -11,6 +11,7 @@ const projects = content.projectsSection.projects;
 const experiences = content.experienceSection.roles;
 const toolkit = content.aboutSection.toolkit;
 type HeroVariant = 'real' | 'semi' | 'cg';
+type Theme = 'day' | 'night';
 
 const getHeroVariant = (): HeroVariant => {
   const requestedVariant = new URLSearchParams(window.location.search).get('hero');
@@ -28,19 +29,36 @@ export default function Home() {
   const [selected, setSelected] = useState<number | null>(null);
   const [booting, setBooting] = useState(true);
   const [typedNameLength, setTypedNameLength] = useState(0);
+  const [theme, setTheme] = useState<Theme>('night');
   const heroVariant = useSyncExternalStore(subscribeToHeroVariant, getHeroVariant, () => 'real');
   const contentViewRef = useRef<HTMLElement>(null);
 
   const openModule = (index: number) => {
     setActive(index);
     setSelected(index);
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        const container = contentViewRef.current;
+        const target = container?.querySelector<HTMLElement>(`[data-module-index="${index}"]`);
+        if (!container || !target) return;
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        container.scrollTo({ top: Math.max(0, target.offsetTop - 24), behavior: reducedMotion ? 'auto' : 'smooth' });
+      });
+    });
   };
 
   const returnHome = () => {
+    contentViewRef.current?.scrollTo({ top: 0, behavior: 'auto' });
     setSelected(null);
+    setActive(0);
     setEntered(false);
+    setTheme('night');
     setTypedNameLength(content.identity.heroFirstName.length + content.identity.heroLastName.length);
     setBooting(false);
+  };
+
+  const chooseTheme = (nextTheme: Theme) => {
+    setTheme(nextTheme);
   };
 
   useEffect(() => {
@@ -69,9 +87,9 @@ export default function Home() {
 
       const firstLength = content.identity.heroFirstName.length;
       const lastLength = content.identity.heroLastName.length;
-      const letterInterval = 125;
-      const firstNameStart = 360;
-      const lastNameStart = firstNameStart + firstLength * letterInterval + 160;
+      const letterInterval = 35;
+      const firstNameStart = 90;
+      const lastNameStart = firstNameStart + firstLength * letterInterval + 45;
 
       for (let index = 1; index <= firstLength; index += 1) {
         typingTimers.push(window.setTimeout(() => setTypedNameLength(index), firstNameStart + index * letterInterval));
@@ -80,7 +98,7 @@ export default function Home() {
         typingTimers.push(window.setTimeout(() => setTypedNameLength(firstLength + index), lastNameStart + index * letterInterval));
       }
 
-      bootTimer = window.setTimeout(() => setBooting(false), 3900);
+      bootTimer = window.setTimeout(() => setBooting(false), 1200);
     });
 
     return () => {
@@ -91,19 +109,52 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    if (selected !== null) {
-      contentViewRef.current?.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
-    }
-  }, [selected]);
+    const container = contentViewRef.current;
+    if (!entered || !container) return;
+
+    let animationFrame: number | null = null;
+    const updateActiveModule = () => {
+      if (animationFrame !== null) return;
+      animationFrame = window.requestAnimationFrame(() => {
+        animationFrame = null;
+        const containerRect = container.getBoundingClientRect();
+        const markerX = containerRect.left + containerRect.width * 0.68;
+        const markerY = containerRect.top + Math.min(container.clientHeight * 0.28, 220);
+        const section = document.elementFromPoint(markerX, markerY)?.closest<HTMLElement>('[data-module-index]');
+        const nextIndex = Number(section?.dataset.moduleIndex ?? 0);
+        setActive(nextIndex);
+        setSelected(nextIndex);
+      });
+    };
+
+    container.addEventListener('scroll', updateActiveModule, { passive: true });
+    updateActiveModule();
+    return () => {
+      container.removeEventListener('scroll', updateActiveModule);
+      if (animationFrame !== null) window.cancelAnimationFrame(animationFrame);
+    };
+  }, [entered]);
+
+  useEffect(() => {
+    const navigation = document.querySelector<HTMLElement>('.module-list');
+    const activeButton = navigation?.querySelectorAll<HTMLElement>('button')[active];
+    if (!navigation || !activeButton || navigation.scrollWidth <= navigation.clientWidth) return;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const targetLeft = activeButton.offsetLeft - (navigation.clientWidth - activeButton.clientWidth) / 2;
+    navigation.scrollTo({ left: Math.max(0, targetLeft), behavior: reducedMotion ? 'auto' : 'smooth' });
+  }, [active]);
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Enter') {
-        if (!entered) setEntered(true);
+        if (!entered) {
+          setEntered(true);
+          openModule(0);
+        }
         else if (selected === null) setSelected(active);
       }
       if (event.key === 'Escape') {
-        if (selected !== null) setSelected(null);
+        if (selected !== null) returnHome();
         else returnHome();
       }
       if (selected === null && event.key === 'ArrowDown') setActive((value) => (value + 1) % modules.length);
@@ -114,28 +165,28 @@ export default function Home() {
   }, [entered, active, selected]);
 
   return (
-    <main className={`site-shell hero-${heroVariant} ${booting ? 'is-booting' : ''} ${entered ? 'is-entered' : ''} ${selected !== null ? 'is-reading' : ''}`}>
+    <main className={`site-shell theme-${entered ? theme : 'night'} hero-${heroVariant} ${booting ? 'is-booting' : ''} ${entered ? 'is-entered' : ''} ${selected !== null ? 'is-reading' : ''}`}>
       <div className="city-art" aria-hidden="true" />
       <div className="character-layer" aria-hidden="true">
         <span className="character-motion" />
-        <span className="hair-motion" />
-        <span className="character-light" />
-        <span className="cat-pulse" />
-      </div>
-      <div className="atmosphere" aria-hidden="true">
-        <span className="ambient-orb orb-a" /><span className="ambient-orb orb-b" />
-        <span className="depth-wall depth-wall-left" /><span className="depth-wall depth-wall-right" />
-        <span className="signal-path signal-path-a"><i /></span>
-        <span className="signal-path signal-path-b"><i /></span>
-        <span className="horizon-glow" /><span className="grid-floor" />
       </div>
 
       <header className="topbar">
-        <button className="brand" onClick={() => { setEntered(false); setSelected(null); }} aria-label="Return to home">
-          <span className="brand-avatar"><img src="/profile-cat.png" alt="" /></span>
+        <button className="brand" onClick={returnHome} aria-label="Return to home">
+          <span className="brand-avatar"><img src="/profile-cat.png?v=20261023" alt="" /></span>
           <span className="brand-copy">{content.identity.fullName.toUpperCase()}</span>
         </button>
-        <div className="system-status"><span /> {content.identity.status}</div>
+        <div className="topbar-actions">
+          <div className="system-status"><span /><b>{content.identity.status}</b></div>
+          {entered && <div className="theme-switcher" role="group" aria-label="Color theme">
+            <button type="button" className={theme === 'day' ? 'active' : ''} aria-pressed={theme === 'day'} onClick={() => chooseTheme('day')}>
+              <Sun aria-hidden="true" /><span>DAY</span>
+            </button>
+            <button type="button" className={theme === 'night' ? 'active' : ''} aria-pressed={theme === 'night'} onClick={() => chooseTheme('night')}>
+              <Moon aria-hidden="true" /><span>NIGHT</span>
+            </button>
+          </div>}
+        </div>
       </header>
 
       <section className="hero" aria-label="Stella Jiang portfolio introduction">
@@ -156,8 +207,11 @@ export default function Home() {
         </div>
         <p className="intro">{content.identity.introduction}</p>
         <div className="hero-actions">
-          <button className="enter-button" onClick={() => setEntered(true)}><span>{content.ui.enterPortfolio}</span><kbd>↵</kbd></button>
-          <button className="text-button" onClick={() => { setEntered(true); setSelected(4); }}>{content.ui.viewResume} ↗</button>
+          <button className="enter-button" onClick={() => { setEntered(true); openModule(0); }}><span>{content.ui.enterPortfolio}</span><kbd>↵</kbd></button>
+          <nav className="hero-shortcuts" aria-label="Portfolio shortcuts">
+            <button className="text-button" onClick={() => { setEntered(true); openModule(2); }}>PROJECTS ↗</button>
+            <button className="text-button" onClick={() => { setEntered(true); openModule(5); }}>{content.ui.viewResume} ↗</button>
+          </nav>
         </div>
       </section>
 
@@ -171,8 +225,6 @@ export default function Home() {
               <button
                 key={module.title}
                 className={active === index ? 'active' : ''}
-                onMouseEnter={() => setActive(index)}
-                onFocus={() => setActive(index)}
                 onClick={() => openModule(index)}
               >
                 <span className="module-number">{module.number}</span>
@@ -183,20 +235,20 @@ export default function Home() {
           </nav>
         </div>
         {selected !== null
-          ? <button className="close-terminal" onClick={() => setSelected(null)}>← MENU</button>
+          ? <button className="close-terminal" onClick={returnHome}>← HOME</button>
           : <div className="terminal-key-hints" aria-label="Keyboard controls">
               <button type="button" onClick={returnHome} aria-label="Return to the landing page"><kbd>ESC</kbd></button>
             </div>}
       </section>
 
-      <section ref={contentViewRef} className={`content-view ${selected === 3 ? 'about-view' : ''} ${selected === 4 ? 'resume-view' : ''}`} aria-live="polite">
+      <section ref={contentViewRef} className="content-view" aria-label="Portfolio content">
         <nav className="reading-nav" aria-label="Portfolio sections">
-          <button className="reading-nav-home" onClick={() => setSelected(null)}>← MENU</button>
+          <button className="reading-nav-home" onClick={returnHome}>← HOME</button>
           {modules.map((module, index) => (
             <button
               key={module.title}
               className={selected === index ? 'active' : ''}
-              aria-current={selected === index ? 'page' : undefined}
+              aria-current={selected === index ? 'location' : undefined}
               onClick={() => openModule(index)}
             >
               <span>{module.number}</span>{module.title}
@@ -204,30 +256,28 @@ export default function Home() {
           ))}
         </nav>
         <div className="content-stage">
-          {selected === 0 && <Experience />}
-          {selected === 1 && <Projects />}
-          {selected === 2 && <Research />}
-          {selected === 3 && <About />}
-          {selected === 4 && <Resume />}
-          {selected === 5 && <Contact />}
+          <section className="module-section" data-module-index="0" aria-label="About"><About /></section>
+          <section className="module-section" data-module-index="1" aria-label="Experience"><Experience /></section>
+          <section className="module-section" data-module-index="2" aria-label="Projects"><Projects /></section>
+          <section className="module-section" data-module-index="3" aria-label="Research"><Research /></section>
+          <section className="module-section" data-module-index="4" aria-label="Activities"><Activities /></section>
+          <section className="module-section" data-module-index="5" aria-label="Resume"><Resume /></section>
+          <section className="module-section" data-module-index="6" aria-label="Contact"><Contact /></section>
         </div>
       </section>
     </main>
   );
 }
 
-function SectionIntro({ index, title, text }: { index: string; title: string; text: string }) {
-  return <header className="content-intro"><span>{index}</span><h2>{title}</h2><p>{text}</p></header>;
+function SectionIntro({ index, title }: { index: string; title: string }) {
+  return <header className="content-intro"><span>{index}</span><h2>{title}</h2></header>;
 }
 
 function Projects() {
-  const [expandedProject, setExpandedProject] = useState<string | null>(null);
   return <div className="content-inner">
-    <SectionIntro index="02" title={content.projectsSection.title} text={content.projectsSection.introduction} />
+    <SectionIntro index="03" title={content.projectsSection.title} />
     <div className="project-grid">
-      {projects.map((project) => {
-        const expanded = expandedProject === project.name;
-        return <article className={`project-card ${project.featured ? 'featured' : ''} ${expanded ? 'is-expanded' : ''}`} key={project.name}>
+      {projects.map((project) => <article className={`project-card ${project.featured ? 'featured' : ''}`} key={project.name}>
         <div className="card-top">
           <span>{project.label}</span>
           {'links' in project && project.links.length > 0 && <nav className="project-quick-links" aria-label={`${project.name} links`}>
@@ -242,17 +292,7 @@ function Projects() {
           : project.demo && <div className={`project-demo project-demo-${project.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`}><img src={project.demo} alt={`${project.name} product demo`} /></div>}
         <p>{project.summary}</p>
         {project.trace && <code>{project.trace}</code>}<div className="tech-line">{project.technology}</div>
-        {'caseStudy' in project && <>
-          <button className="case-study-toggle" type="button" aria-expanded={expanded} onClick={() => setExpandedProject(expanded ? null : project.name)}>
-            <span>{expanded ? 'Close details' : 'Project details'}</span><b aria-hidden="true">{expanded ? '−' : '+'}</b>
-          </button>
-          <div className="case-study" aria-hidden={!expanded}>
-            <div>
-              <div className="case-study-grid">{project.caseStudy.map((section) => <section key={section.label}><span>{section.label}</span><p>{section.text}</p></section>)}</div>
-            </div>
-          </div>
-        </>}
-      </article>})}
+      </article>)}
     </div>
   </div>;
 }
@@ -289,22 +329,21 @@ function FocusTrailDemo() {
 
 function PantryAgentDemo() {
   const screens = [
-    { src: '/projects/pantryagent-overview.jpg', label: '01 / PRODUCT LOOP', alt: 'PantryAgent overview with receipt, pantry, meal plan, and recipe actions' },
-    { src: '/projects/pantryagent-scan.jpg', label: '02 / SCAN RECEIPT', alt: 'PantryAgent receipt scanning interface' },
-    { src: '/projects/pantryagent-plan.jpg', label: '03 / MEAL PLAN', alt: 'PantryAgent weekly meal planning interface' },
+    { src: '/projects/pantryagent-overview.jpg', label: 'OVERVIEW', alt: 'PantryAgent overview with receipt, pantry, meal plan, and recipe actions' },
+    { src: '/projects/pantryagent-scan.jpg', label: 'RECEIPT SCAN', alt: 'PantryAgent receipt scanning interface' },
+    { src: '/projects/pantryagent-plan.jpg', label: 'MEAL PLANNING', alt: 'PantryAgent weekly meal planning interface' },
   ];
 
   return <div className="pantryagent-gallery" aria-label="PantryAgent product flow">
     {screens.map((screen) => <figure className="pantryagent-screen" key={screen.src}>
-      <figcaption>{screen.label}</figcaption>
       <div className="pantryagent-device"><img src={screen.src} alt={screen.alt} /></div>
+      <figcaption>{screen.label}</figcaption>
     </figure>)}
   </div>;
 }
 
 function Experience() {
   const timelineRef = useRef<HTMLDivElement>(null);
-  const [expandedCompany, setExpandedCompany] = useState<string | null>(null);
 
   useEffect(() => {
     const entries = timelineRef.current?.querySelectorAll<HTMLElement>('article');
@@ -343,16 +382,13 @@ function Experience() {
   }, []);
 
   return <div className="content-inner">
-    <SectionIntro index="01" title={content.experienceSection.title} text={content.experienceSection.introduction} />
+    <SectionIntro index="02" title={content.experienceSection.title} />
     <div className="experience-list" ref={timelineRef}>
-      {experiences.map((experience, index) => {
-        const expanded = expandedCompany === experience.company;
+      {experiences.map((experience) => {
         const websiteLink = experience.links.find((link) => link.label === 'WEBSITE');
-        const detailLinks = experience.links.filter((link) => link.label !== 'WEBSITE');
-        return <article key={experience.company} className={expanded ? 'is-expanded' : ''}>
+        return <article key={experience.company}>
         <time className="timeline-date">{experience.date}</time>
-        <span className={`timeline-node ${experience.current ? 'is-current' : ''}`}>0{index + 1}</span>
-        <OrganizationMark company={experience.company} />
+        <div className={`timeline-mark ${experience.current ? 'is-current' : ''}`}><OrganizationMark company={experience.company} /></div>
         <div className="experience-copy">
           <h3>
             {websiteLink
@@ -364,26 +400,6 @@ function Experience() {
           <p className="card-meta">{experience.role}</p>
           <p className="experience-location">{experience.location}</p>
           <p className="experience-summary">{experience.summary}</p>
-          <button
-            className="experience-toggle"
-            type="button"
-            aria-expanded={expanded}
-            onClick={() => setExpandedCompany(expanded ? null : experience.company)}
-          >
-            {expanded ? 'HIDE DETAILS' : 'VIEW DETAILS'} <span aria-hidden="true">{expanded ? '−' : '+'}</span>
-          </button>
-          <div className="experience-details" aria-hidden={!expanded}>
-            <div>
-              <div className="experience-notes">
-                <span>SELECTED WORK</span>
-                <ul>{experience.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}</ul>
-              </div>
-              <div className="experience-tech">{experience.technology.map((item) => <span key={item}>{item}</span>)}</div>
-              {detailLinks.length > 0 && <div className="experience-links">
-                {detailLinks.map((link) => <a href={link.href} target="_blank" rel="noreferrer" key={link.href}>{link.label} <span aria-hidden="true">↗</span></a>)}
-              </div>}
-            </div>
-          </div>
         </div>
       </article>;
       })}
@@ -393,7 +409,7 @@ function Experience() {
 
 function Research() {
   return <div className="content-inner research-content">
-    <SectionIntro index="03" title={content.researchSection.title} text={content.researchSection.subtitle} />
+    <SectionIntro index="04" title={content.researchSection.title} />
     <div className="research-list">
       {content.researchSection.entries.map((entry, entryIndex) => (
         <article className="research-entry" key={entry.title}>
@@ -407,13 +423,15 @@ function Research() {
               {entry.metaLines.map((line) => <span key={line}>{line}</span>)}
             </p>
           </header>
-          <p className="lead-copy">{entry.lead}</p>
-          <div className="research-frame" aria-label={`${entry.title} research framework`}>
-            {entry.framework.map((label, index) => <div key={label}><span>0{index + 1}</span><strong>{label}</strong></div>)}
+          <div className="research-entry-copy">
+            <p className="lead-copy">{entry.lead}</p>
+            <div className="research-detail">
+              <span>APPROACH</span>
+              <p className="research-body">{entry.body}</p>
+            </div>
+            <div className="research-result"><span>EVIDENCE</span>{entry.result}</div>
+            <div className="tech-line">{entry.technology}</div>
           </div>
-          <p className="research-body">{entry.body}</p>
-          <div className="research-result">{entry.result}</div>
-          <div className="tech-line">{entry.technology}</div>
         </article>
       ))}
     </div>
@@ -421,14 +439,18 @@ function Research() {
 }
 
 function About() {
-  const [showAllNotes, setShowAllNotes] = useState(false);
-  const [expandedCommunity, setExpandedCommunity] = useState<string | null>(null);
-  const visibleNotes = showAllNotes ? content.aboutSection.fieldNotes : content.aboutSection.fieldNotes.slice(0, 3);
   return <div className="content-inner about-content">
-    <SectionIntro index="04" title={content.aboutSection.title} text={content.aboutSection.subtitle} />
+    <SectionIntro index="01" title={content.aboutSection.title} />
     <div className="about-overview">
       <div className="about-copy">
-        {content.aboutSection.paragraphs.map((paragraph, index) => <p className={index === 0 ? 'lead-copy' : ''} key={paragraph}>{paragraph}</p>)}
+        {content.aboutSection.paragraphs.map((paragraph, index) => <p className={index === 0 ? 'lead-copy' : ''} key={index}>
+          {paragraph.segments.map((segment, segmentIndex) => {
+            const label = segment.emphasis ? <strong>{segment.text}</strong> : segment.text;
+            return 'href' in segment
+              ? <a href={segment.href} target="_blank" rel="noreferrer" key={`${segment.text}-${segmentIndex}`}>{label}<span aria-hidden="true">↗</span></a>
+              : <span key={`${segment.text}-${segmentIndex}`}>{label}</span>;
+          })}
+        </p>)}
         <h3 className="toolkit-heading">{content.aboutSection.toolkitTitle}</h3>
         <div className="toolkit">{toolkit.map((item) => <span key={item}><TechnologyMark name={item} />{item}</span>)}</div>
       </div>
@@ -436,6 +458,15 @@ function About() {
         <img src="/stella-linkedin-portrait.jpg" alt="Stella (Yuxuan) Jiang" />
       </figure>
     </div>
+  </div>;
+}
+
+function Activities() {
+  const [showAllNotes, setShowAllNotes] = useState(false);
+  const [expandedCommunity, setExpandedCommunity] = useState<string | null>(null);
+  const visibleNotes = showAllNotes ? content.aboutSection.fieldNotes : content.aboutSection.fieldNotes.slice(0, 3);
+  return <div className="content-inner activities-content">
+    <SectionIntro index="05" title="Activities" />
     <section className="community-list" aria-labelledby="community-title">
       <h3 id="community-title">{content.aboutSection.communityTitle}</h3>
       <ul>
@@ -501,7 +532,7 @@ function About() {
 
 function Contact() {
   return <div className="content-inner contact-content">
-    <SectionIntro index="06" title={content.contactSection.title} text={content.contactSection.subtitle} />
+    <SectionIntro index="07" title={content.contactSection.title} />
     <div className="contact-links">
       {content.contactSection.links.map((link) => {
         const Icon = link.label === 'EMAIL' ? Mail : link.label === 'GITHUB' ? FaGithub : FaLinkedinIn;
@@ -515,13 +546,30 @@ function Resume() {
   const [activeResume, setActiveResume] = useState(content.resumeSection.defaultVariant);
   const [resumeLoading, setResumeLoading] = useState(true);
   const resumeLoaderFrame = useRef<number | null>(null);
+  const resumeLoaderTimeout = useRef<number | null>(null);
+  const previewImageRef = useRef<HTMLImageElement>(null);
   const resume = content.resumeSection.variants.find((variant) => variant.id === activeResume) ?? content.resumeSection.variants[0];
 
+  const finishResumeLoad = () => {
+    if (resumeLoaderFrame.current !== null) window.cancelAnimationFrame(resumeLoaderFrame.current);
+    if (resumeLoaderTimeout.current !== null) window.clearTimeout(resumeLoaderTimeout.current);
+    resumeLoaderFrame.current = window.requestAnimationFrame(() => {
+      resumeLoaderFrame.current = window.requestAnimationFrame(() => setResumeLoading(false));
+    });
+  };
+
   useEffect(() => {
+    setResumeLoading(true);
+    resumeLoaderTimeout.current = window.setTimeout(() => setResumeLoading(false), 3000);
+
+    const image = previewImageRef.current;
+    if (image?.complete && image.naturalWidth > 0) finishResumeLoad();
+
     return () => {
       if (resumeLoaderFrame.current !== null) window.cancelAnimationFrame(resumeLoaderFrame.current);
+      if (resumeLoaderTimeout.current !== null) window.clearTimeout(resumeLoaderTimeout.current);
     };
-  }, []);
+  }, [resume.previewHref]);
 
   const selectResume = (variantId: string) => {
     if (variantId === activeResume) return;
@@ -530,15 +578,28 @@ function Resume() {
     setActiveResume(variantId);
   };
 
-  const finishResumeLoad = () => {
-    if (resumeLoaderFrame.current !== null) window.cancelAnimationFrame(resumeLoaderFrame.current);
-    resumeLoaderFrame.current = window.requestAnimationFrame(() => {
-      resumeLoaderFrame.current = window.requestAnimationFrame(() => setResumeLoading(false));
-    });
+  const openResumePdf = async (event: MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    const previewTab = window.open('about:blank', '_blank');
+    if (!previewTab) return;
+    previewTab.opener = null;
+    previewTab.document.title = `${resume.shortLabel} Resume`;
+    previewTab.document.body.innerHTML = '<p style="font:14px system-ui;padding:24px;color:#24333b">Opening PDF preview...</p>';
+
+    try {
+      const response = await fetch(resume.href);
+      if (!response.ok) throw new Error(`Unable to load PDF: ${response.status}`);
+      const pdfBlob = new Blob([await response.arrayBuffer()], { type: 'application/pdf' });
+      const previewUrl = URL.createObjectURL(pdfBlob);
+      previewTab.location.replace(previewUrl);
+      window.setTimeout(() => URL.revokeObjectURL(previewUrl), 300_000);
+    } catch {
+      previewTab.location.replace(resume.href);
+    }
   };
 
   return <div className="content-inner resume-content">
-    <SectionIntro index="05" title={content.resumeSection.title} text={content.resumeSection.subtitle} />
+    <SectionIntro index="06" title={content.resumeSection.title} />
     <div className="resume-layout">
       <div className="resume-card">
         <div className="resume-card-head"><FileText aria-hidden="true" /><span>PUBLIC PROFILE</span></div>
@@ -550,7 +611,7 @@ function Resume() {
           {content.resumeSection.variants.map((variant) => <button type="button" className={variant.id === activeResume ? 'active' : ''} onClick={() => selectResume(variant.id)} key={variant.id}>{variant.shortLabel}</button>)}
         </div>
         <div className="resume-actions">
-          <a className="resume-button" href={resume.href} target="_blank" rel="noreferrer">
+          <a className="resume-button" href={resume.href} target="_blank" rel="noreferrer" onClick={openResumePdf}>
             {content.resumeSection.button} <span>↗</span>
           </a>
           <a className="resume-download" href={resume.href} download>
@@ -560,19 +621,21 @@ function Resume() {
       </div>
       <div className="resume-preview">
         <div className="resume-preview-bar"><span>{resume.fileLabel}</span><span>{resume.default ? 'DEFAULT · ' : ''}1 / 1</span></div>
-        <a className="resume-preview-body" href={resume.href} target="_blank" rel="noreferrer" aria-label={`Open the full ${resume.shortLabel} resume PDF in a new tab`}>
+        <a className="resume-preview-body" href={resume.href} target="_blank" rel="noreferrer" onClick={openResumePdf} aria-label={`Open the full ${resume.shortLabel} resume PDF in a new tab`}>
           <img
             key={resume.id}
+            ref={previewImageRef}
             className="resume-preview-image"
             src={resume.previewHref}
             alt={`Stella (Yuxuan) Jiang ${resume.shortLabel} resume preview`}
             onLoad={finishResumeLoad}
+            onError={finishResumeLoad}
           />
           <div className={`resume-loader ${resumeLoading ? 'is-visible' : ''}`} role="status" aria-hidden={!resumeLoading}>
-            <div className="resume-loader-scene" aria-hidden="true">
-              <img className="resume-loader-cat" src="/pixel-cat-loader-transparent.png" alt="" />
+            {resumeLoading && <div className="resume-loader-scene" aria-hidden="true">
+              <img className="resume-loader-cat" src="/resume-cat-run.gif" alt="" />
               <span className="resume-loader-ground" />
-            </div>
+            </div>}
             <span className="resume-loader-label">LOADING RESUME</span>
           </div>
         </a>
@@ -594,7 +657,7 @@ function OrganizationMark({ company }: { company: string }) {
   if (company === 'Alibaba Group') return <span className="org-logo alibaba-logo"><img src="/brands/alibaba-group.png" alt="Alibaba Group logo" /></span>;
   if (company.startsWith('Capybara')) return <span className="org-logo uci-ics-logo"><img src="/brands/uci-ics.png" alt="UCI Donald Bren School of Information and Computer Sciences logo" /></span>;
   if (company.startsWith('FessorAI')) return <span className="org-logo fessor-logo"><img src="/brands/fessorai.png" alt="FessorAI logo" /></span>;
-  if (company === 'FocusTrail') return <span className="org-logo focustrail-logo"><img src="/brands/focustrail.svg" alt="" /><strong>FocusTrail</strong></span>;
+  if (company === 'FocusTrail') return <span className="org-logo focustrail-logo"><img src="/brands/focustrail.svg" alt="" /><b>FocusTrail</b></span>;
   if (company === 'NextTier') return <span className="org-logo nexttier-logo"><img src="/brands/nexttier.png" alt="NextTier logo" /></span>;
   if (company === 'Join-Cheer') return <span className="org-logo join-cheer-logo"><img src="/brands/join-cheer.jpg" alt="Join-Cheer logo" /></span>;
   if (company.startsWith('Guolian Minsheng')) return <span className="org-logo guolian-logo"><img src="/brands/guolian-minsheng-securities.png" alt="Guolian Minsheng Securities official logo" /></span>;
@@ -604,17 +667,25 @@ function OrganizationMark({ company }: { company: string }) {
 function TechnologyMark({ name }: { name: string }) {
   if (name === 'Python') return <SiPython aria-hidden="true" />;
   if (name === 'TypeScript') return <SiTypescript aria-hidden="true" />;
+  if (name === 'Java') return <FaJava aria-hidden="true" />;
+  if (name === 'SQL') return <Database aria-hidden="true" />;
   if (name === 'FastAPI') return <SiFastapi aria-hidden="true" />;
   if (name === 'Django') return <SiDjango aria-hidden="true" />;
+  if (name === 'Flask') return <SiFlask aria-hidden="true" />;
   if (name === 'Node.js') return <SiNodedotjs aria-hidden="true" />;
   if (name === 'React') return <SiReact aria-hidden="true" />;
   if (name === 'Next.js') return <SiNextdotjs aria-hidden="true" />;
   if (name === 'PostgreSQL') return <SiPostgresql aria-hidden="true" />;
   if (name === 'Redis') return <SiRedis aria-hidden="true" />;
+  if (name === 'SQLAlchemy') return <SiSqlalchemy aria-hidden="true" />;
+  if (name === 'Celery') return <SiCelery aria-hidden="true" />;
+  if (name === 'LangChain') return <SiLangchain aria-hidden="true" />;
   if (name === 'RAG') return <BrainCircuit aria-hidden="true" />;
   if (name === 'LLM Agents') return <Bot aria-hidden="true" />;
-  if (name === 'Evaluation') return <ChartNoAxesCombined aria-hidden="true" />;
+  if (name === 'Model Evaluation') return <ChartNoAxesCombined aria-hidden="true" />;
   if (name === 'Docker') return <SiDocker aria-hidden="true" />;
+  if (name === 'Kubernetes') return <SiKubernetes aria-hidden="true" />;
+  if (name === 'CI/CD') return <GitBranch aria-hidden="true" />;
   if (name === 'Pytest') return <SiPytest aria-hidden="true" />;
   return <Database aria-hidden="true" />;
 }
