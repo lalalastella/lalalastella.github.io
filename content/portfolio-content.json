@@ -318,7 +318,7 @@
           { "text": "UC Irvine", "href": "https://uci.edu/", "emphasis": true },
           { "text": ", graduating in March 2027. I build " },
           { "text": "reliable full-stack systems and user-facing AI products", "emphasis": true },
-          { "text": ", with a focus on backend engineering, retrieval, agent workflows, and evaluation. At UCI, my research examines how software-engineering agents reason, retain useful hypotheses, and fail across multi-step trajectories." }
+          { "text": ", with a focus on backend engineering, retrieval, agent workflows, and evaluation." }
         ]
       },
       {
@@ -331,7 +331,7 @@
           { "text": "FessorAI", "href": "https://fessor.ai/" },
           { "text": ", and others. I am also the founder of " },
           { "text": "FocusTrail", "href": "https://focus-trail.vercel.app/", "emphasis": true },
-          { "text": ", a local-first AI execution coach selected for the Alibaba Tmall Campus OPC student entrepreneurship program. Across research, industry, and product building, I care about turning AI capabilities into dependable software that people can actually use." }
+          { "text": ", a local-first AI execution coach selected for the Alibaba Tmall Campus OPC student entrepreneurship program. Complementing this industry and product work, my research spans software-engineering agent evaluation, cost-aware failure diagnosis, and optimization for equitable infrastructure planning. Across these experiences, I focus on turning AI and data systems into dependable software that people can actually use." }
         ]
       }
     ],
