@@ -231,7 +231,7 @@ h1 { margin:20px 0 16px; font-family:var(--font-geist-sans),Arial,sans-serif; fo
 .experience-list article { position:relative; display:grid; grid-template-columns:104px 104px minmax(0,1fr); gap:20px; align-items:start; padding:0 8px 36px 0; }
 .experience-list article:last-child { padding-bottom:0; }
 .timeline-date { padding-top:12px; color:#8fa1ac; opacity:.72; font:11px/1.45 var(--font-geist-mono),monospace; text-align:right; letter-spacing:.015em; transition:opacity .35s ease,color .35s ease; }
-.timeline-mark { position:relative; z-index:1; width:104px; height:58px; display:grid; place-items:center; border-radius:15px; background:#07131d; box-shadow:0 0 0 8px rgba(5,14,22,.92); }
+.timeline-mark { position:relative; z-index:1; width:104px; height:58px; display:grid; place-items:center; border-radius:15px; background:transparent; box-shadow:none; }
 .timeline-mark .org-logo { width:104px!important; height:58px!important; padding:6px!important; border-radius:14px; }
 .timeline-mark .org-logo img { width:100%!important; height:100%!important; max-width:100%; padding:0!important; object-fit:contain!important; transform:none!important; }
 .timeline-mark .fessor-logo { padding:0!important; }
@@ -768,7 +768,7 @@ h1 { margin:20px 0 16px; font-family:var(--font-geist-sans),Arial,sans-serif; fo
 .theme-day .case-study-toggle:hover { color:#0e625c; }
 .theme-day .case-study-toggle,
 .theme-day .case-study-grid section { border-color:rgba(50,84,94,.16); }
-.theme-day .timeline-mark { background:#edf3f2; box-shadow:0 0 0 8px rgba(232,239,239,.96); }
+.theme-day .timeline-mark { background:transparent; box-shadow:none; }
 .theme-day .org-logo { opacity:.48; filter:grayscale(.3) brightness(.9); }
 .theme-day .timeline-mark.is-current .org-logo { border-color:rgba(20,125,114,.5); box-shadow:0 0 0 1px rgba(20,125,114,.1),0 8px 20px rgba(48,75,80,.1); }
 .theme-day .timeline-date,
