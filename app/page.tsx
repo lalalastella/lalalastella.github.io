@@ -531,6 +531,13 @@ function Activities() {
 }
 
 function Contact() {
+  const backToTop = () => {
+    const container = document.querySelector<HTMLElement>('.content-view');
+    if (!container) return;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    container.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
+  };
+
   return <div className="content-inner contact-content">
     <SectionIntro index="07" title={content.contactSection.title} />
     <div className="contact-links">
@@ -539,6 +546,11 @@ function Contact() {
         return <a href={link.href} key={link.label}><span className="contact-label"><Icon aria-hidden="true" />{link.label}</span>{link.text}<b>↗</b></a>;
       })}
     </div>
+    <footer className="site-footer">
+      <strong>{content.identity.fullName}</strong>
+      <span>© 2026 Stella Jiang</span>
+      <button type="button" onClick={backToTop}>Back to top <b aria-hidden="true">↑</b></button>
+    </footer>
   </div>;
 }
 
