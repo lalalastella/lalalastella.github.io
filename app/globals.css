@@ -13,7 +13,7 @@ body { color:var(--paper); font-family:var(--font-geist-sans),Arial,sans-serif; 
 .hero-cg .city-art,.hero-cg .character-motion { background-image:linear-gradient(90deg,rgba(3,9,16,.96) 0%,rgba(3,9,16,.78) 34%,rgba(3,9,16,.12) 66%,rgba(3,9,16,.15) 100%),url('/stella-cinematic-hero-cg.png?v=20261023'); }
 .site-shell::before { content:''; position:absolute; inset:0; z-index:-3; background:radial-gradient(circle at 70% 46%,transparent 0 22%,rgba(3,8,14,.25) 58%,rgba(2,7,13,.72) 100%),linear-gradient(180deg,rgba(5,12,20,.1),rgba(2,7,12,.62)); pointer-events:none; }
 .site-shell::after { content:''; position:absolute; inset:0; z-index:20; pointer-events:none; opacity:.07; background-image:repeating-linear-gradient(0deg,transparent 0 3px,rgba(255,255,255,.035) 4px); mix-blend-mode:soft-light; }
-.topbar { position:absolute; top:0; left:0; right:0; z-index:10; height:76px; padding:0 clamp(24px,4vw,72px); display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid rgba(202,220,232,.14); background:rgba(4,11,18,.22); backdrop-filter:blur(18px) saturate(125%); -webkit-backdrop-filter:blur(18px) saturate(125%); }
+.topbar { position:absolute; top:0; left:0; right:0; z-index:10; height:76px; padding:0 clamp(24px,4vw,72px); display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid rgba(202,220,232,.18); background:linear-gradient(180deg,rgba(8,19,29,.78),rgba(5,14,22,.62)); backdrop-filter:blur(24px) saturate(145%); -webkit-backdrop-filter:blur(24px) saturate(145%); box-shadow:inset 0 1px rgba(255,255,255,.055),0 8px 28px rgba(0,0,0,.12); }
 .brand { color:inherit; border:0; background:none; display:flex; align-items:center; gap:12px; padding:0; cursor:pointer; text-align:left; }
 .brand-avatar { width:40px; height:40px; display:grid; place-items:center; overflow:visible; flex:0 0 40px; }
 .brand-avatar img { width:40px; height:40px; display:block; object-fit:contain; object-position:center; image-rendering:pixelated; }
@@ -673,7 +673,7 @@ h1 { margin:20px 0 16px; font-family:var(--font-geist-sans),Arial,sans-serif; fo
 .theme-day.hero-cg .character-motion { background-image:linear-gradient(90deg,rgba(238,244,244,.99) 0%,rgba(238,244,244,.91) 35%,rgba(238,244,244,.28) 68%,rgba(221,233,233,.22) 100%),url('/stella-cinematic-hero-cg.png?v=20261023'); }
 .theme-day::before { background:radial-gradient(circle at 72% 45%,transparent 0 24%,rgba(225,236,237,.13) 55%,rgba(222,234,235,.62) 100%),linear-gradient(180deg,rgba(245,249,248,.04),rgba(218,230,231,.36)); }
 .theme-day::after { opacity:.025; mix-blend-mode:multiply; }
-.theme-day .topbar { border-color:rgba(50,83,92,.15); background:rgba(236,243,243,.32); backdrop-filter:blur(9px); }
+.theme-day .topbar { border-color:rgba(50,83,92,.18); background:linear-gradient(180deg,rgba(247,250,249,.84),rgba(231,240,240,.72)); backdrop-filter:blur(22px) saturate(130%); -webkit-backdrop-filter:blur(22px) saturate(130%); box-shadow:inset 0 1px rgba(255,255,255,.72),0 8px 26px rgba(48,75,80,.08); }
 .theme-day .brand-copy { color:#16313a; }
 .theme-day .topbar-shortcuts button { color:#49646d; }
 .theme-day .topbar-shortcuts button:hover,.theme-day .topbar-shortcuts button:focus-visible { color:#17343c; border-color:rgba(53,104,119,.28); background:rgba(255,255,255,.46); }
