@@ -1,5 +1,11 @@
 # Portfolio Change Log
 
+## 2026-10-28
+
+- Updated the public Applied AI and SWE resume PDFs to the authoritative v7 application versions.
+- Regenerated both one-page resume preview images and refreshed the legacy canonical resume URL to mirror SWE v7.
+- Preserved the existing public resume URLs so portfolio links and downloads continue to work.
+
 ## 2026-10-23
 
 - Updated the public SWE and Applied AI resume PDFs from the current Desktop templates, with the UCI B.S. graduation date changed to March 2027.
